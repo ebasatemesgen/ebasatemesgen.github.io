@@ -3972,7 +3972,7 @@ input[type="button"].btn--primary:focus {
     
     
     background-color: var(--color-gray-1);
-    padding-top: calc(6 * var(--space));
+    /* padding-top: calc(6 * var(--space)); */
     padding-bottom: var(--vspace-5); 
 }
 
@@ -3982,6 +3982,7 @@ input[type="button"].btn--primary:focus {
 
 .s-portfolio h3 {
     margin-top: 0;
+    padding-top: calc(6 * var(--space));
 }
 
 .s-portfolio__header {
@@ -3991,7 +3992,7 @@ input[type="button"].btn--primary:focus {
 
 
 
-.s-portfolio__header::before {
+/* .s-portfolio__header::before {
     content: "";
     display: block;
     height: 1px;
@@ -4003,7 +4004,7 @@ input[type="button"].btn--primary:focus {
     position: absolute;
     top: 0;
     left: 50%;
-}
+} */
 /* ------------------------------------------------------------------- 
  * ## portfolio list
  * ------------------------------------------------------------------- */
