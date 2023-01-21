@@ -2207,7 +2207,7 @@ input, select, textarea {
 			}
 
 			ul.icons li .icon:before {
-				font-size: 1.5em;
+				font-size: 2em;
 			}
 
 /* Labeled Icons */
@@ -2609,6 +2609,7 @@ input, select, textarea {
 		text-align: center;
 		top: 0;
 		width: 35%;
+		overflow-y: scroll;
 	}
 
 		#header > * {
@@ -3059,7 +3060,7 @@ input, select, textarea {
 		/* List */
 
 			ul.icons li .icon {
-				font-size: 1.25em;
+				font-size: 1.75em;
 			}
 
 		/* Header */
