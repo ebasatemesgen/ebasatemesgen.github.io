@@ -2240,9 +2240,16 @@ input, select, textarea {
 				top: 0;
 				width: 1em;
 			}
-
+/* Custom styles for header actions */
+.custom-actions {
+	margin-top: 0;
+	margin-bottom: 0;
+  }
+  
 /* Actions */
-
+.actions {
+	margin-top: 20px; /* Adjust this value as needed */
+  }
 	ul.actions {
 		display: -moz-flex;
 		display: -webkit-flex;
@@ -2597,10 +2604,10 @@ input, select, textarea {
 		justify-content: space-between;
 		background-color: #1d1511;
 		background-attachment: scroll,								scroll;
-		background-image:  url("../../images/bg.jpeg");
+		background-image:  url("../../images/bg.jpg");
 		background-position: top left,							top left;
 		background-repeat: no-repeat,								no-repeat;
-		background-size: auto,								150%;
+		background-size: auto, 150%;
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
@@ -3232,3 +3239,17 @@ input, select, textarea {
 			}
 
 	}
+	.masonry {
+		column-count: 2;
+		column-gap: 1em;
+	  }
+	  
+	  .masonry img {
+		width: 100%;
+		break-inside: avoid;
+	  }
+	  
+
+
+	 
+	  
