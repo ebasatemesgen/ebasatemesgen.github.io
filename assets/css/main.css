@@ -2099,6 +2099,51 @@ input, select, textarea {
 				opacity: 1.0;
 			}
 
+
+/* SPOT ROBOT */
+		.image.thumb_spot {
+			text-align: center;
+		}
+
+			.image.thumb_spot:after {
+				-moz-transition: opacity 0.2s ease-in-out;
+				-webkit-transition: opacity 0.2s ease-in-out;
+				-ms-transition: opacity 0.2s ease-in-out;
+				transition: opacity 0.2s ease-in-out;
+				border-radius: 0.35em;
+				border: solid 3px rgba(255, 255, 255, 0.5);
+				color: #fff;
+				content: 'View';
+				display: inline-block;
+				font-size: 0.8em;
+				font-weight: 400;
+				left: 50%;
+				line-height: 2.25em;
+				margin: -1.25em 0 0 -3em;
+				opacity: 0;
+				padding: 0 1.5em;
+				position: absolute;
+				text-align: center;
+				text-decoration: none;
+				top: 50%;
+				white-space: nowrap;
+			}
+
+			.image.thumb_spot:hover:after {
+				opacity: 1.0;
+			}
+
+			.image.thumb_spot:hover:before {
+				background: url("images/dotnoise-light-grey.png"), url("images/dotnoise-light-grey.png");
+				opacity: 1.0;
+			}
+
+			.image.thumb_spot:hover:before {
+				background: url("images/dotnoise-light-grey.png"), url("../../images/fulls/spot.gif");
+				opacity: 1.0;
+			}
+
+
 		.image img {
 			border-radius: 0.35em;
 			display: block;
@@ -2606,13 +2651,13 @@ input, select, textarea {
 		
 		background-color: #1d1511;
 		background-attachment: scroll,								scroll;
-		background-image:  url("../../images/black_nago.jpeg");
+		background-image:  url("../../images/background.gif");
 		background-position: center center; /* change the position as per your needs */
 		background-repeat: no-repeat;
 		background-size: contain; /* changes are here */
 	
 
-		background-size: auto, 150%;
+		background-size:  110% auto;;
 		color: rgba(255, 255, 255, 0.5);
 		height: 100%;
 		left: 0;
@@ -3363,7 +3408,7 @@ input, select, textarea {
 
 
 .contact-card {
-	background-image: url("../../images/True\ black\ OLED\ wallpapers.jpeg");
+	background-image: url("../../images/black_nago.jpeg");
     border-radius: 10px;
     padding: 20px;
     /* text-align: center; */
@@ -3398,3 +3443,11 @@ input, select, textarea {
 
 
 
+/* Newly Added part of the code */
+@media screen and (max-width: 768px) {
+    #header {
+		background-repeat: no-repeat;
+		background-size: cover; /* changes are here */
+        width: 100%;
+    }
+}
