@@ -73,6 +73,18 @@ input, select, textarea {
 	appearance: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 /* Basic */
 
 	html {
@@ -2036,6 +2048,68 @@ input, select, textarea {
 			font-family: 'Font Awesome 5 Brands';
 		}
 
+
+
+
+/* Adding a text on top of the Big Images Images */
+
+/* Style for the image container */
+.work-item {
+    position: relative;
+}
+
+.image-container {
+    position: relative;
+}
+
+/* Style for the overlay */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+    padding: 40px; /* Add padding for text */
+    color: white; /* White text color */
+}
+
+/* Style for the heading */
+.cool-heading {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #fff; /* Lighten the h3 text color */
+}
+
+/* Style for the paragraph */
+div.overlay .cool-paragraph {
+    font-size: 13px; /* Increase the paragraph text size */
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Image */
 
 	.image {
@@ -2253,6 +2327,26 @@ input, select, textarea {
 				border-radius: 100%;
 				width: 100%;
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* List */
 
@@ -2808,6 +2902,25 @@ input, select, textarea {
 				color: inherit;
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Main */
 
 	#main {
@@ -3087,6 +3200,23 @@ input, select, textarea {
 			.poptrox-popup:hover .closer:hover {
 				opacity: 1.0;
 			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Touch */
 
