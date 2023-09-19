@@ -119,16 +119,25 @@
             
             <!-- Project Introduction -->
             <div class="resume-block text-center">
-                <h2 class="h2 center-title">Project Introduction</h2>
+                <h2>Abstract</h2>
                 <p>
-                    Welcome to an exciting journey where the digital and physical worlds seamlessly converge. In this project, we delve into the captivating realms of robotics and computer vision. Our two-part guide will lead you through the process of setting up a simulation of the Boston Dynamics Spot robot and implementing ORB-SLAM3-ROS for visual odometry.
+                    The use of unmanned aerial vehicles (UAVs) in precision agriculture has seen a huge increase recently. This paper defines the various tasks of the UAVs in precision agriculture and models them into an architectural framework. The presented architecture is built on the context that there will be minimal physical intervention to do the tasks defined with multiple coordinated and cooperative UAVs. Various tasks such as image processing, path planning, communication, data acquisition, and field mapping are employed in the architecture to provide an efficient system. The architecture provides an autonomous end-to-end solution, starting from mission planning, data acquisition, and image processing framework that is highly efficient and can enable farmers to comprehensively deploy UAVs onto their lands. Simulation and field tests show that the architecture offers a number of advantages that include fault-tolerance, robustness, developer and user-friendliness.
                 </p>
+            
+            
+            
+    
+            
+                <h3>Architecture High-Level Description</h3>
                 <p>
-                    Part 1 of our journey is dedicated to configuring the Spot robot simulation using ROS and Gazebo. With prerequisites in place, you'll build a digital twin of the remarkable Spot robot, laying the foundation for immersive exploration in the field of robotics.
+                    In this architecture, both the centralized and decentralized approach are used in decision-making, enabling each member UAV to be self-aware and cooperate in executing tasks of monitoring and collecting data for analysis. The mission is generated from the ground station, and loaded to all member UAVs using the centralized approach, whereas control of execution and monitoring different factors is decentralized, allowing each UAV to decide on their own. The architecture includes a ground station, path planning, trajectory generation, image processing unit with deep learning algorithms, data offloading, and optimized battery swapping stations.
                 </p>
+                
                 <p>
-                    Part 2 takes us further into the integration of ORB-SLAM3-ROS, enabling real-time camera and imu trajectory visualization. This project promises an enchanting blend of robotics, computer vision, and virtual exploration, ultimately leading to the exciting prospect of transferring our simulation to the physical Spot robot.
+                    The centralized approach allows the control and communication of each UAV to be centralized in the ground station, making it easier to prepare waypoints and allocate paths and trajectories for each UAV. It helps to reduce complications in mission design and reduce communication and network traffic. The decentralized approach empowers UAVs to make decisions on their own, enabling self-monitoring and situational awareness. It provides coordination for multi-agent systems during tasks.
                 </p>
+
+                <img src="Images_drone/arc.jpg" alt="Multi-UAVs Architecture" width="100%">
             </div> <!-- end resume-block -->
         </div>
     </div> <!-- s-resume__section -->
@@ -150,22 +159,22 @@
         </span> -->
         
         <!-- Video Link Tag -->
-        <span class="tag">
+        <!-- <span class="tag">
             <a href="https://drive.google.com/file/u/0/d/1veYn9vlYfgh-HD_7IN_z-tO6iXGJS8CH/view?usp=share_link&pli=1" class="external-link">
                 <i class="fab fa-youtube"></i> Video
             </a>
-        </span>
+        </span> -->
         
         <!-- Code Link Tag -->
         <span class="tag">
-            <a href="https://github.com/ebasatemesgen/Visual-Odemtry-With-Spot" class="external-link">
+            <a href="https://github.com/ebasatemesgen/Multi-UAV-project" class="external-link">
                 <i class="fab fa-github"></i> Code
             </a>
         </span>
         
         <!-- Data Link Tag -->
         <span class="tag">
-            <a href="https://rpm-lab.github.io/CSCI5980-Spr23-DeepRob/assets/slides/minn_deeprob_20_visual_odometry_localization.pdf" class="external-link">
+            <a href="https://prezi.com/view/Nac8UrcWx0AWdNrDMTK5/" class="external-link">
                 <i class="far fa-images"></i> Data
             </a>
         </span>

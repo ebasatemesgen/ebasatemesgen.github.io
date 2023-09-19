@@ -3440,8 +3440,8 @@ input[type="button"].btn--primary:focus {
 .s-hero {
     /* background-color: var(--color-gray-18); */
     width: 100%;
-    height: 40vh;
-    min-height: calc(10 * var(--space));
+    height: 65vh;
+    min-height: calc(12.5 * var(--space));
     overflow: hidden;
     position: relative;
     
@@ -3456,7 +3456,7 @@ input[type="button"].btn--primary:focus {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: url(../../images/fulls/spot.gif);
+    background-image: url(../../images/fulls/brains.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
