@@ -3596,42 +3596,54 @@ div.overlay .cool-paragraph {
 
 
 
-
-.contact-card {
-	background-image: url("../../images/black_nago.jpeg");
-    border-radius: 10px;
-    padding: 20px;
-    /* text-align: center; */
-}
-
-.contact-card ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.contact-card li {
-    margin-bottom: 20px;
-}
-
-.contact-card h3 {
-    display: flex;
-    align-items: center;
-}
-
-.contact-card a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s;
-}
-
-.contact-card a:hover {
-    color: #900;
-}
-
-
-
+/* Style for the contact section */
+/* Style for the contact section *//* Style for the contact section *//* Style for the contact section */
+#contact {
+	background-color: #f0f0f0;
+	padding: 40px 0;
+	text-align: center; /* Center-align the content within the section */
+  }
+  
+  /* Style for the section title */
+  #contact h2 {
+	font-size: 28px;
+	margin-bottom: 20px;
+	color: #333;
+  }
+  
+  /* Style for the contact information */
+  .contact-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: center; /* Center-align the contact items */
+  }
+  
+  .contact-list li {
+	margin-bottom: 20px;
+	display: flex; /* Use flexbox to align items horizontally */
+	align-items: center; /* Vertically center-align items within each list item */
+	justify-content: center; /* Horizontally center-align items within each list item */
+  }
+  
+  /* Style for icons within contact items */
+  .contact-list .icon {
+	font-size: 24px;
+	margin-right: 10px;
+	vertical-align: middle;
+	flex-shrink: 0; /* Prevent icons from shrinking */
+  }
+  
+  /* Style for contact links */
+  .contact-list a {
+	text-decoration: none;
+	color: #333;
+  }
+  
+  .contact-list a:hover {
+	text-decoration: underline;
+  }
+  
 
 /* Newly Added part of the code */
 @media screen and (max-width: 768px) {
