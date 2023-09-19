@@ -2225,57 +2225,55 @@ div.overlay .cool-paragraph {
 
 
 
+/* Trutle ROBOT */
+.image.thumb_spot {
+	text-align: center;
+}
+
+	.image.thumb_spot:after {
+		-moz-transition: opacity 0.2s ease-in-out;
+		-webkit-transition: opacity 0.2s ease-in-out;
+		-ms-transition: opacity 0.2s ease-in-out;
+		transition: opacity 0.2s ease-in-out;
+		border-radius: 0.35em;
+		border: solid 3px rgba(255, 255, 255, 0.5);
+		color: #fff;
+		content: 'View';
+		display: inline-block;
+		font-size: 0.8em;
+		font-weight: 400;
+		left: 50%;
+		line-height: 2.25em;
+		margin: -1.25em 0 0 -3em;
+		opacity: 0;
+		padding: 0 1.5em;
+		position: absolute;
+		text-align: center;
+		text-decoration: none;
+		top: 50%;
+		white-space: nowrap;
+	}
+
+	.image.thumb_spot:hover:after {
+		opacity: 1.0;
+	}
+
+	.image.thumb_spot:hover:before {
+		background: 
+		url("images/dotnoise-light-grey.png"),
+		url("../../images/fulls/spot.gif") no-repeat;
+		opacity: 1.0;
+		background-size: auto, cover; /* Apply background-size individually */
+		display: block;
+		margin: 0 0 2em 0;
+		width: 100%;
+	  }
+	  
 
 
 
 
 
-
-
-
-
-/* SPOT ROBOT */
-		.image.thumb_spot {
-			text-align: center;
-		}
-
-			.image.thumb_spot:after {
-				-moz-transition: opacity 0.2s ease-in-out;
-				-webkit-transition: opacity 0.2s ease-in-out;
-				-ms-transition: opacity 0.2s ease-in-out;
-				transition: opacity 0.2s ease-in-out;
-				border-radius: 0.35em;
-				border: solid 3px rgba(255, 255, 255, 0.5);
-				color: #fff;
-				content: 'View';
-				display: inline-block;
-				font-size: 0.8em;
-				font-weight: 400;
-				left: 50%;
-				line-height: 2.25em;
-				margin: -1.25em 0 0 -3em;
-				opacity: 0;
-				padding: 0 1.5em;
-				position: absolute;
-				text-align: center;
-				text-decoration: none;
-				top: 50%;
-				white-space: nowrap;
-			}
-
-			.image.thumb_spot:hover:after {
-				opacity: 1.0;
-			}
-
-			.image.thumb_spot:hover:before {
-				background: url("images/dotnoise-light-grey.png"), url("images/dotnoise-light-grey.png");
-				opacity: 1.0;
-			}
-
-			.image.thumb_spot:hover:before {
-				background: url("images/dotnoise-light-grey.png"), url("../../images/fulls/spot.gif");
-				opacity: 1.0;
-			}
 
 
 		.image img {
