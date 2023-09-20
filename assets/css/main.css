@@ -1783,6 +1783,15 @@ input, select, textarea {
 		margin: 0 0 1.5em 0;
 	}
 
+	header h1 {
+		font-size: 70px;
+		font-weight: 600;
+		background-image: linear-gradient(to left, #4e4e4d, #5c5c38);
+		color: transparent;
+		background-clip: text;
+		-webkit-background-clip: text;
+	}
+
 	header h2 + p {
 		font-size: 1.25em;
 		margin-top: -1em;
@@ -2863,7 +2872,7 @@ div.overlay .cool-paragraph {
 		background-image:  url("../../images/background.gif");
 		background-position: center center; /* change the position as per your needs */
 		background-repeat: no-repeat;
-		background-size: contain; /* changes are here */
+		background-size: auto,								150%; /* changes are here */
 	
 
 		background-size:  110% auto;;
