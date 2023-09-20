@@ -3440,8 +3440,8 @@ input[type="button"].btn--primary:focus {
 .s-hero {
     /* background-color: var(--color-gray-18); */
     width: 100%;
-    height: 20vh;
-    min-height: calc(7 * var(--space));
+    height: 40vh;
+    min-height: calc(10 * var(--space));
     overflow: hidden;
     position: relative;
     
