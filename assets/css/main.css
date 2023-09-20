@@ -1791,7 +1791,12 @@ input, select, textarea {
 		background-clip: text;
 		-webkit-background-clip: text;
 	}
-
+/* Font size adjustment for mobile devices */
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 40px; /* Adjusted font size for smaller screens */
+    }
+}
 	header h2 + p {
 		font-size: 1.25em;
 		margin-top: -1em;
@@ -3606,6 +3611,54 @@ div.overlay .cool-paragraph {
 .education-details {
 	flex-grow: 1;
 }
+
+/* CSS for mobile devices */
+@media screen and (max-width: 480px) {
+    .edu-logo {
+        width: 60px; /* Reduced logo size */
+        height: 60px; /* Reduced logo size */
+        object-fit: contain;
+    }
+
+    .education-item {
+        flex-direction: column; /* Stack content vertically */
+        margin-bottom: 10px; /* Reduced margin */
+    }
+
+    .education-details {
+        margin-left: 0; /* No margin for left details */
+        border-left: none; /* Remove border */
+        padding-left: 0; /* No padding */
+    }
+
+	.education-details h4 {
+        font-size: 2rem; /* Smaller font size for headings */
+    }
+
+    .education-details p {
+        margin: 0.3em 0; /* Reduced margin */
+        font-size: 0.1rem; /* Smaller font size for paragraphs */
+    }
+
+    .fa-map-marker-alt {
+        color: #900;
+        margin-right: 5px;
+    }
+
+    .edu-date {
+        margin-left: 0; /* No margin on date */
+        text-align: left; /* Left-align date */
+    }
+}
+ 
+
+
+
+
+
+
+
+
 
 .location-icon {
 	height: 15px;

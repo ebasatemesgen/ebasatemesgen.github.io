@@ -3535,11 +3535,14 @@ input[type="button"].btn--primary:focus {
     border-color: #333; /* Change border color on hover */
   }
   
-  /* Adjustments for smaller screens */
-  @media screen and (max-width: 480px) {
+/* Adjustments for smaller screens */
+@media screen and (max-width: 480px) {
     .action-section .actions li {
-      margin: 10px 0; /* Add margin to the top and bottom of each item */
-      display: block; /* Display list items as blocks on smaller screens */
+      margin: 10px 0;
+    }
+  
+    .action-section .actions a.button {
+      padding: 10px 15px; /* Reduce button padding for smaller screens */
     }
   }
 
@@ -4018,6 +4021,41 @@ input[type="button"].btn--primary:focus {
         text-align: center;
     }
 }
+
+
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 480px) {
+    .s-resume {
+        padding-top: 0; /* Adjusted padding for smaller screens */
+        padding-bottom: var(--vspace-2); /* Adjusted padding for smaller screens */
+    }
+
+    .s-resume__section {
+        padding-bottom: var(--vspace-0_5); /* Reduced padding for smaller screens */
+        margin-bottom: 0; /* Reduced margin for smaller screens */
+    }
+
+    .resume-block {
+        margin-bottom: 0; /* Reduced margin for smaller screens */
+    }
+
+    .resume-block h4 {
+        line-height: 1.2; /* Increased line height for better readability */
+        margin-bottom: var(--vspace-0_5); /* Reduced margin for smaller screens */
+    }
+
+    .resume-block__header-meta {
+        font-size: var(--text-xs); /* Adjusted font size for smaller screens */
+        margin-bottom: var(--vspace-0_25); /* Reduced margin for smaller screens */
+    }
+
+    .s-resume__section .column:first-child {
+        text-align: center;
+    }
+}
+
+
 
 
 /* ===================================================================
