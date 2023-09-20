@@ -3535,15 +3535,16 @@ input[type="button"].btn--primary:focus {
     border-color: #333; /* Change border color on hover */
   }
   
-  /* Adjustments for smaller screens */
-  @media screen and (max-width: 480px) {
+/* Adjustments for smaller screens */
+@media screen and (max-width: 480px) {
     .action-section .actions li {
-      margin: 10px 0; /* Add margin to the top and bottom of each item */
-      display: block; /* Display list items as blocks on smaller screens */
+      margin: 10px 0;
+    }
+  
+    .action-section .actions a.button {
+      padding: 10px 15px; /* Reduce button padding for smaller screens */
     }
   }
-
-
 
 
 
