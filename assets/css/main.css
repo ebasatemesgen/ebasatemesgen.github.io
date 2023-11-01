@@ -3446,7 +3446,10 @@ div.overlay .cool-paragraph {
 
 	}
 
+
+
 /* Small */
+
 
 	@media screen and (max-width: 736px) {
 
@@ -3523,6 +3526,96 @@ div.overlay .cool-paragraph {
 				}
 
 	}
+
+/* Adjustments for 800px x 1263px screens (portrait) */
+@media screen and (min-width: 800px) and (min-height: 1200px) {
+    #header {
+        background-size: cover;
+        background-position: center center;
+    }
+}
+
+
+/* @media screen and (min-width: 1200px) and (min-height: 600px) {
+    #header {
+        background-size: contain;
+        background-position: center center;
+    }
+} */
+/* For devices with 912px x 1368px resolution */
+@media screen and (min-width: 912px) and (max-width: 912px) and (min-height: 1368px) and (max-height: 1368px) {
+
+
+		/* Basic */
+
+			h1 {
+				font-size: 1.5em;
+			}
+
+			h2 {
+				font-size: 1.2em;
+			}
+
+			h3 {
+				font-size: 1em;
+			}
+
+		/* Section/Article */
+
+			section.special, article.special {
+				text-align: center;
+			}
+
+			header.major h2 {
+				font-size: 1.35em;
+			}
+
+		/* List */
+
+			ul.labeled-icons li {
+				padding-left: 2em;
+			}
+
+				ul.labeled-icons li h3 {
+					line-height: 1.75em;
+				}
+
+		/* Header */
+
+		#header {
+			background-size: cover; /* Ensures the image is fully visible and fits within the header */
+			background-position: center center; /* Centers the image */
+		}
+
+				#header h1 {
+					font-size: 1.35em;
+				}
+
+		/* Footer */
+
+			#footer {
+				padding: 2.25em 1.5em;
+			}
+
+		/* Main */
+
+			#main {
+				padding: 2.25em 1.5em 0.25em 1.5em;
+			}
+
+				#main > section {
+					margin: 2.25em 0 0 0;
+					padding: 2.25em 0 0 0;
+				}
+
+
+
+	}
+
+
+
+
+
 
 /* XSmall */
 
