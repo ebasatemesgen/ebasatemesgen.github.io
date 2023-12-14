@@ -3440,11 +3440,15 @@ input[type="button"].btn--primary:focus {
 .s-hero {
     /* background-color: var(--color-gray-18); */
     width: 100%;
-    height: 40vh;
+    height: 90vh;
     min-height: calc(10 * var(--space));
     overflow: hidden;
     position: relative;
     
+}
+
+.s-hero h1{
+    font-size: 1em; 
 }
 
 .s-hero__bg {
@@ -3489,6 +3493,18 @@ input[type="button"].btn--primary:focus {
     background: linear-gradient(360deg, black 15%, rgba(0, 0, 0, 0) 100%);
     opacity: .4;
 }
+
+.s-hero__content-about h2,
+.s-hero__content-about h3 {
+    color: white; /* This will change the text color to white */
+}
+
+.s-hero__content-about h1 {
+    font-size: 1em; /* Adjust this value to increase or decrease the size of h1 */
+}
+
+
+
 
 /* ------------------------------------------------------------------- 
  * ## hero content
@@ -3563,7 +3579,7 @@ input[type="button"].btn--primary:focus {
 }
 
 .s-hero__content h1 {
-    font-size: 9.8rem;
+    font-size: 1em;
     font-weight: 600;
     letter-spacing: -.04em;
     line-height: 1;
@@ -3741,7 +3757,7 @@ input[type="button"].btn--primary:focus {
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 1600px) {
     .s-hero__content h1 {
-        font-size: 9.4rem;
+        font-size: 7.4rem;
     }
     .s-hero__content h3 {
         font-size: 2.2rem;
@@ -3750,7 +3766,7 @@ input[type="button"].btn--primary:focus {
 
 @media screen and (max-width: 1400px) {
     .s-hero__content h1 {
-        font-size: 8.8rem;
+        font-size: 6.8rem;
     }
     .s-hero__content h3 {
         font-size: 2rem;
@@ -3760,7 +3776,7 @@ input[type="button"].btn--primary:focus {
 
 @media screen and (max-width: 1200px) {
     .s-hero__content h1 {
-        font-size: 8.4rem;
+        font-size: 6.4rem;
     }
     .s-hero__content h3 {
         font-size: 1.9rem;
@@ -3769,7 +3785,7 @@ input[type="button"].btn--primary:focus {
 
 @media screen and (max-width: 900px) {
     .s-hero__content h1 {
-        font-size: 7.6rem;
+        font-size: 5.6rem;
     }
     .s-hero__content h3 {
         font-size: 1.8rem;
@@ -3784,7 +3800,7 @@ input[type="button"].btn--primary:focus {
         padding-top: 12vh;
     }
     .s-hero__content h1 {
-        font-size: 6.8rem;
+        font-size: 5.8rem;
     }
     .s-hero__content h3 {
         max-width: 600px;
@@ -3793,7 +3809,7 @@ input[type="button"].btn--primary:focus {
 
 @media screen and (max-width: 700px) {
     .s-hero__content h1 {
-        font-size: 6.2rem;
+        font-size: 5.2rem;
     }
 }
 
@@ -3835,6 +3851,431 @@ input[type="button"].btn--primary:focus {
         display: none;
     }
 }
+
+
+
+.section-background {
+    background-color: #ffffff; 
+    padding: 20px;
+
+    .row {
+        margin: 0 auto;
+        max-width: 960px; 
+
+        .column {
+            padding: 0 15px;
+
+            .content-block {
+                margin-bottom: 30px;
+
+                h2 {
+                    font-size: 1.75em;
+                    color: #333; 
+                    /* margin-bottom: 10px; */
+                }
+
+                h3 {
+                    font-size: 1.5em;
+                    color: #555; 
+                    /* margin-bottom: 8px; */
+                }
+
+                p {
+                    font-size: 1em;
+                    color: #666; 
+                    line-height: 1.6;
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.vo-methods-section {
+    background-color: #ffffff; 
+    padding: 20px;
+
+    .container {
+        margin: 0 auto;
+        max-width: 960px; 
+
+        h2 {
+            text-align: center;
+            font-size: 1.75em;
+            color: #333; 
+            margin-bottom: 20px; 
+        }
+
+        .vo-methods-content {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 0 15px;
+
+            .vo-methods-image {
+                max-width: 40%;
+                height: auto;
+            }
+
+            .vo-methods-description {
+                max-width: 55%;
+                margin-left: 5%;
+
+                h3 {
+                    font-size: 1.5em;
+                    color: #555; 
+                    margin-bottom: 10px;
+                }
+                
+                p, ul {
+                    font-size: 1em;
+                    color: #666; 
+                    line-height: 1.6;
+                }
+
+                ul {
+                    list-style: none;
+                    padding-left: 0;
+
+                    li {
+                        margin-bottom: 5px;
+
+                        strong {
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.slam-overview {
+    background-color: #FFFFFF;
+    padding: 20px 0;
+
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 15px;
+
+        h2 {
+            color: #333;
+            font-size: 1.75em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            font-size: 1em;
+            line-height: 1.6;
+        
+        }
+    }
+}
+
+
+
+.papers-section {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 15px;
+        text-align: center;
+
+        .papers-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            .paper-link {
+                display: inline-block;
+                margin: 0 10px;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+                }
+
+                .paper-image {
+                    max-width: 100%;
+                    height: auto;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+.feature-section {
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.feature-section .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: left;
+}
+
+.feature-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.feature-section p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.algorithm-section {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0 auto;
+    max-width: 960px; /* Adjusted to match feature-section container width */
+    padding: 0 15px; /* Added padding for consistent indentation */
+}
+
+.algorithm-card {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    padding: 20px;
+    margin: 10px;
+}
+
+.algorithm-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif; /* Expressive font for headers */
+}
+
+.algorithm-card p {
+    color: #555;
+    font-size: 16px; /* Increased font size */
+    line-height: 1.6;
+    font-family: 'Verdana', sans-serif; /* Expressive font for paragraph */
+}
+
+#sift-card { background-color: #e8f0fe; }
+#surf-card { background-color: #fee4cb; }
+#orb-card { background-color: #e2f0cb; }
+
+
+
+
+.project-setup {
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: left;
+}
+
+.project-setup .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.project-setup h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.project-setup p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.project-setup a {
+    color: #0066cc;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.orb-slam-setup {
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: left;
+}
+
+.orb-slam-setup .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.orb-slam-setup h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.orb-slam-setup p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.orb-slam-setup a {
+    color: #0066cc;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+
+
+
+.testing-results {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+    text-align: left;
+}
+
+.testing-results .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 960px; /* Adjusted to match the width of other sections */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.test-section {
+    width: 48%; /* Adjust the width as needed */
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.test-section h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.test-section p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#teleop-test {
+    /* Additional styling specific to the teleoperation test section */
+}
+
+#auto-nav-test {
+    /* Additional styling specific to the autonomous navigation test section */
+}
+
+
+
+
+.odometry-comparison {
+    background-color: #ffffff; /* White background */
+    padding: 20px 0;
+}
+
+.odometry-comparison .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: left;
+}
+
+.odometry-comparison h2 {
+    color: #000000; /* Black text */
+    margin-bottom: 15px;
+}
+
+.odometry-comparison h3 {
+    color: #000000; /* Black text */
+}
+
+.odometry-comparison p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.odometry-comparison a {
+    color: #0066cc;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.video-thumbnail {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.video-thumbnail a img {
+    width: 100%;
+    max-width: 300px; /* Adjust the max width as needed */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
 
 
 /* ===================================================================
