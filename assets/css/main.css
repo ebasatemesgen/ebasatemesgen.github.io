@@ -3863,3 +3863,127 @@ div.overlay .cool-paragraph {
         width: 100%;
     }
 }
+
+
+
+
+/* Newly Added part for the outreach section */
+#outreach-gallery {
+    padding: 40px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#outreach-gallery h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+#outreach-gallery p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: 4 / 3;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border: 2px solid #ddd;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    text-align: left;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover figcaption {
+    opacity: 1;
+}
+
+.gallery-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+    #outreach-gallery h2 {
+        font-size: 2.5rem;
+    }
+    #outreach-gallery p {
+        font-size: 1.2rem;
+    }
+    .gallery-item {
+        aspect-ratio: 3 / 2;
+    }
+    .gallery-item figcaption {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #outreach-gallery h2 {
+        font-size: 2rem;
+    }
+    #outreach-gallery p {
+        font-size: 1rem;
+    }
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    .gallery-item {
+        aspect-ratio: 16 / 9;
+    }
+    .gallery-item figcaption {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #outreach-gallery h2 {
+        font-size: 1.8rem;
+    }
+    #outreach-gallery p {
+        font-size: 0.9rem;
+    }
+    .gallery-item figcaption {
+        font-size: 0.8rem;
+    }
+}
