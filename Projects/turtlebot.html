@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Ebasa T</title>
+   <!-- Description Metadata-->
+    <meta name="description" content="Personal Website" />
+    <!-- Author Metadata -->
+    <meta name="author" content="Ebasa Temesgen" />
+    <!-- Keyword Metadata -->
+    <meta
+      name="keywords"
+      content="Ebasa Temesgen, Ebasa G Temesgen, Ebasa, Ebba, Eba, Temesgen, Girma"
+    />
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/turtlebot.css">
+
+
+
+
+
+
+
+    <!-- script
+    ================================================== -->
+    <script defer src="../assets/js/all.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body id="top" class="ss-preload">
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+
+    <!-- header
+    ================================================== -->
+ 
+
+    
+    <!-- hero
+    ================================================== -->
+    <section id="hero" class="s-hero target-section">
+
+        <div class="s-hero__bg rellax" data-rellax-speed="-7"></div>
+
+        <div class="row s-hero__content">
+            <div class="column">
+
+                <div class="s-hero__content-about">
+
+                    <h1>Path Planning Using a D* lite Algorithm </h1>
+
+                </div> <!-- end s-hero__content-about -->
+
+            </div>
+        </div> <!-- s-hero__content -->
+
+        <div class="s-hero__scroll">
+            <a href="#resume_" class="s-hero__scroll-link smoothscroll">
+                <span class="scroll-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M18.707 12.707L17.293 11.293 13 15.586 13 6 11 6 11 15.586 6.707 11.293 5.293 12.707 12 19.414z"></path></svg>
+                </span>
+                <span class="scroll-text">Scroll Down</span>
+            </a>
+        </div> <!-- s-hero__scroll -->
+
+    </section> <!-- end s-hero -->    
+
+
+
+    <section class="action-section">
+        <ul class="actions">
+          <li><a href="../index.html" class="button">Home</a></li>
+          <li><a href="../expreince.html" class="button">Experience</a></li>
+          <li><a href="../publication.html" class="button">Publications</a></li>
+          <!-- <li><a href="#contact" class="button">Contact</a></li> -->
+        </ul>
+      </section>
+      
+
+
+
+
+
+
+
+      
+        
+    </section> 
+
+
+<!-- resume
+================================================== -->
+<section id="resume_" class="s-resume target-section">
+    <div class="row s-resume__section">
+        <div class="column large-12 tab-12">
+            
+            <!-- Project Introduction -->
+            <div class="resume-block text-center">
+                <h2>Project Abstract</h2>
+    <p>
+        Path planning for mobile robots has received a lot of attention because it is the foundation of robotic autonomous navigation and other task executions in Artificial Intelligence (AI) and Robotics. Mobile robots have a wide range of applications, such as assisting the visually impaired and the elderly with indoor navigation, industrial and military applications, as well as planetary exploration robots like rovers. Hence, a well-designed and efficient path-planning algorithm is critical to saving time, reducing energy consumption, and lowering the operational costs of the mobile robot. However, path planning algorithms face a significant challenge when planning a path in an unknown environment with dynamic obstacles. The goal of this project was to use the D* lite algorithm to address path planning for mobile robotics in an unknown environment. The experiment results in a static in the simulated world and test implemented in a 2D grid space show that the algorithm performs well in a dynamic world as well.
+    </p>
+
+    <h3>Problem Description</h3>
+    <p>
+        Avoiding obstacles as the robot moves from its starting point to its destination is one of the most difficult path-planning challenges. When comparing known and static environments, unknown environments with dynamic obstacles present more challenges. A suitable path-planning algorithm ensures safe and effective point-to-point navigation, critical for saving time and reducing wear and capital investment.
+    </p>
+    <p>
+        The D* lite algorithm can address the challenges of path planning for mobile robots in an unknown environment with dynamic obstacles. It allows the robot to maintain non-optimal paths and recalculate them in real-time, making it efficient.
+    </p>
+    <p>
+        Therefore, the application of the D* lite algorithm as a path planning algorithm in an unknown environment is the focus of this project, followed by its execution with a mobile robot named Turtle-bot3 Burger model. A simulation test using Gazebo (a ROS-based simulation environment) and the performance of the algorithm will be assessed.
+    </p>
+
+    <h3>Experiments and Discussions</h3>
+    <p>
+        Figure 1 depicts a 2D simulation environment that was built based on an implication for an existing D* lite algorithm implantation in a dynamic environment. First, the robot constructs a heuristic path using an approximated euclidean distance to reach the goal position from its initial state. As the robot moves in the discrete space, a new obstacle is introduced, and the robot re-calculates its path again in order to avoid the obstacle and reach the goal.
+    </p>
+    <img src="Images_turtlebot/timeframe_labeled.jpg" alt="A D* Lite incremental path planning" width="100%">
+    
+    <p>
+        The ROS package that has a large application in mobile robots 'move base' package which implements a sequence of commands for the actuator to reach a goal position. The move base node links together a global and local planner to accomplish its global navigation task.
+    </p>
+    <img src="Images_turtlebot/Screenshot from 2022-11-14 06-25-10.png" alt="Move base Navigation Stack Setup" width="100%">
+    
+    <p>
+        The next approach was to create a 2D occupancy grid map of the environment, allowing the robot to plan its path in 2D and then map its waypoints to the robot actuator to execute. This approach works well in a static environment and simplifies the path planning problem.
+    </p>
+    <div>
+        <img src="Images_turtlebot/move_base1.png" alt="Starting Location" width="30%">
+        <img src="Images_turtlebot/movebase3.png" alt="Intermediate Location" width="30%">
+        <img src="Images_turtlebot/movebase 5.png" alt="Goal Location" width="30%">
+    </div>
+            </div> <!-- end resume-block -->
+        </div>
+    </div> <!-- s-resume__section -->
+
+
+    <div class="list-container">
+        <!-- Paper Link Tag -->
+        <!-- <span class="tag">
+            <a href="https://arxiv.org/pdf/2211.00194" class="external-link">
+                <i class="fas fa-file-pdf"></i> Paper
+            </a>
+        </span> -->
+        
+        <!-- arXiv Link Tag -->
+        <!-- <span class="tag">
+            <a href="https://arxiv.org/pdf/2211.00194" class="external-link">
+                <i class="ai ai-arxiv"></i> arXiv
+            </a>
+        </span> -->
+        
+        <!-- Video Link Tag -->
+        <!-- <span class="tag">
+            <a href="https://drive.google.com/file/u/0/d/1veYn9vlYfgh-HD_7IN_z-tO6iXGJS8CH/view?usp=share_link&pli=1" class="external-link">
+                <i class="fab fa-youtube"></i> Video
+            </a>
+        </span> -->
+        
+        <!-- Code Link Tag -->
+        <span class="tag">
+            <a href="https://github.com/ebasatemesgen/Robotics_Project/tree/main/CSCI_5551" class="external-link">
+                <i class="fab fa-github"></i> Code
+            </a>
+        </span>
+        
+        <!-- Data Link Tag -->
+        <span class="tag">
+            <a href="https://docs.google.com/presentation/d/1d6dk-Zh_bF4twBfEcuq3qLGRVvPXMUA2X1XRQeUKAgk/edit?usp=sharing" class="external-link">
+                <i class="far fa-images"></i> Data
+            </a>
+        </span>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Java Script -->
+<script src="../assets/js/ex_main.js"></script>
+<script src="../assets/js/ex_plugins.js"></script>
+
+</body>
+</html>
