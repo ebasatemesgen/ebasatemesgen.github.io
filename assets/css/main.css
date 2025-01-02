@@ -6946,7 +6946,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			.gallery.style2 article .caption {
-				padding: 2rem;
+				padding: 0%;
 			}
 
 		}
@@ -6954,7 +6954,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			.gallery.style2 article .caption {
-				padding: 2rem;
+				padding: 0;
 			}
 
 		}
@@ -6964,13 +6964,13 @@ input, select, textarea {
 		}
 
 			.gallery.style2.small article .caption {
-				padding: 2rem;
+				padding: 0%;
 			}
 
 		@media screen and (max-width: 980px) {
 
 			.gallery.style2.small article .caption {
-				padding: 2rem;
+				padding: 0%;
 			}
 
 		}
@@ -6978,7 +6978,7 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			.gallery.style2.small article .caption {
-				padding: 2rem;
+				padding: 0%;
 			}
 
 		}
@@ -9038,7 +9038,7 @@ color: #e0e0e0;
 	margin: 20px 0;
 	border-radius: 6px;
 	align-self: center;
-	width: 50vw;
+	width: 100%;
 }
 
 .timeline-renamed__event:nth-child(2n + 1) {
@@ -9265,7 +9265,6 @@ color: #e0e0e0;
 	left: -6rem;
 	top: 50%;
 	transform: translateY(-50%);
-	border: 2px solid #9251ac;
   }
   
   .timeline-alternate__event--type2:before {
@@ -9649,3 +9648,82 @@ span:nth-child(9){
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fix for smaller screens (mobile devices) */
+@media (max-width: 768px) {
+
+	.caption{
+		padding: 0%;
+		margin: 0%;
+		text-align: center;
+	}
+    .caption p
+   { /* Hide the paragraph */
+        display: none;
+    }
+
+    .gallery.style2 article .caption h3 {
+        font-size: 1rem; /* Adjust font size for readability */
+        /* Add some spacing for better alignment */
+    }
+
+    .caption ul.actions.fixed a.button {
+        font-size: 0.5rem; /* Further reduce font size on smaller screens */
+        padding: 0.3rem 0.5rem; /* Reduce padding for mobile devices */
+    }
+
+	.gallery.style2 article img {
+        width: 100%; /* Reduce size slightly */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+/* Fix for very small screens (phones) */
+@media (max-width: 480px) {
+
+
+
+
+	
+    .gallery.style2 article img {
+        width: 100%; /* Further reduce size for smaller screens */
+        height: auto; /* Maintain aspect ratio */
+		
+    }
+	.caption{
+		padding: 0%;
+		margin: 0%;
+		text-align: center;
+	}
+    .caption p
+   { /* Hide the paragraph */
+        display: none;
+    }
+
+    .caption ul.actions.fixed a.button {
+        font-size: 0.6rem; /* Further reduce font size on smaller screens */
+        padding: 0.1; /* Reduce padding for mobile devices */
+		padding-top: 0%;
+    }
+    .gallery.style2 article .caption h3 {
+        font-size: 1rem; /* Further adjust font size for smaller screens */
+       /* Adjust spacing */
+    }
+
+}
