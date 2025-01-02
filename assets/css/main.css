@@ -9361,6 +9361,7 @@ color: #e0e0e0;
 }
 
 .with-background .moving-img {
+	top: 10%;
     height: 70vh;
     width: 70vh;
     position: absolute;
@@ -9700,7 +9701,7 @@ span:nth-child(9){
 
 
 
-	
+
     .gallery.style2 article img {
         width: 100%; /* Further reduce size for smaller screens */
         height: auto; /* Maintain aspect ratio */
@@ -9726,4 +9727,31 @@ span:nth-child(9){
        /* Adjust spacing */
     }
 
+}
+
+
+
+.responsive-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 15px;
+    margin-top: 20px;
+
+}
+
+
+
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+    .responsive-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center; /* Center align stacked buttons */
+		justify-content: center; /* Center align buttons on smaller screens */
+    }
+
+    .responsive-buttons .button {
+        width: 90%; /* Full width with some margin on smaller screens */
+        max-width: 100%; /* Ensure buttons don't exceed their container */
+    }
 }
