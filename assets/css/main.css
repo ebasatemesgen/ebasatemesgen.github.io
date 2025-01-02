@@ -8608,7 +8608,7 @@ input, select, textarea {
 
 
 
-
+/* this is all Ebasa Added styles */
 
 /* General Image Styling */
 .image {
@@ -8795,7 +8795,7 @@ input, select, textarea {
 
 
 
-
+/* this is the expreince */
 .design-section {
 	display: flex;
 	flex-direction: column;
@@ -9174,7 +9174,7 @@ color: #e0e0e0;
 
 
 
-/* Updated plain CSS with renamed styles */
+/* Updated plain CSS with renamed styles this is for the  last section*/
 .timeline-alternate {
 	display: flex;
 	flex-direction: column;
@@ -9342,3 +9342,309 @@ color: #e0e0e0;
 	}
   }
   
+
+
+/* Restrict Background Animation to Sections with `with-background` */
+.with-background {
+    position: relative; /* Make sure the section is positioned */
+    min-height: 100vh; /* Ensure it has enough height for the background */
+    overflow: hidden; /* Contain background animations */
+    z-index: 1; /* Place content above the background */
+}
+
+.with-background .background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place the background behind the content */
+}
+
+.with-background .moving-img {
+    height: 70vh;
+    width: 70vh;
+    position: absolute;
+    z-index: 3;
+    right: 20px;
+}
+
+
+.stars {
+	background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+	position: absolute;
+	   top: 0;
+	   bottom: 0;
+	   left: 0;
+	   right: 0;
+	   display: block;
+		 z-index: 0;
+   }
+
+   .twinkling{
+	width:10000px;
+	height: 100%;
+	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+	background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    
+    -moz-animation:move-background 70s linear infinite;
+  -ms-animation:move-background 70s linear infinite;
+  -o-animation:move-background 70s linear infinite;
+  -webkit-animation:move-background 70s linear infinite;
+  animation:move-background 70s linear infinite;
+	
+}  
+
+.clouds{
+	width:10000px;
+	height: 100%;
+	background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+	background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+
+   -moz-animation:move-background 150s linear infinite;
+  -ms-animation:move-background 150s linear infinite;
+  -o-animation:move-background 150s linear infinite;
+  -webkit-animation:move-background 150s linear infinite;
+  animation:move-background 150s linear infinite;
+}
+
+/* Shooting Stars Container */
+.shooting-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none; /* Ensure stars don't interfere with interactions */
+    overflow: hidden;
+}
+
+/* Shooting Star Style */
+.shooting-star {
+    position: absolute;
+    width: 3px;
+    height: 80px;
+    background: linear-gradient(white, rgba(255, 255, 255, 0));
+    opacity: 0;
+    transform: rotate(45deg);
+    animation: shooting-star-animation 2s linear;
+}
+
+/* Shooting Star Animation */
+@keyframes shooting-star-animation {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(500px, -500px) rotate(45deg);
+    }
+}
+
+
+/* Background Animation */
+
+
+@keyframes move-background {
+	from {
+		  -webkit-transform: translate3d(0px, 0px, 0px);
+	  }
+	  to { 
+		  -webkit-transform: translate3d(1000px, 0px, 0px);
+	  }
+  }
+  @-webkit-keyframes move-background {
+	from {
+		  -webkit-transform: translate3d(0px, 0px, 0px);
+	  }
+	  to { 
+		  -webkit-transform: translate3d(1000px, 0px, 0px);
+	  }
+  }
+  
+  @-moz-keyframes move-background {    
+	  from {
+		  -webkit-transform: translate3d(0px, 0px, 0px);
+	  }
+	  to { 
+		  -webkit-transform: translate3d(1000px, 0px, 0px);
+	  }
+  }
+  
+	  @-webkit-keyframes move-background {
+	  from {
+		  -webkit-transform: translate3d(0px, 0px, 0px);
+	  }
+	  to { 
+		  -webkit-transform: translate3d(1000px, 0px, 0px);
+	  }
+  }
+  
+
+
+
+  /* This is shoting start  */
+
+
+span{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1),0 0 0 8px rgba(255,255,255,0.1),0 0 20px rgba(255,255,255,0.1);
+    animation: animate linear infinite;
+	opacity: 0;
+}
+span::before{
+    content:'';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg,#fff,transparent);
+}
+
+
+/* Shooting Star Animations */
+span:nth-child(1) {
+    top: 10%;
+    left: 80%;
+    animation-delay: 4s;
+    animation-duration: 8s;
+}
+
+span:nth-child(2) {
+    top: 15%;
+    left: 70%;
+    animation-delay: 6s;
+    animation-duration: 7s;
+}
+
+span:nth-child(3) {
+    top: 30%;
+    left: 60%;
+    animation-delay: 8s;
+    animation-duration: 9s;
+}
+
+span:nth-child(4) {
+    top: 50%;
+    left: 40%;
+    animation-delay: 10s;
+    animation-duration: 6s;
+}
+
+span:nth-child(5) {
+    top: 65%;
+    left: 30%;
+    animation-delay: 12s;
+    animation-duration: 10s;
+}
+
+span:nth-child(6) {
+    top: 75%;
+    left: 20%;
+    animation-delay: 14s;
+    animation-duration: 8s;
+}
+
+span:nth-child(7){
+    top: 300px;
+    right: 0px;
+    left: initial;
+    animation-delay: 11.2s;
+    animation-duration: 1.75s;
+}
+span:nth-child(8){
+    top: 0px;
+    right: 700px;
+    left: initial;
+    animation-delay: 17s;
+    animation-duration: 4s;
+}
+span:nth-child(9){
+    top: 0px;
+    right: 1000px;
+    left: initial;
+    animation-delay: 11.75s;
+    animation-duration: 2.25s;
+}
+span:nth-child(9){
+    top: 0px;
+    right: 450px;
+    left: initial;
+    animation-delay: 12.75s;
+    animation-duration: 2.75s;
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        transform: rotate(315deg) translateX(-1500px);
+        opacity: 0;
+    }
+}
+
+/* Shooting Stars Container */
+.shooting-stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure it doesn't interfere with user interactions */
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* Shooting Star Style */
+.shooting-star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
+    opacity: 0; /* Starts invisible */
+    transform: rotate(315deg);
+    animation: shooting-star-animation linear;
+}
+
+@keyframes shooting-star-animation {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(315deg);
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-1500px, 1500px) rotate(315deg);
+    }
+}
