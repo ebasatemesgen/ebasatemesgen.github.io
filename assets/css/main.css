@@ -331,7 +331,7 @@ input, select, textarea {
 		color: #000000;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+					, h2, h3, h4, h5, h6 {
 		color: #000000;
 	}
 
@@ -10001,3 +10001,53 @@ iframe {
 		height: 400px;
 	}
 }
+
+
+
+/* remove default bullets */
+.ma-actions { 
+	list-style: none; 
+	margin: 1rem 0 0; 
+	padding: 0; 
+	display: flex; 
+	gap: 1rem; 
+  }
+  
+  /* base button reset */
+  .ma-actions a {
+	position: relative;
+	display: inline-block;
+	padding: 0.75em 1.5em;
+	border-radius: 50px;
+	font-weight: 600;
+	text-decoration: none;
+	color: #fff;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	overflow: hidden;
+  }
+  .ma-actions a:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
+  
+  /* specific button colors */
+  .ma-btn-learn {
+	background: linear-gradient(45deg, #6FB1FC, #4364F7);
+  }
+  .ma-btn-challenge {
+	background: linear-gradient(45deg, #7AF270, #17B978);
+  }
+  
+  /* fly-away dot style */
+  .btn-fly-dot {
+	position: absolute;
+	border-radius: 50%;
+	pointer-events: none;
+	opacity: 1;
+	transform: translate(0,0) scale(1);
+	transition: transform 1s ease-out, opacity 1s ease-out;
+  }
+  
+
+
+  
