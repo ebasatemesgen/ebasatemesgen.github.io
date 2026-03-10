@@ -24,7 +24,7 @@
     <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../assets/css/turtlebot.css">
+    <link rel="stylesheet" href="../../assets/css/turtlebot.css">
 
 
 
@@ -34,14 +34,13 @@
 
     <!-- script
     ================================================== -->
-    <script defer src="../assets/js/all.min.js"></script>
+    <script defer src="../../assets/js/all.min.js"></script>
 
     <!-- favicons
     ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon.ico">
 
 </head>
 
@@ -93,9 +92,9 @@
 
     <section class="action-section">
         <ul class="actions">
-          <li><a href="../index.html" class="button">Home</a></li>
-          <li><a href="../expreince.html" class="button">Experience</a></li>
-          <li><a href="../publication.html" class="button">Publications</a></li>
+          <li><a href="../../index.html" class="button">Home</a></li>
+          <li><a href="../../index.html#experience" class="button">Experience</a></li>
+          <li><a href="../../index.html#Publications" class="button">Publications</a></li>
           <!-- <li><a href="#contact" class="button">Contact</a></li> -->
         </ul>
       </section>
@@ -140,20 +139,20 @@
     <p>
         Figure 1 depicts a 2D simulation environment that was built based on an implication for an existing D* lite algorithm implantation in a dynamic environment. First, the robot constructs a heuristic path using an approximated euclidean distance to reach the goal position from its initial state. As the robot moves in the discrete space, a new obstacle is introduced, and the robot re-calculates its path again in order to avoid the obstacle and reach the goal.
     </p>
-    <img src="Images_turtlebot/timeframe_labeled.jpg" alt="A D* Lite incremental path planning" width="100%">
+    <img src="../assets/turtlebot/timeframe_labeled.jpg" alt="A D* Lite incremental path planning" width="100%">
     
     <p>
         The ROS package that has a large application in mobile robots 'move base' package which implements a sequence of commands for the actuator to reach a goal position. The move base node links together a global and local planner to accomplish its global navigation task.
     </p>
-    <img src="Images_turtlebot/Screenshot from 2022-11-14 06-25-10.png" alt="Move base Navigation Stack Setup" width="100%">
+    <img src="../assets/turtlebot/Screenshot from 2022-11-14 06-25-10.png" alt="Move base Navigation Stack Setup" width="100%">
     
     <p>
         The next approach was to create a 2D occupancy grid map of the environment, allowing the robot to plan its path in 2D and then map its waypoints to the robot actuator to execute. This approach works well in a static environment and simplifies the path planning problem.
     </p>
     <div>
-        <img src="Images_turtlebot/move_base1.png" alt="Starting Location" width="30%">
-        <img src="Images_turtlebot/movebase3.png" alt="Intermediate Location" width="30%">
-        <img src="Images_turtlebot/movebase 5.png" alt="Goal Location" width="30%">
+        <img src="../assets/turtlebot/move_base1.png" alt="Starting Location" width="30%">
+        <img src="../assets/turtlebot/movebase3.png" alt="Intermediate Location" width="30%">
+        <img src="../assets/turtlebot/movebase 5.png" alt="Goal Location" width="30%">
     </div>
             </div> <!-- end resume-block -->
         </div>
@@ -208,8 +207,8 @@
 
 
 <!-- Java Script -->
-<script src="../assets/js/ex_main.js"></script>
-<script src="../assets/js/ex_plugins.js"></script>
+<script src="../../assets/js/ex_main.js"></script>
+<script src="../../assets/js/ex_plugins.js"></script>
 
 </body>
 </html>

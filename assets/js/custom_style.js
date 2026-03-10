@@ -1,15 +1,24 @@
 
 
 function createShootingStar() {
-    const container = document.querySelector('.shooting-stars-container');
+    const container = document.querySelector('#experience .shooting-stars-container');
+    if (!container) {
+        return;
+    }
+
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    if (!width || !height) {
+        return;
+    }
 
     // Create a new shooting star element
     const star = document.createElement('div');
     star.classList.add('shooting-star');
 
     // Randomize the starting position
-    const startX = Math.random() * window.innerWidth; // Random horizontal start
-    const startY = Math.random() * (window.innerHeight / 2); // Top half of screen
+    const startX = Math.random() * width;
+    const startY = Math.random() * (height * 0.45);
 
     // Set initial position
     star.style.left = `${startX}px`;
@@ -28,12 +37,15 @@ function createShootingStar() {
     }, duration * 1000); // Match animation duration
 }
 
-// Generate stars at random intervals
-setInterval(() => {
-    if (Math.random() < 0.3) { // 30% chance per interval
-        createShootingStar();
-    }
-}, 3000); // Every 3 seconds
+const starsContainer = document.querySelector('#experience .shooting-stars-container');
+if (starsContainer) {
+    // Generate stars at random intervals only inside Experience section
+    setInterval(() => {
+        if (Math.random() < 0.3) { // 30% chance per interval
+            createShootingStar();
+        }
+    }, 3000); // Every 3 seconds
+}
 
 
 
@@ -57,7 +69,6 @@ function copyCitation() {
         }, 2000);
     });
 }
-
 
 
 
