@@ -1,5 +1,34 @@
 
 
+function createRandomStarField() {
+    const container = document.querySelector('#experience .twinkling');
+    if (!container) {
+        return;
+    }
+
+    const starCount = Math.max(90, Math.min(220, Math.round(container.clientWidth / 7)));
+    const colors = ['#ffffff', '#dbe8ff', '#fff3c4', '#b8d0ff'];
+    const fragment = document.createDocumentFragment();
+
+    for (let index = 0; index < starCount; index += 1) {
+        const star = document.createElement('span');
+        const size = (Math.random() * 2.2 + 0.7).toFixed(2);
+
+        star.className = 'twinkle-star';
+        star.style.left = `${(Math.random() * 100).toFixed(2)}%`;
+        star.style.top = `${(Math.random() * 100).toFixed(2)}%`;
+        star.style.setProperty('--star-size', `${size}px`);
+        star.style.setProperty('--star-color', colors[Math.floor(Math.random() * colors.length)]);
+        star.style.setProperty('--twinkle-speed', `${(Math.random() * 4.5 + 1.8).toFixed(2)}s`);
+        star.style.setProperty('--twinkle-delay', `${(Math.random() * -7).toFixed(2)}s`);
+        fragment.appendChild(star);
+    }
+
+    container.replaceChildren(fragment);
+}
+
+createRandomStarField();
+
 function createShootingStar() {
     const container = document.querySelector('#experience .shooting-stars-container');
     if (!container) {
@@ -69,6 +98,5 @@ function copyCitation() {
         }, 2000);
     });
 }
-
 
 

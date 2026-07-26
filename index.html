@@ -10,7 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="author" content="Ebasa Temesgen">
 		<meta name="keywords" content="Ebasa, Temesgen, Ebasa Temesgen, Ebasa Girma, Ebasa Girma Temesgen, Temesgen Ebasa">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<meta name="image" property="og:image" content="https://ebasatemesgen.github.io/images/about/NextGenAi.png">
@@ -19,7 +19,7 @@
 		My interests include artificial intelligence, machine learning, robotics, computer vision, and natural language processing.">
 
 	</head>
-	<body class="is-preload">
+	<body>
 
 
 
@@ -37,7 +37,8 @@
 		<ul>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#Publications">Publications</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="#workshops">Workshops</a></li>
             <li><a href="#CommunityOutreach">Outreach</a></li>
 			
 	
@@ -71,7 +72,7 @@
 				</ul>
 			</div>
 			<div class="image">
-				<img src="images/hero/banner.jpg" alt="" />
+				<img src="images/hero/banner.jpg" alt="Ebasa Temesgen" fetchpriority="high" decoding="async" />
 			</div>
 		</section>
 
@@ -326,6 +327,33 @@
 			</div>
 		</div>
 	</section>
+
+	<!-- Workshop Organization -->
+	<section id="workshops" class="workshops-section">
+		<div class="workshops-heading">
+			<p class="section-kicker">Building research communities</p>
+			<h2>Workshop Organization</h2>
+			<p>I help organize forums that bring researchers together around emerging challenges in multi-robot collaboration and contact-rich robotics.</p>
+		</div>
+		<div class="workshop-grid">
+			<a class="workshop-card workshop-card--violet" href="https://physcollabot.github.io/" target="_blank" rel="noopener noreferrer">
+				<span class="workshop-card__number">01</span>
+				<span class="workshop-card__role">Co-organizer</span>
+				<span class="workshop-card__meta">IEEE/RSJ IROS 2026 · Pittsburgh</span>
+				<h3>Tightly Coupled Physical Interaction and Collaboration in Multi-Robot Systems</h3>
+				<p>Bringing together planning, control, and learning researchers to advance physically grounded multi-robot collaboration.</p>
+				<span class="workshop-card__link">Visit workshop <span aria-hidden="true">↗</span></span>
+			</a>
+			<a class="workshop-card workshop-card--coral" href="https://contact-rich-loco-manipulation.github.io/" target="_blank" rel="noopener noreferrer">
+				<span class="workshop-card__number">02</span>
+				<span class="workshop-card__role">Lead organizer</span>
+				<span class="workshop-card__meta">Robotics Workshop</span>
+				<h3>Contact-Rich Loco-Manipulation</h3>
+				<p>Exploring whole-body control, planning, and learning for robots that move through and physically interact with complex environments.</p>
+				<span class="workshop-card__link">Visit workshop <span aria-hidden="true">↗</span></span>
+			</a>
+		</div>
+	</section>
 	
 
 
@@ -333,7 +361,7 @@
 		<!-- Experience -->
 		<section id="experience" class="design-section with-background">
 			<div class="background-container">
-				<img class="moving-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="">
+				<div class="moving-img moon" role="img" aria-label="Animated moon"></div>
 				<div class="stars"></div>
 				<div class="twinkling"></div>
 				<div class="shooting-stars"></div>
@@ -556,6 +584,26 @@
 				</div>
 		</section>
 
+		<section class="farm-feature">
+			<div class="farm-feature__visual">
+				<img src="images/highlighted-projects/farmguard-challenge.gif" alt="FarmGuard drones operating over agricultural fields" loading="lazy" decoding="async">
+			</div>
+			<div class="farm-feature__content">
+				<p class="section-kicker">Farm Robotics Challenge</p>
+				<h2>FarmGuard: Multi-Robot Deer Deterrence</h2>
+				<p>
+					Following our autonomy work with NASA, I led the University of Minnesota’s FarmGuard team in applying robotics to a challenge closer to home: protecting crops. Our aerial multi-robot system combines computer vision, autonomous path planning, and coordinated field patrols to detect and safely deter deer.
+				</p>
+				<p>
+					Developed in collaboration with a local farmer, FarmGuard won the <strong>Excellence in Small Farm Technology Award</strong> at the 2025 Farm Robotics Challenge.
+				</p>
+				<ul class="actions">
+					<li><a href="https://farmrobotics.github.io/" class="button primary" target="_blank" rel="noopener noreferrer">Challenge Website</a></li>
+					<li><a href="https://ebasatemesgen.github.io/FarmGuard/" class="button" target="_blank" rel="noopener noreferrer">Explore FarmGuard</a></li>
+				</ul>
+			</div>
+		</section>
+
 		<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
 			<div class="content">
 				<h2>My Research at Empathic Computing Lab</h2>
@@ -579,7 +627,8 @@
 			</div>
 		</section>
 
-		<!-- Projects  -->
+		<template id="legacy-projects" aria-hidden="true">
+		<!-- Projects moved to projects.html -->
 		<section id="projects" class="wrapper style1 align-center">
 			<div class="inner">
 			<h2>Projects & Activities </h2>
@@ -981,6 +1030,17 @@
 
 
 	
+		</template>
+
+	<section class="projects-cta wrapper style1 align-center">
+		<div class="inner">
+			<p class="section-kicker">Selected work</p>
+			<h2>Explore the Project Archive</h2>
+			<p>Robotics, multi-agent learning, perception, simulation, and human-centered AI, now collected in one dedicated space.</p>
+			<a href="projects.html" class="button primary big">View All Projects</a>
+		</div>
+	</section>
+
 	<section id="student-thank-you" class="wrapper style1 align-center">
 		<div class="inner">
 			<h2>Message from My Student</h2>
@@ -1191,19 +1251,16 @@
 
 			
 			<!-- Font Awesome -->
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-			
 			<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="assets/js/spider.js"></script>
-			<script src="assets/js/navigation.js"></script> 
-				<script src="assets/js/custom_style.js"></script> <!-- Here I have the shoting stars and the ciation copy function -->
+			<script defer src="assets/js/jquery.min.js"></script>
+			<script defer src="assets/js/jquery.scrollex.min.js"></script>
+			<script defer src="assets/js/jquery.scrolly.min.js"></script>
+			<script defer src="assets/js/browser.min.js"></script>
+			<script defer src="assets/js/breakpoints.min.js"></script>
+			<script defer src="assets/js/util.js"></script>
+			<script defer src="assets/js/main.js"></script>
+			<script defer src="assets/js/navigation.js"></script>
+			<script defer src="assets/js/custom_style.js"></script>
 
 
 
