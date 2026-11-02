@@ -304,7 +304,7 @@
 	}
 	function posAt(i, t) {
 		const p = state.world.runs[state.order].paths[i];
-		const k = Math.min(p.length - 1, Math.floor(t));
+		const k = Math.max(0, Math.min(p.length - 1, Math.floor(t)));
 		const n = Math.min(p.length - 1, k + 1);
 		const f = Math.min(1, t - k);
 		return [p[k][0] + (p[n][0] - p[k][0]) * f, p[k][1] + (p[n][1] - p[k][1]) * f];
@@ -499,7 +499,8 @@
 		let last = performance.now();
 		cancelAnimationFrame(raf);
 		const tick = (now) => {
-			const dt = Math.min(0.1, (now - last) / 1000);
+			// the first frame's timestamp can precede `last`; never step backwards
+			const dt = Math.max(0, Math.min(0.1, (now - last) / 1000));
 			last = now;
 			state.t = Math.min(run.makespan, state.t + dt * 4);
 			render();
@@ -578,7 +579,7 @@
 	root.querySelectorAll('.mf__views button').forEach((b) => b.addEventListener('click', () => {
 		state.view = b.dataset.view;
 		root.querySelectorAll('.mf__views button').forEach((x) => x.classList.toggle('is-on', x === b));
-		svg.hidden = state.view !== 'map';
+		svg.toggleAttribute('hidden', state.view !== 'map'); // SVG elements have no .hidden property
 		canvas.hidden = state.view === 'map';
 		render();
 	}));

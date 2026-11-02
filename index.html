@@ -201,7 +201,7 @@
 											<img src="images/highlighted-projects/drill/masspace24-bishop-field-test.jpg" alt="The TRIDENT drill head and auger on its test frame during field testing in Bishop, California" loading="lazy" decoding="async">
 										</div>
 									</div>
-									<figcaption>Left: TRIDENT on NASA's K-REX2 rover in Chile's Atacama Desert (photo: NASA). Tap a dot to learn what each part does, or explore the drill in 3D. Right: TRIDENT field testing at the <button type="button" class="pub-place" data-place="bishop">Bishop Tuff, California</button>.</figcaption>
+									<figcaption><span class="cap-wide">Left: </span>TRIDENT on NASA's K-REX2 rover in Chile's Atacama Desert (photo: NASA). Tap a dot to learn what each part does, or explore the drill in 3D.<span class="cap-wide"> Right: TRIDENT field testing at the <button type="button" class="pub-place" data-place="bishop">Bishop Tuff, California</button>.</span></figcaption>
 								</figure>
 								<div class="pub-card__meta timeline-renamed__event__description">
 									<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://ntrs.nasa.gov/search?q=%22Brian%20Glass%22" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. J. Glass</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
@@ -223,9 +223,23 @@
 							</div>
 							<div class="pub-card__body">
 								<figure class="pub-card__figure pub-card__figure--wide">
-									<div class="dplot" data-interactive="plot" data-telemetry="assets/data/trident-hole7.json" data-figure="images/highlighted-projects/drill/icraws25-choking-fault.jpg">
-										<img class="dplot__fallback" src="images/highlighted-projects/drill/icraws25-choking-fault.jpg" alt="TRIDENT telemetry for hole 7 on Devon Island: bit depth, weight on bit, rate of penetration and auger torque over one hour, with a boulder, a choking fault, a binding recovery and an encountered rock" decoding="async">
+									<div class="pub-roverstage" data-interactive="rover">
+										<!-- the paper's Fig. 1: the rover cut out of the photo breaks out past the top of its frame -->
+										<div class="pub-rover" style="--ar: 1.434; --ax: 0.5; --at: 45%; --ay: 1.02">
+											<div class="pub-rover__layer pub-rover__frame">
+												<img class="pub-rover__bg" src="images/highlighted-projects/drill/icraws25-rover.jpg" alt="" loading="lazy" decoding="async">
+											</div>
+											<div class="pub-rover__layer pub-rover__subject">
+												<img src="images/highlighted-projects/drill/icraws25-rover-cutout.webp" alt="The TRIDENT drill mounted on NASA's K-REX2 rover during the ARADS project" loading="lazy" decoding="async">
+												<button type="button" class="pub-rover__spot" style="--x: 63.5%; --y: 8%" data-part="head"><span>Drill head</span></button>
+												<button type="button" class="pub-rover__spot" style="--x: 61.5%; --y: 26%" data-part="feed"><span>Feed stage</span></button>
+												<button type="button" class="pub-rover__spot" style="--x: 58%; --y: 45%" data-part="arm"><span>Robotic arm</span></button>
+												<button type="button" class="pub-rover__spot" style="--x: 36%; --y: 56%" data-part="krex2"><span>K-REX2 rover</span></button>
+											</div>
+										</div>
+										<div class="trident3d__info pub-rover__info" hidden></div>
 									</div>
+									<figcaption>TRIDENT on NASA's K-REX2 rover during the ARADS project, the paper's Fig. 1 (image: Astrobiology.com). Tap a dot to learn what each part does.</figcaption>
 								</figure>
 								<div class="pub-card__meta timeline-renamed__event__description">
 									<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <a href="https://scholar.google.com/scholar?q=Mario+Jerez+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="mario-jerez">M. Jerez</a>, <a href="https://scholar.google.com/scholar?q=Elsa+Forberger+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="elsa-forberger">E. Forberger</a>, <a href="https://ntrs.nasa.gov/search?q=%22Brian%20Glass%22" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. Glass</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
@@ -371,7 +385,7 @@
 									</p>
 									<div class="pub-actions">
 										<a href="https://arxiv.org/abs/2610.14268" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
-										<a href="Projects/learning-to-sync/" target="_blank" rel="noopener noreferrer" class="pub-link pub-link--project">Project page ↗</a>
+										<a href="Projects/learning-to-sync/" target="_blank" rel="noopener noreferrer" class="pub-link pub-link--project">Project page</a>
 								</div>
 							</div>
 						</div>
@@ -461,6 +475,7 @@
 									</p>
 									<div class="pub-actions">
 										<a href="https://www-users.cse.umn.edu/~gini/publications/papers/Barman2024arms.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+										<a href="Projects/mapf-auction/" target="_blank" rel="noopener noreferrer" class="pub-link">Interactive demo ↗</a>
 								</div>
 							</div>
 						</div>

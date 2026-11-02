@@ -21,19 +21,14 @@ function webglAvailable() {
 
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// MASSpace'24: the real K-REX2 rover breaking out of its photo, with the drill explorable in 3D
-async function setupDrillViewer(box) {
-	const model = box.querySelector('.pub-trident__model');
+// The real K-REX2 rover breaking out of its photo: hotspots on the hardware, and the photo and the
+// cut-out rover shifting by different amounts with the pointer for depth. Used by both rover cards.
+function roverPhoto(box) {
 	const rover = box.querySelector('.pub-rover');
-	const view = box.querySelector('.pub-trident__view');
 	const info = box.querySelector('.pub-rover__info');
 	const spots = box.querySelectorAll('.pub-rover__spot');
-	const modeBtn = box.querySelector('[data-action="mode"]');
-	const deployBtn = box.querySelector('[data-action="deploy"]');
-	const biteBtn = box.querySelector('[data-action="bite"]');
 	const facts = { ...PARTS, ...ROVER_PARTS };
 
-	// hotspots on the real hardware
 	let activeSpot = null;
 	const closeInfo = () => {
 		info.hidden = true;
@@ -55,12 +50,11 @@ async function setupDrillViewer(box) {
 		});
 	});
 
-	// depth: the photo and the cut-out rover shift by different amounts as the pointer moves,
-	// and drift slowly on their own when nobody is pointing at them
+	// drift slowly on their own when nobody is pointing at them
 	const aim = { x: 0, y: 0 };
 	const at = { x: 0, y: 0 };
 	let hovering = false;
-	let parallaxRaf = 0;
+	let raf = 0;
 	rover.addEventListener('pointermove', (e) => {
 		const r = rover.getBoundingClientRect();
 		aim.x = ((e.clientX - r.left) / r.width) * 2 - 1;
@@ -71,7 +65,7 @@ async function setupDrillViewer(box) {
 		hovering = false;
 	});
 	const parallax = (now) => {
-		parallaxRaf = requestAnimationFrame(parallax);
+		raf = requestAnimationFrame(parallax);
 		if (!hovering) {
 			aim.x = Math.sin(now / 2600) * 0.45;
 			aim.y = Math.sin(now / 3900) * 0.25;
@@ -81,6 +75,33 @@ async function setupDrillViewer(box) {
 		rover.style.setProperty('--tx', at.x.toFixed(4));
 		rover.style.setProperty('--ty', at.y.toFixed(4));
 	};
+	return {
+		closeInfo,
+		start() {
+			cancelAnimationFrame(raf);
+			if (!reducedMotion) raf = requestAnimationFrame(parallax);
+		},
+		stop() {
+			cancelAnimationFrame(raf);
+		},
+	};
+}
+
+// ICRA 2025 workshop: the paper's Fig. 1, K-REX2 carrying TRIDENT
+async function setupRover(box) {
+	return roverPhoto(box);
+}
+
+// MASSpace'24: the real K-REX2 rover breaking out of its photo, with the drill explorable in 3D
+async function setupDrillViewer(box) {
+	const model = box.querySelector('.pub-trident__model');
+	const rover = box.querySelector('.pub-rover');
+	const view = box.querySelector('.pub-trident__view');
+	const modeBtn = box.querySelector('[data-action="mode"]');
+	const deployBtn = box.querySelector('[data-action="deploy"]');
+	const biteBtn = box.querySelector('[data-action="bite"]');
+	const photo = roverPhoto(box);
+	const closeInfo = photo.closeInfo;
 
 	// the drill on its own in 3D, built the first time someone asks for it
 	let drill = null;
@@ -135,13 +156,13 @@ async function setupDrillViewer(box) {
 	const controller = {
 		start() {
 			visible = true;
-			cancelAnimationFrame(parallaxRaf);
-			if (mode === 'real' && !reducedMotion) parallaxRaf = requestAnimationFrame(parallax);
+			photo.stop();
+			if (mode === 'real') photo.start();
 			if (mode === '3d' && drill) drill.start();
 		},
 		stop() {
 			visible = false;
-			cancelAnimationFrame(parallaxRaf);
+			photo.stop();
 			if (drill) drill.stop();
 		},
 	};
@@ -170,15 +191,6 @@ async function setupDrillViewer(box) {
 		if (visible) controller.start();
 	});
 	return controller;
-}
-
-// ICRA 2025 workshop: interactive replot of the paper's hole 7 telemetry
-async function setupPlot(box) {
-	const [{ createDrillPlot }, data] = await Promise.all([
-		import('./drillplot.js'),
-		fetch(box.dataset.telemetry).then((r) => r.json()),
-	]);
-	return createDrillPlot(box, data, { reducedMotion });
 }
 
 // Annals: a real satellite map of the two Antarctic sites. It flies in, circles the pair, then
@@ -295,7 +307,7 @@ async function setupSites(box) {
 
 const SETUPS = {
 	trident: setupDrillViewer,
-	plot: setupPlot,
+	rover: setupRover,
 	sites: setupSites,
 };
 
