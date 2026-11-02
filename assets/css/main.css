@@ -9402,88 +9402,667 @@ color: #e0e0e0;
 	text-transform: uppercase;
 }
 
+/* Workshop Organization: same language as the publications. Both workshops as wide cards, one under the
+   other (gradient panel with the workshop's name, the logo and details on the white side); a timeline of
+   real dates beside them marks today. It runs down the side on wide screens and across the top on phones. */
 .workshops-section {
-	padding: 6rem max(1.5rem, 7vw);
-	background: #f7f5f2;
+	padding: 5.5rem max(1.5rem, 7vw) 6rem;
+	background: linear-gradient(180deg, #ffffff, #f6f7fb);
 }
 
 .workshops-heading {
 	max-width: 52rem;
-	margin: 0 auto 2.5rem;
+	margin: 0 auto 2.6rem;
 	text-align: center;
 }
 
-.workshop-grid {
+.workshops-heading h2 {
+	margin-bottom: 0;
+}
+
+.workshops-heading h2::after {
+	content: "";
+	display: block;
+	width: 64px;
+	height: 4px;
+	margin: 16px auto 1.2rem;
+	border-radius: 2px;
+	background: linear-gradient(90deg, #515aac, #24b47e);
+}
+
+.workshops-heading > p:last-child {
+	color: #6b7088;
+}
+
+.ws-chain {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 1.4rem;
+	grid-template-columns: minmax(0, 1fr) 12.5rem;
+	gap: 2.2rem;
 	max-width: 74rem;
 	margin: 0 auto;
 }
 
-.workshop-card {
-	position: relative;
+.ws-stage {
 	display: flex;
-	min-height: 25rem;
-	padding: 2.25rem;
-	overflow: hidden;
 	flex-direction: column;
-	color: white;
-	border-radius: 1.2rem;
-	text-decoration: none;
-	box-shadow: 0 1.1rem 2.8rem rgba(23, 24, 37, 0.13);
-	transition: transform 220ms ease, box-shadow 220ms ease;
+	gap: 2.4rem;
+	min-width: 0;
 }
 
-.workshop-card:hover {
-	transform: translateY(-0.4rem);
-	box-shadow: 0 1.6rem 3.2rem rgba(23, 24, 37, 0.2);
+.ws-panel {
+	display: grid;
+	grid-template-columns: 17rem minmax(0, 1fr);
+	min-width: 0;
+	overflow: hidden;
+	border-radius: 6px;
+	background: #fff;
+	box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
 }
 
-.workshop-card::after {
-	content: "";
-	position: absolute;
-	right: -4rem;
-	bottom: -6rem;
-	width: 16rem;
-	height: 16rem;
-	border: 1px solid rgba(255,255,255,.22);
-	border-radius: 50%;
-	box-shadow: 0 0 0 2.5rem rgba(255,255,255,.05), 0 0 0 5rem rgba(255,255,255,.04);
+.ws-panel.is-flash {
+	animation: wsFlash 1.2s ease;
 }
 
-.workshop-card--violet { background: linear-gradient(145deg, #191c36, #6254b8); }
-.workshop-card--coral { background: linear-gradient(145deg, #2b1720, #c85c61); }
-.workshop-card__number { font-size: 3.5rem; line-height: 1; opacity: .22; }
-.workshop-card__logo {
-	z-index: 1;
-	width: 8.5rem;
-	height: 5rem;
-	padding: .55rem .7rem;
-	object-fit: contain;
-	border: 1px solid rgba(255,255,255,.3);
-	border-radius: 1rem;
-	background: rgba(255,255,255,.94);
-	box-shadow: 0 .6rem 1.4rem rgba(0,0,0,.16);
+@keyframes wsFlash {
+	30% { box-shadow: 0 0 0 4px rgba(36, 180, 126, 0.55), 0 30px 60px -12px rgba(50, 50, 93, 0.25); }
 }
-.workshop-card__role {
-	position: absolute;
-	top: 2rem;
-	right: 2rem;
-	z-index: 1;
-	padding: .4rem .7rem;
-	border: 1px solid rgba(255,255,255,.35);
-	border-radius: 999px;
-	background: rgba(0,0,0,.14);
-	font-size: .68rem;
+
+/* the gradient panel: the workshop's name in white, when and where, the role */
+.ws-side {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 1.6rem;
+	background: var(--ws-grad, linear-gradient(135deg, #515aac, #24b47e));
+	color: #fff;
+	text-align: center;
+}
+
+.ws-side__venue {
+	margin: 0 0 0.45rem;
+	font-size: 0.72rem;
 	font-weight: 700;
-	letter-spacing: .08em;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	opacity: 0.9;
+}
+
+.ws-side .ws-side__title {
+	color: #fff;
+	font-size: 1.08rem;
+	font-weight: 600;
+	line-height: 1.4;
+	letter-spacing: 1.5px;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-bottom: 1px solid rgba(255, 255, 255, 0);
+	transition: border-color 0.2s ease;
+}
+
+.ws-side .ws-side__title:hover,
+.ws-side .ws-side__title:focus-visible {
+	border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+.ws-side__when {
+	margin: 0.9rem 0 1.1rem;
+	font-size: 0.78rem;
+	font-weight: 600;
+	line-height: 1.55;
+	opacity: 0.9;
+}
+
+.ws-role {
+	padding: 0.32rem 0.8rem;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-radius: 999px;
+	font-size: 0.64rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+.ws-role--lead {
+	border-color: transparent;
+	background: linear-gradient(135deg, #fff6d8, #ffe39a);
+	color: #7a4f00;
+	box-shadow: 0 6px 16px -6px rgba(60, 40, 0, 0.45);
+}
+
+/* the details */
+.ws-main {
+	min-width: 0;
+	padding: 1.6rem 2rem 1.8rem;
+	text-align: center;
+}
+
+/* the conference logo sits straight on the white, at the top */
+.ws-logo {
+	display: block;
+	width: auto;
+	max-width: 9rem;
+	height: 3.6rem;
+	margin: 0 auto 0.9rem;
+	object-fit: contain;
+}
+
+.ws-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	margin: 0 0 0.8rem;
+	padding: 0.25rem 0.75rem;
+	border-radius: 999px;
+	background: #f2f3fa;
+	color: #6b7088;
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+}
+
+.is-soon .ws-status {
+	background: rgba(36, 180, 126, 0.12);
+	color: #1d8a61;
+}
+
+.is-soon .ws-status::before {
+	content: "";
+	width: 0.45rem;
+	height: 0.45rem;
+	border-radius: 50%;
+	background: #24b47e;
+	box-shadow: 0 0 0 3px rgba(36, 180, 126, 0.25);
+}
+
+.ws-lede {
+	max-width: 34rem;
+	margin: 0 auto;
+	color: #4a4f63;
+	font-size: 0.94rem;
+	line-height: 1.6;
+}
+
+/* small labels between hairlines, like the research-area kickers */
+.ws-label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	margin: 1.3rem 0 0.7rem;
+	color: #a3a7bd;
+	font-size: 0.64rem;
+	font-weight: 700;
+	letter-spacing: 0.16em;
 	text-transform: uppercase;
 }
-.workshop-card__meta { margin: 2.25rem 0 .65rem; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; }
-.workshop-card h3 { color: white; font-size: clamp(1.45rem, 2.5vw, 2rem); line-height: 1.18; }
-.workshop-card p { color: rgba(255,255,255,.82); }
-.workshop-card__link { z-index: 1; margin-top: auto; font-weight: 700; }
+
+.ws-label::before,
+.ws-label::after {
+	content: "";
+	flex: 0 1 60px;
+	height: 1px;
+	background: #e1e4ef;
+}
+
+.ws-chips {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.4rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ws-chips li {
+	margin: 0;
+	padding: 0.3rem 0.8rem;
+	border-radius: 999px;
+	background: var(--ws-tint, #f2f3fa);
+	color: var(--ws-ink, #515aac);
+	font-size: 0.76rem;
+	font-weight: 600;
+	line-height: 1.35;
+}
+
+.ws-people {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.9rem 0.3rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ws-people li {
+	width: 5.2rem;
+	margin: 0;
+	padding: 0;
+}
+
+.ws-people li,
+.ws-people a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: inherit;
+	text-decoration: none;
+	border: 0;
+}
+
+.ws-people img {
+	width: 3.4rem;
+	height: 3.4rem;
+	margin-bottom: 0.4rem;
+	padding: 2px;
+	border-radius: 50%;
+	object-fit: cover;
+	background: linear-gradient(135deg, #f6a4ec, #87bbfe);
+	box-shadow: 0 6px 14px -6px rgba(50, 50, 93, 0.45);
+	transition: transform 0.2s ease;
+}
+
+.ws-people a:hover img,
+.ws-people a:focus-visible img {
+	transform: translateY(-3px) scale(1.05);
+}
+
+.ws-people b {
+	color: #2b2f45;
+	font-size: 0.74rem;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+.ws-people span {
+	color: #8a8fa8;
+	font-size: 0.68rem;
+	line-height: 1.3;
+}
+
+.ws-team {
+	max-width: 32rem;
+	margin: 1.3rem auto 0;
+	color: #8a8fa8;
+	font-size: 0.8rem;
+	line-height: 1.5;
+}
+
+.ws-links {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: 1rem;
+}
+
+.ws-links .pub-link {
+	display: inline-block;
+	padding: 0.35rem 0.9rem;
+	border-radius: 999px;
+	background: var(--ws-grad, linear-gradient(135deg, #515aac, #24b47e));
+	color: #fff;
+	font-size: 0.82rem;
+	font-weight: 600;
+	text-decoration: none;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* the timeline, vertical: months on the left of the line, workshops and today on the right.
+   Its margins make it the track, so --at (a share of Sep 1 to Dec 1) maps straight to a height. */
+.ws-year {
+	position: relative;
+	min-height: 22rem;
+	margin: 2rem 0;
+	--done: 0%;
+	--x: 2.6rem;
+}
+
+.ws-year__line {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: var(--x);
+	width: 2px;
+	border-radius: 1px;
+	background: #e1e4ef;
+}
+
+.ws-year__done {
+	position: absolute;
+	inset: 0 0 auto 0;
+	height: var(--done);
+	border-radius: inherit;
+	background: linear-gradient(180deg, #515aac, #24b47e);
+}
+
+.ws-year__month {
+	position: absolute;
+	top: var(--at);
+	left: 0;
+	width: calc(var(--x) - 0.7rem);
+	color: #a3a7bd;
+	font-size: 0.62rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	line-height: 1;
+	text-align: right;
+	text-transform: uppercase;
+	white-space: nowrap;
+	transform: translateY(-50%);
+}
+
+.ws-year__month::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: -0.6rem;
+	width: 0.35rem;
+	height: 1px;
+	background: #cdd1e0;
+}
+
+/* the first and last months sit inside the line's ends; the ends themselves mark them */
+.ws-year__month--start {
+	transform: none;
+}
+
+.ws-year__month--end {
+	transform: translateY(-100%);
+}
+
+.ws-year__month--start::before,
+.ws-year__month--end::before {
+	display: none;
+}
+
+.workshops-section .ws-year__stop {
+	position: absolute;
+	top: var(--at);
+	left: calc(var(--x) + 1px - 0.6rem);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.15rem;
+	width: auto;
+	height: auto;
+	max-width: none;
+	margin: 0;
+	padding: 0 0 0 2rem;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	color: inherit !important;
+	font-family: inherit;
+	line-height: 1.25;
+	letter-spacing: 0;
+	text-align: left;
+	text-transform: none;
+	white-space: nowrap;
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+
+.workshops-section .ws-year__stop:focus-visible {
+	outline: 2px solid rgba(81, 90, 172, 0.45);
+	outline-offset: 4px;
+	border-radius: 4px;
+}
+
+.ws-year__stop b {
+	color: #8a8fa8;
+	font-size: 0.66rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+.ws-year__stop span {
+	color: #515aac;
+	font-size: 0.86rem;
+	font-weight: 600;
+	transition: color 0.2s ease;
+}
+
+.ws-year__stop:hover span,
+.ws-year__stop.is-active span {
+	color: #24b47e;
+}
+
+/* the stop's dot: the same pastel as the publication circles; the open workshop's is filled */
+.ws-year__stop::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 1.2rem;
+	height: 1.2rem;
+	margin-top: -0.6rem;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #f6a4ec, #87bbfe);
+	box-shadow: 0 0 0 3px #fff, 0 4px 10px rgba(50, 50, 93, 0.25);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ws-year__stop:hover::after {
+	transform: scale(1.15);
+}
+
+.ws-year__stop.is-active::after {
+	background: linear-gradient(135deg, #515aac, #24b47e);
+	box-shadow: 0 0 0 3px #fff, 0 0 0 6px rgba(36, 180, 126, 0.35);
+}
+
+.ws-year__stop.is-soon::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 1.2rem;
+	height: 1.2rem;
+	margin-top: -0.6rem;
+	border-radius: 50%;
+	background: rgba(36, 180, 126, 0.45);
+	animation: wsPing 2.2s ease-out infinite;
+}
+
+.ws-year__today {
+	position: absolute;
+	top: var(--at);
+	left: calc(var(--x) - 0.4rem);
+	padding-left: 2.4rem;
+	color: #d75f68;
+	font-size: 0.6rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	line-height: 1;
+	text-transform: uppercase;
+	white-space: nowrap;
+	transform: translateY(-50%);
+}
+
+.ws-year__today::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 1.3rem;
+	height: 2px;
+	margin-top: -1px;
+	border-radius: 1px;
+	background: #d75f68;
+}
+
+@keyframes wsPing {
+	0% { transform: scale(1); opacity: 0.9; }
+	100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* narrower screens: the gradient panel becomes a band across the top of the card */
+@media (max-width: 1100px) {
+	.ws-chain {
+		grid-template-columns: minmax(0, 1fr) 10.5rem;
+		gap: 1.5rem;
+	}
+
+	.ws-panel {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.ws-side {
+		padding: 1.4rem 1.6rem;
+	}
+
+	.ws-side__when {
+		margin: 0.5rem 0 0.7rem;
+	}
+}
+
+/* phones: the timeline runs across the top, and the card sizes to the open workshop */
+@media (max-width: 786px) {
+	.ws-chain {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 0;
+	}
+
+	.ws-year {
+		order: -1;
+		min-height: 0;
+		height: 6.6rem;
+		margin: 0 0.4rem 1.2rem;
+	}
+
+	.ws-year__line {
+		top: 3.4rem;
+		bottom: auto;
+		left: 0;
+		right: 0;
+		width: auto;
+		height: 2px;
+	}
+
+	.ws-year__done {
+		inset: 0 auto 0 0;
+		width: var(--done);
+		height: auto;
+		background: linear-gradient(90deg, #515aac, #24b47e);
+	}
+
+	.ws-year__month {
+		top: 4rem;
+		left: var(--at);
+		width: auto;
+		text-align: center;
+		transform: translateX(-50%);
+	}
+
+	.ws-year__month::before {
+		top: -0.62rem;
+		right: auto;
+		left: 50%;
+		width: 1px;
+		height: 0.4rem;
+	}
+
+	.ws-year__month--start {
+		transform: none;
+	}
+
+	.ws-year__month--end {
+		transform: translateX(-100%);
+	}
+
+	.workshops-section .ws-year__stop {
+		top: 0;
+		left: var(--at);
+		align-items: center;
+		padding: 0 0 2rem;
+		text-align: center;
+		transform: translateX(-50%);
+	}
+
+	.ws-year__stop span {
+		font-size: 0.74rem;
+	}
+
+	/* the dot sits on the line (3.4rem down), the date and place above it */
+	.ws-year__stop::after,
+	.ws-year__stop.is-soon::before {
+		top: calc(3.4rem + 1px);
+		left: 50%;
+		margin: -0.6rem 0 0 -0.6rem;
+	}
+
+	.ws-year__today {
+		top: 2.2rem;
+		left: var(--at);
+		padding: 0 0.45rem 0 0;
+		transform: translateX(-100%);
+	}
+
+	.ws-year__today::before {
+		top: 0;
+		left: auto;
+		right: -1px;
+		width: 2px;
+		height: 1.5rem;
+		margin: 0;
+	}
+
+	.ws-stage {
+		gap: 1.8rem;
+	}
+
+	.ws-side {
+		padding: 1.2rem 1.1rem;
+	}
+
+	.ws-logo {
+		height: 3rem;
+	}
+
+	.ws-main {
+		padding: 1.2rem 1rem 1.4rem;
+	}
+
+	.ws-people {
+		gap: 0.8rem 0.2rem;
+	}
+
+	.ws-people li {
+		width: 4.1rem;
+	}
+
+	.ws-people b {
+		font-size: 0.68rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ws-panel.is-flash,
+	.ws-year__stop.is-soon::before {
+		animation: none;
+	}
+}
+
+/* a small chevron for links that leave the card: it slides forward on hover */
+.go {
+	display: inline-block;
+	margin-left: 0.2em;
+	font-weight: 700;
+	transition: transform 0.2s ease;
+}
+
+a:hover > .go,
+a:focus-visible > .go,
+a:hover .project-card__arrow .go,
+a:focus-visible .project-card__arrow .go {
+	transform: translateX(3px);
+}
 
 .experience-title-lockup {
 	display: flex;
@@ -9598,9 +10177,8 @@ color: #e0e0e0;
 .projects-cta { padding: 5rem 1.5rem; background: linear-gradient(135deg, #eef2f3, #fff); }
 
 @media screen and (max-width: 736px) {
-	.workshop-grid, .farm-feature { grid-template-columns: 1fr; }
+	.farm-feature { grid-template-columns: 1fr; }
 	.workshops-section { padding: 4rem 1.25rem; }
-	.workshop-card { min-height: 22rem; padding: 1.6rem; }
 	.farm-feature__visual { min-height: 21rem; }
 	.farm-feature__content { padding: 3rem 1.5rem; }
 }
@@ -10851,7 +11429,8 @@ iframe {
   /* place buttons: look like inline links with a map pin, open the fly-to map */
   .pub-chain button.pub-place,
   .pub-chain button.pub-card__where,
-  .pub-event__venue-band button.pub-card__where {
+  .pub-event__venue-band button.pub-card__where,
+  .lm-card button.pub-card__where {
 	display: inline;
 	width: auto;
 	max-width: none;
@@ -10884,7 +11463,8 @@ iframe {
 
   .pub-chain button.pub-place::before,
   .pub-chain button.pub-card__where::before,
-  .pub-event__venue-band button.pub-card__where::before {
+  .pub-event__venue-band button.pub-card__where::before,
+  .lm-card button.pub-card__where::before {
 	content: "";
 	display: inline-block;
 	width: 0.5em;
@@ -10896,7 +11476,8 @@ iframe {
   }
 
   .pub-chain button.pub-card__where,
-  .pub-event__venue-band button.pub-card__where {
+  .pub-event__venue-band button.pub-card__where,
+  .lm-card button.pub-card__where {
 	color: #ffffff !important;
 	font-size: 0.7rem;
 	font-weight: 600;
@@ -10908,7 +11489,9 @@ iframe {
   .pub-chain button.pub-card__where:hover,
   .pub-chain button.pub-card__where:focus-visible,
   .pub-event__venue-band button.pub-card__where:hover,
-  .pub-event__venue-band button.pub-card__where:focus-visible {
+  .lm-card button.pub-card__where:hover,
+  .pub-event__venue-band button.pub-card__where:focus-visible,
+  .lm-card button.pub-card__where:focus-visible {
 	opacity: 1;
 	text-decoration: underline;
 	text-underline-offset: 3px;
@@ -12178,9 +12761,7 @@ iframe {
 /* Human-Centered AI research area: a plain heading over its four papers */
 .hc-group {
 	position: relative;
-	margin: 44px 0 10px;
-	padding-top: 30px;
-	border-top: 1px solid #e6e8f0;
+	margin: 60px 0 10px;
 }
 
 .hc-group__head {
@@ -12188,14 +12769,51 @@ iframe {
 	margin-bottom: 4px;
 }
 
-.hc-group__head .section-kicker {
-	margin-bottom: 6px;
+/* the kicker sits between two hairlines, so each research area reads as a new chapter */
+.hc-group__head .section-kicker,
+.workshops-heading .section-kicker {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+	margin-bottom: 8px;
+}
+
+.hc-group__head .section-kicker::before,
+.hc-group__head .section-kicker::after,
+.workshops-heading .section-kicker::before,
+.workshops-heading .section-kicker::after {
+	content: "";
+	flex: 0 1 140px;
+	height: 1px;
+	background: linear-gradient(90deg, rgba(215, 95, 104, 0), rgba(215, 95, 104, 0.6));
+}
+
+.hc-group__head .section-kicker::after,
+.workshops-heading .section-kicker::after {
+	background: linear-gradient(90deg, rgba(215, 95, 104, 0.6), rgba(215, 95, 104, 0));
 }
 
 .hc-group__head h3 {
+	display: inline-block;
 	margin: 0;
 	font-size: 1.6rem;
+	font-weight: 600;
 	letter-spacing: 0.02em;
+	background: linear-gradient(135deg, #515aac, #24b47e);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+#Publications > .inner > h2::after {
+	content: "";
+	display: block;
+	width: 64px;
+	height: 4px;
+	margin: 16px auto 0;
+	border-radius: 2px;
+	background: linear-gradient(90deg, #515aac, #24b47e);
 }
 
 .hc-group__head > p:not(.section-kicker) {
@@ -12212,6 +12830,272 @@ iframe {
 	}
 
 	.pub-idea {
+		transition: none;
+	}
+}
+
+/* Legged loco-manipulation showcase cards: the timeline card's gradient venue panel on one side,
+   title, video and links on the other; the second card mirrors the first */
+.lm-group {
+	margin: 34px 0 40px;
+}
+
+.lm-group .hc-group__head {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.lm-group .hc-group__head > p:not(.section-kicker) {
+	margin: 8px auto 0;
+	max-width: 40rem;
+	color: #6b7088;
+}
+
+.lm-group .lm-event {
+	margin: 0 0 48px;
+}
+
+@media (min-width: 787px) {
+	.lm-group .lm-event > .timeline-renamed__event__icon {
+		position: absolute;
+		z-index: 4;
+		top: calc(50% - 40px);
+		left: -104px;
+		margin: 0;
+	}
+
+	.lm-group .lm-event--flip > .timeline-renamed__event__icon {
+		left: auto;
+		right: -104px;
+	}
+}
+
+/* too little margin for the ball beside the card: it rests on the card's outer top corner */
+@media (min-width: 787px) and (max-width: 1179px) {
+	.lm-group .lm-event > .timeline-renamed__event__icon {
+		top: -28px;
+		left: -28px;
+	}
+
+	.lm-group .lm-event--flip > .timeline-renamed__event__icon {
+		left: auto;
+		right: -28px;
+	}
+}
+
+.lm-card {
+	display: grid;
+	flex: 1 1 auto;
+	grid-template-columns: 15rem minmax(0, 1fr);
+	width: 100%;
+	min-width: 0;
+	border-radius: 6px;
+	background: #fff;
+	box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
+}
+
+.lm-card--flip {
+	grid-template-columns: minmax(0, 1fr) 15rem;
+}
+
+.lm-card--flip .lm-side {
+	order: 2;
+	border-radius: 0 6px 6px 0;
+}
+
+.lm-card--flip .lm-main {
+	border-radius: 6px 0 0 6px;
+}
+
+.lm-card .timeline-renamed__event__date.lm-side {
+	justify-content: center;
+	gap: 0.35rem;
+	padding: 2rem 1.4rem;
+	font-size: 1.3rem;
+	line-height: 1.25;
+}
+
+.lm-side__sub {
+	font-size: 0.9rem;
+	font-weight: 600;
+	opacity: 0.92;
+}
+
+.lm-side .pub-card__where {
+	margin-top: 0.2rem;
+}
+
+.lm-award {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	margin: 0.9rem 0 0;
+	padding: 0.34rem 0.85rem;
+	border-radius: 999px;
+	background: linear-gradient(135deg, #fff6d8, #ffe39a);
+	color: #7a4f00;
+	font-size: 0.66rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	line-height: 1.3;
+	text-transform: uppercase;
+	white-space: nowrap;
+	box-shadow: 0 6px 16px -6px rgba(60, 40, 0, 0.45);
+}
+
+.lm-award span {
+	color: #c99700;
+	font-size: 0.85rem;
+}
+
+.lm-main {
+	position: relative;
+	min-width: 0;
+	padding: 1.7rem 2.2rem 1.6rem;
+	border-radius: 0 6px 6px 0;
+	text-align: center;
+}
+
+.lm-card .lm-title {
+	display: block;
+	margin: 0 auto;
+	font-size: 1.05rem;
+}
+
+.lm-lede {
+	max-width: 36rem;
+	margin: 0.6rem auto 0;
+	color: #4a4f63;
+	font-size: 0.94rem;
+	line-height: 1.6;
+}
+
+.lm-player {
+	max-width: 36rem;
+	margin: 1.2rem auto 0;
+}
+
+.lm-screen {
+	position: relative;
+	overflow: hidden;
+	aspect-ratio: 16 / 9;
+	border-radius: 10px;
+	background: #eef0f4;
+	box-shadow: 0 18px 34px -18px rgba(50, 50, 93, 0.55);
+}
+
+.lm-screen video {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: opacity 0.35s ease;
+}
+
+.lm-screen video.is-switching {
+	opacity: 0;
+}
+
+.lm-picks {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.4rem;
+	margin-top: 0.85rem;
+}
+
+.lm-card .lm-picks button {
+	height: auto;
+	max-width: none;
+	padding: 0.34rem 0.9rem;
+	border-radius: 999px;
+	background: #f2f3fa;
+	box-shadow: none;
+	color: #515aac !important;
+	font-family: inherit;
+	font-size: 0.78rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	line-height: 1.3;
+	text-transform: none;
+	transition: background-color 0.2s, color 0.2s;
+}
+
+.lm-card .lm-picks button:hover {
+	background: #e6e8f6;
+}
+
+.lm-card .lm-picks button.is-on {
+	background: linear-gradient(135deg, #515aac, #24b47e);
+	color: #fff !important;
+}
+
+.lm-authors {
+	margin: 1rem 0 0.4rem;
+	font-size: 0.86rem;
+	color: #8a8fa8;
+}
+
+.lm-card .pub-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.lm-card .pub-link {
+	display: inline-block;
+	padding: 0.35rem 0.85rem;
+	border-radius: 999px;
+	background: linear-gradient(135deg, #515aac, #24b47e);
+	color: #fff;
+	font-size: 0.82rem;
+	font-weight: 600;
+	text-decoration: none;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 1100px) {
+	.lm-card {
+		grid-template-columns: 13rem minmax(0, 1fr);
+	}
+
+	.lm-card--flip {
+		grid-template-columns: minmax(0, 1fr) 13rem;
+	}
+
+	.lm-main {
+		padding: 1.5rem 1.6rem 1.4rem;
+	}
+}
+
+/* phones: the venue panel becomes a band across the top, as on the other cards */
+@media (max-width: 786px) {
+	.lm-card,
+	.lm-card--flip {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.lm-card--flip .lm-side {
+		order: 0;
+	}
+
+	.lm-card .timeline-renamed__event__date.lm-side {
+		padding: 1.3rem 1.2rem;
+		border-radius: 6px 6px 0 0;
+		font-size: 1.15rem;
+	}
+
+	.lm-main,
+	.lm-card--flip .lm-main {
+		padding: 1.2rem 0.9rem 1.2rem;
+		border-radius: 0 0 6px 6px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.lm-screen video {
 		transition: none;
 	}
 }
@@ -12236,7 +13120,7 @@ svg {
 
 .wrapper > .inner,
 .workshops-heading,
-.workshop-grid {
+.ws-chain {
 	width: min(100%, 84rem);
 }
 
@@ -12316,25 +13200,6 @@ svg {
 		padding: 3.5rem 1rem;
 	}
 
-	.workshop-card {
-		min-height: 0;
-		padding: 1.4rem;
-	}
-
-	.workshop-card__role {
-		top: 1.25rem;
-		right: 1.25rem;
-	}
-
-	.workshop-card__logo {
-		width: 7rem;
-		height: 4.25rem;
-	}
-
-	.workshop-card__meta {
-		margin-top: 1.75rem;
-	}
-
 	.experience-title-lockup {
 		gap: .75rem;
 	}
@@ -12383,16 +13248,6 @@ svg {
 }
 
 @media screen and (max-width: 380px) {
-	.workshop-card__role {
-		position: static;
-		width: fit-content;
-		margin-bottom: 1rem;
-	}
-
-	.workshop-card__meta {
-		margin-top: .5rem;
-	}
-
 	.with-background .moon {
 		width: 7.5rem;
 		opacity: .6;
@@ -12400,7 +13255,6 @@ svg {
 }
 
 @media (hover: none) {
-	.workshop-card:hover,
 	.project-card:hover {
 		transform: none;
 	}
@@ -12414,316 +13268,209 @@ svg {
 	}
 }
 
-/* Professional development — an editorial mission-path layout. */
+/* Professional development: the workshop card layout, without the timeline, each program in its own
+   gradient (a violet nebula and a Mars dusk) */
 .development-section {
-	--development-ink: #252536;
-	--development-muted: #656578;
-	position: relative;
-	overflow: hidden;
-	padding: clamp(5rem, 9vw, 8rem) max(1.25rem, 7vw);
-	background:
-		radial-gradient(circle at 10% 8%, rgba(98, 84, 184, .11), transparent 28rem),
-		radial-gradient(circle at 92% 88%, rgba(200, 92, 97, .12), transparent 26rem),
-		#f7f5f2;
-	color: var(--development-ink);
+	padding: 5.5rem max(1.5rem, 7vw) 6rem;
+	background: linear-gradient(180deg, #f6f7fb, #ffffff);
 }
 
-.development-section::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	pointer-events: none;
-	background-image: radial-gradient(circle, rgba(98, 84, 184, .24) 0 1px, transparent 1.5px);
-	background-size: 4.5rem 4.5rem;
-	mask-image: linear-gradient(to bottom, black, transparent 78%);
-	opacity: .24;
-}
-
-.development-heading {
-	position: relative;
-	z-index: 1;
-	max-width: 62rem;
-	margin: 0 auto clamp(3rem, 6vw, 5rem);
-	text-align: center;
-}
-
-.development-eyebrow {
-	margin: 0 0 .85rem;
-	color: #6254b8;
-	font-size: .72rem;
-	font-weight: 700;
-	letter-spacing: .2em;
-	text-transform: uppercase;
-}
-
-.development-heading h2 {
-	margin-bottom: .8rem;
-	color: #252536;
-	font-size: clamp(2.3rem, 5vw, 4.5rem);
-	letter-spacing: -.045em;
-}
-
-.development-heading > p:last-child {
-	max-width: 42rem;
-	margin: 0 auto;
-	color: var(--development-muted);
-	font-size: clamp(1rem, 1.6vw, 1.2rem);
-}
-
-.development-path {
-	position: relative;
-	z-index: 1;
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: clamp(1.5rem, 4vw, 4rem);
-	max-width: 78rem;
-	margin: 0 auto;
-}
-
-.development-path::before {
-	content: "";
-	position: absolute;
-	top: 2.2rem;
-	left: 25%;
-	right: 25%;
-	height: 1px;
-	background: linear-gradient(90deg, #6254b8, #c85c61);
-	box-shadow: 0 0 1rem rgba(98, 84, 184, .25);
-}
-
-.development-card {
-	position: relative;
+.dev-stack {
 	display: flex;
-	min-width: 0;
-	min-height: 35rem;
-	padding: clamp(1.6rem, 3vw, 2.5rem);
 	flex-direction: column;
-	border: 1px solid rgba(98, 84, 184, .17);
-	border-radius: 1.5rem;
-	background: linear-gradient(155deg, #ffffff, #f1eef8);
-	box-shadow: 0 1.5rem 3.5rem rgba(45, 39, 80, .12), inset 0 1px #fff;
+	gap: 2.4rem;
+	max-width: 62rem;
+	margin: 0 auto;
 }
 
-.development-card--mission {
-	margin-top: 4.5rem;
-	background: linear-gradient(155deg, #fff, #f9eded);
+.dev-card--nebula {
+	--ws-grad: linear-gradient(135deg, #3f3a9e, #7c4dcc 55%, #c06ad0);
+	--ws-ink: #5b45c4;
+	--ws-tint: #f1eefc;
 }
 
-.development-card__marker {
-	position: absolute;
-	top: -1.25rem;
-	left: 50%;
-	display: grid;
-	width: 2.5rem;
-	height: 2.5rem;
-	place-items: center;
-	transform: translateX(-50%);
-	border: 1px solid #6254b8;
-	border-radius: 50%;
-	background: #fff;
-	color: #6254b8;
-	font-size: .65rem;
-	font-weight: 800;
-	box-shadow: 0 0 0 .45rem #f7f5f2, 0 0 1.4rem rgba(98, 84, 184, .3);
+.dev-card--dusk {
+	--ws-grad: linear-gradient(135deg, #c8436b, #ee6b5f 55%, #f5a65b);
+	--ws-ink: #c2445f;
+	--ws-tint: #fdf0ee;
 }
 
-.development-card--mission .development-card__marker {
-	border-color: #ed8790;
-	color: #b74e55;
-	box-shadow: 0 0 0 .45rem #f7f5f2, 0 0 1.4rem rgba(200, 92, 97, .3);
-}
-
-.development-card__topline {
+.dev-card .ws-main {
 	display: flex;
-	margin: .75rem 0 2rem;
-	justify-content: space-between;
-	gap: 1rem;
-	color: #6254b8;
-	font-size: .69rem;
-	font-weight: 700;
-	letter-spacing: .12em;
-	text-transform: uppercase;
-}
-
-.development-card--mission .development-card__topline { color: #f19aa2; }
-
-.development-card__identity {
-	display: grid;
-	grid-template-columns: 9rem 1fr;
-	gap: 1.5rem;
+	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 }
 
-.development-card__identity img {
+.dev-card .ws-chips {
+	margin-top: 1.1rem;
+}
+
+/* the white L'SPACE logo, drawn as a mask filled with the card's gradient */
+.dev-logo {
 	display: block;
-	width: 9rem;
-	height: 5.75rem;
-	padding: .8rem;
-	object-fit: contain;
-	border-radius: 1rem;
-	background: linear-gradient(145deg, #272442, #6254b8);
-	box-shadow: 0 .7rem 1.8rem rgba(56, 44, 119, .24);
+	width: 8rem;
+	height: 4.7rem;
+	margin: 0 auto 0.5rem;
+	background: var(--ws-grad);
+	-webkit-mask: url("../../images/logos/lspace.png") center / contain no-repeat;
+	mask: url("../../images/logos/lspace.png") center / contain no-repeat;
 }
 
-.development-logo-link {
-	display: block;
-	width: fit-content;
-	border-radius: 1rem;
-	transition: transform 180ms ease, box-shadow 180ms ease;
+.dev-card .dev-done {
+	background: var(--ws-tint);
+	color: var(--ws-ink);
 }
 
-.development-logo-link:hover,
-.development-logo-link:focus-visible {
-	transform: translateY(-3px) rotate(-1deg);
-	box-shadow: 0 0 0 3px rgba(98, 84, 184, .2);
+.dev-card .dev-done::before {
+	content: "✓";
+	font-weight: 800;
 }
 
-.development-card--mission .development-logo-link:hover,
-.development-card--mission .development-logo-link:focus-visible {
-	box-shadow: 0 0 0 3px rgba(200, 92, 97, .2);
+@media (max-width: 786px) {
+	.development-section {
+		padding: 4rem 1rem;
+	}
+
+	.dev-stack {
+		gap: 1.8rem;
+	}
+
+	.dev-logo {
+		width: 6.5rem;
+		height: 3.8rem;
+	}
 }
 
-.development-card--mission .development-card__identity img {
-	background: linear-gradient(145deg, #3b2530, #c85c61);
-	box-shadow: 0 .7rem 1.8rem rgba(150, 64, 70, .22);
+/* About: the bio as before, on the right; on the left, where the lab image was, a soft panel with the three
+   research threads as the publication circles (the same slow fluid), joined by a faint thread */
+.about-section {
+	display: grid;
+	grid-template-columns: minmax(0, 35%) minmax(0, 1fr);
+	align-items: stretch;
+	background: #fff;
 }
 
-.development-card__identity p {
-	margin: 0 0 .55rem;
-	color: var(--development-muted);
-	font-size: .72rem;
-	font-weight: 600;
-	line-height: 1.45;
-	text-transform: uppercase;
-	letter-spacing: .075em;
-}
-
-.development-card h3 {
-	margin: 0;
-	color: #29283a;
-	font-size: clamp(1.5rem, 2.5vw, 2.15rem);
-	line-height: 1.12;
-	letter-spacing: -.025em;
-}
-
-.development-card ul {
-	margin: 2rem 0 2.25rem;
-	padding: 0;
-	list-style: none;
-}
-
-.development-card li {
+.about-balls {
 	position: relative;
-	margin: 0 0 1rem;
-	padding-left: 1.4rem;
-	color: #58586a;
-	font-size: .96rem;
-	line-height: 1.65;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1.6rem;
+	padding: 3.5rem 2rem 3.5rem 22%;
+	background: linear-gradient(160deg, #f6f7fb, #eef0f8);
 }
 
-.development-card li::before {
+/* the thread through the circles' centres */
+.about-balls::before {
 	content: "";
 	position: absolute;
-	top: .68rem;
-	left: 0;
-	width: .45rem;
-	height: .45rem;
-	border-radius: 50%;
-	background: #6254b8;
-	box-shadow: 0 0 .5rem rgba(98, 84, 184, .45);
+	top: 4.5rem;
+	bottom: 4.5rem;
+	left: calc(22% + 2.25rem - 1px);
+	width: 2px;
+	background: linear-gradient(180deg, #f6a4ec, #87bbfe);
+	opacity: 0.45;
 }
 
-.development-card--mission li::before {
-	background: #ed7a84;
-	box-shadow: 0 0 .65rem #ed7a84;
-}
-
-.development-actions {
+.about-ball {
+	position: relative;
 	display: flex;
-	margin-top: auto;
-	flex-wrap: wrap;
-	gap: .7rem;
-}
-
-.development-certificate,
-.development-program-link {
-	display: inline-flex;
-	width: fit-content;
-	padding: .75rem 1rem;
-	gap: .7rem;
 	align-items: center;
-	border: 1px solid rgba(98, 84, 184, .42);
-	border-radius: 999px;
-	color: #51459b;
-	font-size: .78rem;
-	font-weight: 700;
-	letter-spacing: .05em;
+	gap: 1.1rem;
+	width: fit-content;
+	color: #515aac;
 	text-decoration: none;
-	transition: background-color 180ms ease, transform 180ms ease;
+	border: 0;
 }
 
-.development-program-link {
-	border: 1px solid transparent;
-	background: #6254b8;
-	color: #fff;
+.about-ball__orb {
+	position: relative;
+	isolation: isolate;
+	flex: none;
+	width: 4.5rem;
+	height: 4.5rem;
+	border-radius: 50%;
+	box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.development-certificate:hover,
-.development-certificate:focus-visible,
-.development-program-link:hover,
-.development-program-link:focus-visible {
-	background: rgba(98, 84, 184, .09);
-	color: #51459b;
-	transform: translateY(-2px);
+.about-ball__label {
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	transition: color 0.2s ease;
 }
 
-.development-card--mission .development-certificate {
-	border-color: rgba(200, 92, 97, .46);
-	color: #a84950;
+.about-ball:hover .about-ball__orb,
+.about-ball:focus-visible .about-ball__orb {
+	transform: scale(1.08);
+	box-shadow: 0 0 0 4px rgba(135, 187, 254, 0.35), 0 30px 60px -12px rgba(50, 50, 93, 0.25);
 }
 
-.development-card--mission .development-program-link {
-	background: #c85c61;
+.about-ball:hover .about-ball__label,
+.about-ball:focus-visible .about-ball__label {
+	color: #24b47e;
 }
 
-.development-card--mission .development-program-link:hover,
-.development-card--mission .development-program-link:focus-visible {
-	background: rgba(200, 92, 97, .09);
-	color: #a84950;
+.about-text {
+	align-self: center;
+	padding: 5rem 7vw 5rem 6vw;
 }
 
-.development-card--mission .development-certificate:hover,
-.development-card--mission .development-certificate:focus-visible {
-	background: rgba(200, 92, 97, .09);
+.about-text p {
+	margin-bottom: 1.5rem;
 }
 
-@media screen and (max-width: 820px) {
-	.development-path { grid-template-columns: 1fr; }
-	.development-path::before {
-		top: 2rem;
-		bottom: 2rem;
-		left: 1.2rem;
-		right: auto;
-		width: 1px;
-		height: auto;
+/* phones: the circles sit in a row above the bio */
+@media (max-width: 736px) {
+	.about-section {
+		grid-template-columns: minmax(0, 1fr);
 	}
-	.development-card,
-	.development-card--mission {
-		min-height: 0;
-		margin: 0 0 0 2.4rem;
+
+	.about-balls {
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: flex-start;
+		gap: 0.5rem;
+		padding: 2rem 1rem;
 	}
-	.development-card__marker {
-		top: 2rem;
-		left: -2.4rem;
+
+	.about-balls::before {
+		top: calc(2rem + 1.75rem - 1px);
+		bottom: auto;
+		left: 18%;
+		right: 18%;
+		width: auto;
+		height: 2px;
+		background: linear-gradient(90deg, #f6a4ec, #87bbfe);
+	}
+
+	.about-ball {
+		flex-direction: column;
+		gap: 0.6rem;
+		width: 33%;
+		text-align: center;
+	}
+
+	.about-ball__orb {
+		width: 3.5rem;
+		height: 3.5rem;
+	}
+
+	.about-ball__label {
+		font-size: 0.66rem;
+		line-height: 1.35;
+	}
+
+	.about-text {
+		padding: 2.5rem 1.5rem 3rem;
 	}
 }
 
-@media screen and (max-width: 520px) {
-	.development-card__identity { grid-template-columns: 1fr; }
-	.development-card__identity img { width: 8rem; height: 5rem; }
-	.development-card__topline { flex-direction: column; gap: .25rem; }
+@media (prefers-reduced-motion: reduce) {
+	.about-ball__orb {
+		transition: none;
+	}
 }
-  
-
-
-  

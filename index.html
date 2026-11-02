@@ -77,74 +77,38 @@
 		</section>
 
 
-		<!-- Two -->
-		<section id="second" class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
-			<div class="content">
-				<p>I am a Ph.D. Candidate in Computer Science at the University of Minnesota 
-					where I am advised by <a href="https://cse.umn.edu/cs/maria-gini">Prof. Maria L. Gini</a>. 
+		<!-- About: the bio as before; where the lab image was, the three research threads as the publication circles,
+		     each a link down to its papers -->
+		<section id="second" class="about-section">
+			<nav class="about-balls" aria-label="Research threads">
+				<a class="about-ball" href="#loco-manipulation" style="--phase: -2s">
+					<span class="about-ball__orb"><span class="pub-fluid" aria-hidden="true"><i></i><i></i><i></i></span></span>
+					<span class="about-ball__label">Legged loco-manipulation</span>
+				</a>
+				<a class="about-ball" href="#multi-robot" style="--phase: -8s">
+					<span class="about-ball__orb"><span class="pub-fluid" aria-hidden="true"><i></i><i></i><i></i></span></span>
+					<span class="about-ball__label">Multi-robot systems</span>
+				</a>
+				<a class="about-ball" href="#nasa-drill" style="--phase: -14s">
+					<span class="about-ball__orb"><span class="pub-fluid" aria-hidden="true"><i></i><i></i><i></i></span></span>
+					<span class="about-ball__label">Space autonomy</span>
+				</a>
+			</nav>
+			<div class="about-text">
+				<p>I am a Ph.D. Candidate in Computer Science at the University of Minnesota where I am advised by <a href="https://cse.umn.edu/cs/maria-gini">Prof. Maria L. Gini</a>.
 					I received my bachelor’s degree in Electrical and Computer Engineering from Addis Ababa Institute of Technology.
-					My interests include artificial intelligence, machine learning, robotics, computer vision, and 
-					natural language processing. 
+					My research is in robotics, with a focus on legged loco-manipulation, multi-robot systems, and autonomy for space exploration.
 				</p>
-
-				<!-- Social Links -->
-				<div class="inner">	
-					<ul class="icons">
-						<li><a href="https://www.linkedin.com/in/ebasa-temesgen-510709192/" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://github.com/ebasatemesgen" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-						<!-- <li><a href="https://scholar.google.com/citations?user=zbmmAooAAAAJ" class="icon brands style2 fa-google-scholar"><span class="label">Google Scholar</span></a></li> -->
-						<li><a href="https://twitter.com/EbasaTemesgen" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="mailto:temes021@umn.edu" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-				</div>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/ebasa-temesgen-510709192/" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/ebasatemesgen" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://twitter.com/EbasaTemesgen" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="mailto:temes021@umn.edu" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
 			</div>
-			<!-- <div class="image thumb_bokoji" style="position: relative; display: inline-block;">
-				<img src="images/bokoji-e.jpg" alt="Ebasa Temesgen" style="display: block; width: 100%; border-radius: 10px;">
-				<div style="position: absolute; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); color: white; text-align: center; padding: 10px; font-size: 20px;">
-					Me when I was 5 years old in Bokoji, receiving my KG certificate. <br>
-					It's been a long journey since then, which I am grateful for. <br>
-					
-				</div> -->
-
-					<div class="image thumb_umn">
-							<a href="https://cse.umn.edu/cs/maria-gini" class="umn-profile-link" target="_blank" rel="noopener noreferrer"> 
-						<img src="images/about/NextGenAi.png" alt="NextGen AI Lab">
-						</a>
-					</div>
-				
+		</section>
 	</div>
-					
-					
-					
-				
-
-<!-- Three -->
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-	<div class="content">
-	  <h2>Our Multi-Agent Research Group</h2>
-	  <p>
-		As the lead of the Multi-Agent Research Group at the University of Minnesota, 
-		I oversee a dedicated team specializing in multi-agent systems. Our research focuses on distributed decision-making 
-		for autonomous agents and robots, covering areas such as task allocation, exploration of unknown environments, 
-		teamwork for search and rescue, and navigation in dense crowds. We are committed to advancing artificial intelligence through 
-		innovative research and collaboration. I also served as Team Lead for the Farm Robotics Challenge 
-		(<a href="https://www.farmroboticschallenge.ai/air" target="_blank" rel="noopener">farmroboticschallenge.ai/air</a>).
-	  </p>
-  
-	  <ul class="ma-actions">
-		<li>
-		  <a href="https://nextgenai.umn.edu/multi-agent-group" class="ma-btn-learn">Learn More</a>
-		</li>
-		<li>
-		  <a href="https://ebasatemesgen.github.io/FarmGuard/" class="ma-btn-challenge">Farm Robotics Challenge</a>
-		</li>
-	  </ul>
-	</div>
-	<div class="image">
-	  <img src="images/research/multi-agent-group.gif" alt="Multi-Agent Research Group">
-	</div>
-  </section>
-  
+	<!-- /wrapper -->
 
 	<!-- Publications-->
 	<section id="Publications" class="wrapper style1 align-center">
@@ -156,6 +120,103 @@
 				</a>
 			</h2>
 			<div class="timeline-renamed">
+				<!-- Legged loco-manipulation: the two main current projects, each a showcase card with its own films -->
+				<div class="lm-group" id="loco-manipulation">
+					<div class="hc-group__head">
+						<p class="section-kicker">Research area</p>
+						<h3>Legged Loco-Manipulation</h3>
+						<p>Teaching legged robots to move objects with their bodies and arms: pushing furniture, boxes and everyday objects to an exact goal pose, across robots, shapes and physics.</p>
+					</div>
+				
+					<div class="timeline-renamed__event animated fadeInUp lm-event" data-idea="A legged robot with an arm learns where to touch an object and how to push it to a goal, using its legs and arm together, then pushes furniture it never saw in training.">
+						<div class="timeline-renamed__event__icon">
+							<i class="lni-book"></i>
+						</div>
+						<article class="lm-card" data-lm>
+							<div class="timeline-renamed__event__date pub-event__venue-band lm-side">
+								<a class="pub-card__venue" href="https://iros2026.org/" target="_blank" rel="noopener noreferrer">IEEE/RSJ IROS 2026</a>
+								<span class="lm-side__sub">MoMA.v5 Workshop</span>
+								<span class="pub-card__where">Pittsburgh, Pennsylvania</span>
+								<p class="lm-award"><span aria-hidden="true">★</span> Best Poster Award</p>
+							</div>
+							<div class="lm-main">
+								<a class="timeline-renamed__event__title pub-card__title lm-title" href="https://learn2push.github.io/" target="_blank" rel="noopener noreferrer">Learn2Push: Learning Non-Prehensile Manipulation Across Object Families with Legged Mobile Manipulators</a>
+								<p class="lm-lede">A legged robot with an arm learns where to touch an object and how to push it to a goal, coordinating its base and arm, then carries the skill over to furniture it never trained on.</p>
+								<figure class="lm-player">
+									<div class="lm-screen">
+										<video muted playsinline loop preload="none" data-src="https://learn2push.github.io/static/media/videos/modality/box_cylinder_group_am.mp4"></video>
+									</div>
+									<div class="lm-picks" role="group" aria-label="Choose a clip">
+										<button type="button" class="is-on" data-src="https://learn2push.github.io/static/media/videos/modality/box_cylinder_group_am.mp4">Boxes &amp; cylinders</button>
+										<button type="button" data-src="https://learn2push.github.io/static/media/videos/generalization/armchair.mp4">Armchair</button>
+										<button type="button" data-src="https://learn2push.github.io/static/media/videos/generalization/roxana_round_coffee_table_rl_video-step-0.mp4">Coffee table</button>
+										<button type="button" data-src="https://learn2push.github.io/static/media/videos/generalization/chair_wire_cart.mp4">Wire cart</button>
+										<button type="button" data-src="https://learn2push.github.io/static/media/videos/generalization/table_trolley_b01_01_rl_video-step-0.mp4">Trolley</button>
+									</div>
+								</figure>
+								<p class="pub-card__authors lm-authors"><strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://scholar.google.com/scholar?q=Minghao+Zou+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="minghao-zou">M. Zou</a>, <a href="https://scholar.google.com/scholar?q=Xun+Tu+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="xun-tu">X. Tu</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a>, <a href="https://karthikdesingh.com/" target="_blank" rel="noopener noreferrer" data-author="karthik-desingh">K. Desingh</a></p>
+								<div class="pub-actions">
+									<a href="https://learn2push.github.io/" target="_blank" rel="noopener noreferrer" class="pub-link">Project page <span class="go" aria-hidden="true">›</span></a>
+									<a href="https://learn2push.github.io/Learn2Push_IROS2026.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+								</div>
+							</div>
+						</article>
+					</div>
+
+					<div class="timeline-renamed__event animated fadeInUp lm-event lm-event--flip" data-idea="Spot, ANYmal-C and Go1 each learn to push a box or cylinder into place with their whole body, even when the object's shape, weight or friction changes.">
+						<div class="timeline-renamed__event__icon">
+							<i class="lni-book"></i>
+						</div>
+						<article class="lm-card lm-card--flip" data-lm>
+							<div class="timeline-renamed__event__date pub-event__venue-band lm-side">
+								<a class="pub-card__venue" href="https://2026.ieee-icra.org/" target="_blank" rel="noopener noreferrer">IEEE ICRA 2026</a>
+								<span class="lm-side__sub">Contact-Rich Robotics Workshop</span>
+								<button type="button" class="pub-card__where" data-place="vienna">Vienna, Austria</button>
+							</div>
+							<div class="lm-main">
+								<a class="timeline-renamed__event__title pub-card__title lm-title" href="https://quadrupedpushing-cr2.github.io/" target="_blank" rel="noopener noreferrer">Learning Whole-Body Quadrupedal Pushing Across Geometry and Physics Variation</a>
+								<p class="lm-lede">Four-legged robots learn to push objects with their whole body into a goal pose, and keep working as the object's shape, mass and friction change.</p>
+								<figure class="lm-player">
+									<div class="lm-screen">
+										<video muted playsinline loop preload="none" poster="Projects/locomanip/spot-clean.jpg" data-src="Projects/locomanip/spot-clean.mp4"></video>
+									</div>
+									<div class="lm-picks" role="group" aria-label="Choose a robot">
+										<button type="button" class="is-on" data-src="Projects/locomanip/spot-clean.mp4" data-poster="Projects/locomanip/spot-clean.jpg">Spot</button>
+										<button type="button" data-src="Projects/locomanip/anymal-clean.mp4" data-poster="Projects/locomanip/anymal-clean.jpg">ANYmal-C</button>
+										<button type="button" data-src="Projects/locomanip/go1-clean.mp4" data-poster="Projects/locomanip/go1-clean.jpg">Unitree Go1</button>
+									</div>
+								</figure>
+								<p class="pub-card__authors lm-authors"><strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://scholar.google.com/scholar?q=Dhyan+Thakkar+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="dhyan-thakkar">D. Thakkar</a>, <a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
+								<div class="pub-actions">
+									<a href="https://quadrupedpushing-cr2.github.io/" target="_blank" rel="noopener noreferrer" class="pub-link">Project page <span class="go" aria-hidden="true">›</span></a>
+									<a href="https://quadrupedpushing-cr2.github.io/static/docs/ICRA_CR2_2026.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+				<div id="multi-robot" class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type1" data-idea="Robots learn to work as a team: small boxes need one pusher, large boxes need two, and the team learns who pushes what to finish fastest.">
+					<div class="timeline-renamed__event__icon">
+						<i class="lni-book"></i>
+					</div>
+					<div class="timeline-renamed__event__date pub-event__venue-band">
+						<a class="pub-card__venue" href="https://www.is3rlab.org/aaai25-cmasdl-workshop.github.io/" target="_blank" rel="noopener noreferrer">CMASDL at AAAI 2025</a>
+						<button type="button" class="pub-card__where" data-place="philadelphia">Philadelphia, Pennsylvania</button>
+					</div>
+						<div class="timeline-renamed__event__content">
+							<div class="timeline-renamed__event__title">
+								Hierarchical and Heterogeneous MARL for Coordinated Multi-Robot Box-Pushing Environment
+							</div>
+								<div class="timeline-renamed__event__description">
+									<p>
+										Presented at the CMASDL workshop at AAAI 2025.
+									</p>
+									<div class="pub-actions">
+										<a href="https://seboelter.github.io/files/AAAI.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+								</div>
+							</div>
+						</div>
+					</div>
 				<!-- NASA drilling autonomy: one card shows one paper at a time (ICRA 2026 by default); the vertical timeline beside it switches papers.
 				     The interactive figures are built by assets/js/drill/drill-cards.js; places open a real satellite map. -->
 				<div id="nasa-drill" class="pub-chain">
@@ -293,8 +354,8 @@
 									<dd>University of Minnesota · NASA Ames Research Center · FAU Erlangen-Nürnberg</dd>
 									<dt>More</dt>
 									<dd>
-										<a href="https://www.nasa.gov/centers-and-facilities/kennedy/apollo-to-artemis-drilling-on-the-moon/" target="_blank" rel="noopener noreferrer">TRIDENT at NASA ↗</a>
-										<a href="https://www.cs6.tf.fau.de/beitrag-auf-der-ieee-icra-2026-detektion-von-ploetzlichen-messwertaenderungen-im-bereich-der-autonomen-robotik/" target="_blank" rel="noopener noreferrer">ICRA 2026 announcement ↗</a>
+										<a href="https://www.nasa.gov/centers-and-facilities/kennedy/apollo-to-artemis-drilling-on-the-moon/" target="_blank" rel="noopener noreferrer">TRIDENT at NASA <span class="go" aria-hidden="true">›</span></a>
+										<a href="https://www.cs6.tf.fau.de/beitrag-auf-der-ieee-icra-2026-detektion-von-ploetzlichen-messwertaenderungen-im-bereich-der-autonomen-robotik/" target="_blank" rel="noopener noreferrer">ICRA 2026 announcement <span class="go" aria-hidden="true">›</span></a>
 									</dd>
 								</dl>
 							</div>
@@ -367,6 +428,29 @@
 						</div>
 					</div>
 				</div>
+				<div class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type2" data-idea="Many robots, many targets, no collisions: an auction on a map that unrolls over time gives every robot a target and a guaranteed collision-free path.">
+					<div class="timeline-renamed__event__icon">
+						<i class="lni-book"></i>
+					</div>
+					<div class="timeline-renamed__event__date pub-event__venue-band">
+						<a class="pub-card__venue" href="https://aamas2024-conference.auckland.ac.nz/" target="_blank" rel="noopener noreferrer">ARMS at AAMAS 2024</a>
+						<button type="button" class="pub-card__where" data-place="auckland">Auckland, New Zealand</button>
+					</div>
+						<div class="timeline-renamed__event__content">
+							<div class="timeline-renamed__event__title">
+								Multi-agent Path Finding Using Time-Extended Graphs with Auctions
+							</div>
+								<div class="timeline-renamed__event__description">
+									<p>
+										Presented at the ARMS workshop at AAMAS 2024.
+									</p>
+									<div class="pub-actions">
+										<a href="https://www-users.cse.umn.edu/~gini/publications/papers/Barman2024arms.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+										<a href="Projects/mapf-auction/" target="_blank" rel="noopener noreferrer" class="pub-link">Interactive demo <span class="go" aria-hidden="true">›</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
 				<div id="sec-sync" class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type2" data-idea="Each device learns for itself when syncing is worth it: skip, upload, download, or both. The result is less waiting, less energy, and better accuracy.">
 					<div class="timeline-renamed__event__icon">
 						<i class="lni-book"></i>
@@ -386,28 +470,6 @@
 									<div class="pub-actions">
 										<a href="https://arxiv.org/abs/2610.14268" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
 										<a href="Projects/learning-to-sync/" target="_blank" rel="noopener noreferrer" class="pub-link pub-link--project">Project page</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				<div class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type3" data-idea="A four-legged robot learns to push objects with its whole body, and keeps succeeding as the object’s shape and physics change.">
-					<div class="timeline-renamed__event__icon">
-						<i class="lni-book"></i>
-					</div>
-					<div class="timeline-renamed__event__date pub-event__venue-band">
-						<a class="pub-card__venue" href="https://2026.ieee-icra.org/" target="_blank" rel="noopener noreferrer">IEEE ICRA Workshop 2026</a>
-						<button type="button" class="pub-card__where" data-place="vienna">Vienna, Austria</button>
-					</div>
-						<div class="timeline-renamed__event__content">
-							<div class="timeline-renamed__event__title">
-								Learning Whole-Body Quadrupedal Pushing Across Geometry and Physics Variation
-							</div>
-								<div class="timeline-renamed__event__description">
-									<p>
-										Presented at the <em>Path Towards Generalizable Contact-Rich Robotics: Control and Representation</em> workshop at IEEE ICRA 2026.
-									</p>
-									<div class="pub-actions">
-										<a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=zbmmAooAAAAJ&citation_for_view=zbmmAooAAAAJ:LkGwnXOMwfcC" target="_blank" rel="noopener noreferrer" class="pub-link">Scholar</a>
 								</div>
 							</div>
 						</div>
@@ -435,51 +497,7 @@
 							</div>
 						</div>
 					</div>
-				<div class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type1" data-idea="Robots learn to work as a team: small boxes need one pusher, large boxes need two, and the team learns who pushes what to finish fastest.">
-					<div class="timeline-renamed__event__icon">
-						<i class="lni-book"></i>
-					</div>
-					<div class="timeline-renamed__event__date pub-event__venue-band">
-						<a class="pub-card__venue" href="https://www.is3rlab.org/aaai25-cmasdl-workshop.github.io/" target="_blank" rel="noopener noreferrer">CMASDL at AAAI 2025</a>
-						<button type="button" class="pub-card__where" data-place="philadelphia">Philadelphia, Pennsylvania</button>
-					</div>
-						<div class="timeline-renamed__event__content">
-							<div class="timeline-renamed__event__title">
-								Hierarchical and Heterogeneous MARL for Coordinated Multi-Robot Box-Pushing Environment
-							</div>
-								<div class="timeline-renamed__event__description">
-									<p>
-										Presented at the CMASDL workshop at AAAI 2025.
-									</p>
-									<div class="pub-actions">
-										<a href="https://seboelter.github.io/files/AAAI.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				<div class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type2" data-idea="Many robots, many targets, no collisions: an auction on a map that unrolls over time gives every robot a target and a guaranteed collision-free path.">
-					<div class="timeline-renamed__event__icon">
-						<i class="lni-book"></i>
-					</div>
-					<div class="timeline-renamed__event__date pub-event__venue-band">
-						<a class="pub-card__venue" href="https://aamas2024-conference.auckland.ac.nz/" target="_blank" rel="noopener noreferrer">ARMS at AAMAS 2024</a>
-						<button type="button" class="pub-card__where" data-place="auckland">Auckland, New Zealand</button>
-					</div>
-						<div class="timeline-renamed__event__content">
-							<div class="timeline-renamed__event__title">
-								Multi-agent Path Finding Using Time-Extended Graphs with Auctions
-							</div>
-								<div class="timeline-renamed__event__description">
-									<p>
-										Presented at the ARMS workshop at AAMAS 2024.
-									</p>
-									<div class="pub-actions">
-										<a href="https://www-users.cse.umn.edu/~gini/publications/papers/Barman2024arms.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
-										<a href="Projects/mapf-auction/" target="_blank" rel="noopener noreferrer" class="pub-link">Interactive demo ↗</a>
-								</div>
-							</div>
-						</div>
-					</div>
+
 				<!-- Human-Centered AI: four papers that form one line of work, oldest at the bottom -->
 				<div class="hc-group" id="human-centered">
 					<div class="hc-group__head">
@@ -581,30 +599,126 @@
 		</div>
 	</section>
 
-	<!-- Workshop Organization -->
+<!-- Multi-Agent Research Group (after the research) -->
+<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+	<div class="content">
+	  <h2>Our Multi-Agent Research Group</h2>
+	  <p>
+		As the lead of the Multi-Agent Research Group at the University of Minnesota, 
+		I oversee a dedicated team specializing in multi-agent systems. Our research focuses on distributed decision-making 
+		for autonomous agents and robots, covering areas such as task allocation, exploration of unknown environments, 
+		teamwork for search and rescue, and navigation in dense crowds. We are committed to advancing artificial intelligence through 
+		innovative research and collaboration. I also served as Team Lead for the Farm Robotics Challenge 
+		(<a href="https://www.farmroboticschallenge.ai/air" target="_blank" rel="noopener">farmroboticschallenge.ai/air</a>).
+	  </p>
+  
+	  <ul class="ma-actions">
+		<li>
+		  <a href="https://nextgenai.umn.edu/multi-agent-group" class="ma-btn-learn">Learn More</a>
+		</li>
+		<li>
+		  <a href="https://ebasatemesgen.github.io/FarmGuard/" class="ma-btn-challenge">Farm Robotics Challenge</a>
+		</li>
+	  </ul>
+	</div>
+	<div class="image">
+	  <img src="images/research/multi-agent-group.gif" alt="Multi-Agent Research Group">
+	</div>
+  </section>
+
+	<!-- Workshop Organization: both workshops as wide cards, one under the other; the timeline beside them (vertical on
+	     wide screens, across the top on phones) places both and today in time, and a date brings its card into view.
+	     assets/js/workshops.js adds the live status, the today marker and the scrolling. -->
 	<section id="workshops" class="workshops-section">
 		<div class="workshops-heading">
 			<p class="section-kicker">Building research communities</p>
 			<h2>Workshop Organization</h2>
 			<p>I help organize forums that bring researchers together around emerging challenges in multi-robot collaboration and contact-rich robotics.</p>
 		</div>
-		<div class="workshop-grid">
-			<a class="workshop-card workshop-card--violet" href="https://physcollabot.github.io/" target="_blank" rel="noopener noreferrer">
-				<img class="workshop-card__logo" src="images/logos/iros-2026.png" alt="IROS 2026 Pittsburgh conference logo">
-				<span class="workshop-card__role">Co-organizer</span>
-				<span class="workshop-card__meta">IEEE/RSJ IROS 2026 · Pittsburgh</span>
-				<h3>Tightly Coupled Physical Interaction and Collaboration in Multi-Robot Systems</h3>
-				<p>Bringing together planning, control, and learning researchers to advance physically grounded multi-robot collaboration.</p>
-				<span class="workshop-card__link">Visit workshop <span aria-hidden="true">↗</span></span>
-			</a>
-			<a class="workshop-card workshop-card--coral" href="https://contact-rich-loco-manipulation.github.io/" target="_blank" rel="noopener noreferrer">
-				<img class="workshop-card__logo" src="images/logos/corl-2026.png" alt="CoRL 2026 Austin conference logo">
-				<span class="workshop-card__role">Lead organizer</span>
-				<span class="workshop-card__meta">CoRL 2026 · Austin</span>
-				<h3>Contact-Rich Loco-Manipulation</h3>
-				<p>Exploring whole-body control, planning, and learning for robots that move through and physically interact with complex environments.</p>
-				<span class="workshop-card__link">Visit workshop <span aria-hidden="true">↗</span></span>
-			</a>
+
+		<div class="ws-chain">
+			<div class="ws-stage">
+				<article class="ws-panel" id="ws-iros" data-start="2026-09-27" data-hours="1:30–5:30 PM">
+					<div class="ws-side">
+						<p class="ws-side__venue">IEEE/RSJ IROS 2026</p>
+						<a class="ws-side__title" href="https://physcollabot.github.io/" target="_blank" rel="noopener noreferrer">Tightly Coupled Physical Interaction and Collaboration in Multi-Robot Systems</a>
+						<p class="ws-side__when">Sep 27, 2026 · 1:30–5:30 PM<br>Room 319 · Pittsburgh</p>
+						<span class="ws-role">Co-organizer</span>
+					</div>
+					<div class="ws-main">
+						<img class="ws-logo" src="images/logos/iros-2026.png" alt="IROS 2026 Pittsburgh">
+						<p class="ws-status" data-ws-status>September 27, 2026</p>
+						<p class="ws-lede">Moving multi-robot research from loosely coupled coordination toward robots that physically work together, as in collaborative construction, cooperative manufacturing and logistics.</p>
+						<p class="ws-label">Core challenges</p>
+						<ul class="ws-chips">
+							<li>Reasoning about physical contact</li>
+							<li>Long-horizon task dependencies</li>
+							<li>Scaling single-robot skills to teams</li>
+						</ul>
+						<p class="ws-label">Invited speakers</p>
+						<ul class="ws-people">
+							<li><img src="images/workshops/alonso-mora.jpg" alt="" loading="lazy"><b>Javier Alonso-Mora</b><span>TU Delft</span></li>
+							<li><img src="images/workshops/kavraki.jpg" alt="" loading="lazy"><b>Lydia Kavraki</b><span>Rice</span></li>
+							<li><img src="images/workshops/jiaoyang-li.jpg" alt="" loading="lazy"><b>Jiaoyang Li</b><span>CMU</span></li>
+							<li><img src="images/workshops/mavrogiannis.jpg" alt="" loading="lazy"><b>Christoforos Mavrogiannis</b><span>Michigan</span></li>
+							<li><img src="images/workshops/sartoretti.jpg" alt="" loading="lazy"><b>Guillaume Sartoretti</b><span>NUS</span></li>
+						</ul>
+						<p class="ws-team">Organized with nine researchers from Georgia Tech, USC, Penn, Michigan and MIT.</p>
+						<div class="ws-links">
+							<a class="pub-link" href="https://physcollabot.github.io/" target="_blank" rel="noopener noreferrer">Workshop site <span class="go" aria-hidden="true">›</span></a>
+							<a class="pub-link" href="https://physcollabot.github.io/program/" target="_blank" rel="noopener noreferrer">Program <span class="go" aria-hidden="true">›</span></a>
+						</div>
+					</div>
+				</article>
+
+				<article class="ws-panel" id="ws-corl" data-start="2026-11-12" data-hours="2:00–6:00 PM">
+					<div class="ws-side">
+						<p class="ws-side__venue">CoRL 2026</p>
+						<a class="ws-side__title" href="https://contact-rich-loco-manipulation.github.io/" target="_blank" rel="noopener noreferrer">Open Problems in Contact-Rich Loco-Manipulation</a>
+						<p class="ws-side__when">Nov 12, 2026 · 2:00–6:00 PM<br>Austin, Texas</p>
+						<span class="ws-role ws-role--lead">Lead organizer</span>
+					</div>
+					<div class="ws-main">
+						<img class="ws-logo" src="images/logos/corl-2026.png" alt="CoRL 2026 Austin">
+						<p class="ws-status" data-ws-status>November 12, 2026</p>
+						<p class="ws-lede">A half-day workshop on how robots decide, sense and control contact while moving through the world, from grasping and carrying to pushing, dragging and bracing.</p>
+						<p class="ws-label">Core challenges</p>
+						<ul class="ws-chips">
+							<li>Choosing the contact mode</li>
+							<li>Whole-body coordination</li>
+							<li>Reasoning under uncertainty</li>
+							<li>Generalizing across robots</li>
+							<li>Benchmarks and metrics</li>
+						</ul>
+						<p class="ws-label">Invited speakers</p>
+						<ul class="ws-people">
+							<li><a href="https://web.engr.oregonstate.edu/~afern/" target="_blank" rel="noopener noreferrer"><img src="images/workshops/fern.jpg" alt="" loading="lazy"><b>Alan Fern</b><span>Oregon State</span></a></li>
+							<li><a href="https://pangtao.xyz/" target="_blank" rel="noopener noreferrer"><img src="images/workshops/tao-pang.jpg" alt="" loading="lazy"><b>Tao Pang</b><span>RAI Institute</span></a></li>
+							<li><a href="https://people.csail.mit.edu/pulkitag/" target="_blank" rel="noopener noreferrer"><img src="images/workshops/agrawal.jpg" alt="" loading="lazy"><b>Pulkit Agrawal</b><span>MIT</span></a></li>
+							<li><a href="https://roboti.us/lab/index.html" target="_blank" rel="noopener noreferrer"><img src="images/workshops/todorov.jpg" alt="" loading="lazy"><b>Emo Todorov</b><span>Roboti · UW</span></a></li>
+						</ul>
+						<p class="ws-team">Organized with Karthik Desingh, Maria Gini, Abhishek Gupta, Kuan Fang, Iretiayo Akinola and Liangyan Gui.</p>
+						<div class="ws-links">
+							<a class="pub-link" href="https://contact-rich-loco-manipulation.github.io/" target="_blank" rel="noopener noreferrer">Workshop site <span class="go" aria-hidden="true">›</span></a>
+							<a class="pub-link" href="https://contact-rich-loco-manipulation.github.io/program/" target="_blank" rel="noopener noreferrer">Program <span class="go" aria-hidden="true">›</span></a>
+							<a class="pub-link" href="https://openreview.net/group?id=robot-learning.org/CoRL/2026/Workshop/Contact-Rich_Loco-Manipulation" target="_blank" rel="noopener noreferrer">Papers <span class="go" aria-hidden="true">›</span></a>
+						</div>
+					</div>
+				</article>
+			</div>
+
+			<div class="ws-year" data-ws-year data-from="2026-09-01" data-to="2026-12-01">
+				<div class="ws-year__line"><span class="ws-year__done"></span></div>
+				<span class="ws-year__month ws-year__month--start" style="--at: 0%">Sep</span>
+				<span class="ws-year__month" style="--at: 33%">Oct</span>
+				<span class="ws-year__month" style="--at: 67%">Nov</span>
+				<span class="ws-year__month ws-year__month--end" style="--at: 100%">Dec</span>
+				<div class="ws-year__stops">
+					<button type="button" class="ws-year__stop" style="--at: 28.6%" data-target="ws-iros"><b>Sep 27</b><span>IROS · Pittsburgh</span></button>
+					<button type="button" class="ws-year__stop" style="--at: 79.1%" data-target="ws-corl"><b>Nov 12</b><span>CoRL · Austin</span></button>
+				</div>
+				<span class="ws-year__today" hidden>Today</span>
+			</div>
 		</div>
 	</section>
 	
@@ -724,59 +838,47 @@
 				</div>
 				</section>
 
-	<!-- Professional Development -->
+	<!-- Professional Development: the workshop card layout, each program in its own gradient; the white L'SPACE
+	     logo is drawn as a mask filled with that gradient, so it sits on the white side -->
 	<section id="professional-development" class="development-section">
-		<div class="development-heading">
-			<p class="development-eyebrow">NASA L’SPACE · Completed Programs</p>
+		<div class="workshops-heading">
+			<p class="section-kicker">NASA L’SPACE · Completed programs</p>
 			<h2>Professional Development</h2>
 		</div>
-		<div class="development-path">
-			<article class="development-card development-card--writing">
-				<div class="development-card__marker" aria-hidden="true">01</div>
-				<div class="development-card__topline">
-					<span>Jan 2025 – May 2025</span>
+		<div class="dev-stack">
+			<article class="ws-panel dev-card dev-card--nebula">
+				<div class="ws-side">
+					<p class="ws-side__venue">NASA L’SPACE · NPWEE</p>
+					<a class="ws-side__title" href="https://www.lspace.asu.edu/proposal-writing-academy" target="_blank" rel="noopener noreferrer">Proposal and Writing Evaluation Experience</a>
+					<p class="ws-side__when">Jan – May 2025</p>
+					<span class="ws-role">Principal Investigator</span>
 				</div>
-				<div class="development-card__identity">
-					<a class="development-logo-link" href="https://www.lspace.asu.edu/proposal-writing-academy" target="_blank" rel="noopener noreferrer" aria-label="Visit the official L’SPACE NPWEE program page">
-						<img src="images/logos/lspace.png" alt="L’SPACE">
-					</a>
-					<div>
-						<p>Principal Investigator · Professional Development Training</p>
-						<h3>Proposal and Writing Evaluation Experience</h3>
+				<div class="ws-main">
+					<span class="dev-logo" role="img" aria-label="L’SPACE"></span>
+					<p class="ws-status dev-done">Completed · certified</p>
+					<p class="ws-lede">A NASA-supported program on writing research proposals and reviewing them the way NASA panels do.</p>
+					<div class="ws-links">
+						<a class="pub-link" href="https://www.lspace.asu.edu/proposal-writing-academy" target="_blank" rel="noopener noreferrer">Program <span class="go" aria-hidden="true">›</span></a>
+						<a class="pub-link" href="recognition/Certificate%20of%20Completion%20NPWEE%20Spring%202025%20L'SPACE%20Ebasa%20Temesgen%20(1).pdf" target="_blank" rel="noopener noreferrer">Certificate <span class="go" aria-hidden="true">›</span></a>
 					</div>
-				</div>
-				<ul>
-					<li>Participated in a NASA-supported workforce development program focused on research proposal development, technical writing, mission concept development, and proposal evaluation using NASA-style standards and review processes.</li>
-					<li>Received an official certificate of participation upon successful completion of the program.</li>
-				</ul>
-				<div class="development-actions">
-					<a class="development-program-link" href="https://www.lspace.asu.edu/proposal-writing-academy" target="_blank" rel="noopener noreferrer">Official NPWEE program <span aria-hidden="true">↗</span></a>
-					<a class="development-certificate" href="recognition/Certificate%20of%20Completion%20NPWEE%20Spring%202025%20L'SPACE%20Ebasa%20Temesgen%20(1).pdf" target="_blank" rel="noopener noreferrer">View certificate <span aria-hidden="true">↗</span></a>
 				</div>
 			</article>
 
-			<article class="development-card development-card--mission">
-				<div class="development-card__marker" aria-hidden="true">02</div>
-				<div class="development-card__topline">
-					<span>Sep 2024 – Jan 2025</span>
+			<article class="ws-panel dev-card dev-card--dusk">
+				<div class="ws-side">
+					<p class="ws-side__venue">NASA L’SPACE · MCA</p>
+					<a class="ws-side__title" href="https://www.lspace.asu.edu/mission-concept-academy" target="_blank" rel="noopener noreferrer">Mission Concept Academy</a>
+					<p class="ws-side__when">Sep 2024 – Jan 2025</p>
+					<span class="ws-role">C&amp;DH Engineer</span>
 				</div>
-				<div class="development-card__identity">
-					<a class="development-logo-link" href="https://www.lspace.asu.edu/mission-concept-academy" target="_blank" rel="noopener noreferrer" aria-label="Visit the official L’SPACE Mission Concept Academy page">
-						<img src="images/logos/lspace.png" alt="L’SPACE">
-					</a>
-					<div>
-						<p>Command and Data Handling Engineer · Professional Development Training</p>
-						<h3>Mission Concept Academy</h3>
+				<div class="ws-main">
+					<span class="dev-logo" role="img" aria-label="L’SPACE"></span>
+					<p class="ws-status dev-done">Completed · certified</p>
+					<p class="ws-lede">Led the Command and Data Handling subsystem of a robotic lunar mission, from trade studies to the Preliminary Design Review.</p>
+					<div class="ws-links">
+						<a class="pub-link" href="https://www.lspace.asu.edu/mission-concept-academy" target="_blank" rel="noopener noreferrer">Program <span class="go" aria-hidden="true">›</span></a>
+						<a class="pub-link" href="recognition/Certificate%20of%20Completion%20Fall%202024%20L'SPACE%20Ebasa%20Temesgen%20(3).pdf" target="_blank" rel="noopener noreferrer">Certificate <span class="go" aria-hidden="true">›</span></a>
 					</div>
-				</div>
-				<ul>
-					<li>Led development of the Command and Data Handling subsystem for a robotic lunar exploration mission, collaborating with mentors and teammates through the mission lifecycle up to the Preliminary Design Review.</li>
-					<li>Performed subsystem trade studies to satisfy mass, power, cost, schedule, and cross-system compatibility constraints.</li>
-					<li>Received an official certificate of participation upon successful completion of the program.</li>
-				</ul>
-				<div class="development-actions">
-					<a class="development-program-link" href="https://www.lspace.asu.edu/mission-concept-academy" target="_blank" rel="noopener noreferrer">Official MCA program <span aria-hidden="true">↗</span></a>
-					<a class="development-certificate" href="recognition/Certificate%20of%20Completion%20Fall%202024%20L'SPACE%20Ebasa%20Temesgen%20(3).pdf" target="_blank" rel="noopener noreferrer">View certificate <span aria-hidden="true">↗</span></a>
 				</div>
 			</article>
 		</div>
@@ -1542,6 +1644,8 @@
 				{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
 			</script>
 			<script defer src="assets/js/pub-circles.js"></script>
+			<script defer src="assets/js/locomanip.js"></script>
+			<script defer src="assets/js/workshops.js"></script>
 			<script type="module" src="assets/js/drill/drill-cards.js"></script>
 
 

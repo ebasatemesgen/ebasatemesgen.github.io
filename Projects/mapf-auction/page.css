@@ -595,3 +595,16 @@ button:focus-visible {
 		padding: 20px 16px 32px;
 	}
 }
+
+/* chevron after outbound links: it slides forward on hover */
+.go {
+	display: inline-block;
+	margin-left: 0.2em;
+	font-weight: 700;
+	transition: transform 0.2s ease;
+}
+
+a:hover > .go,
+a:focus-visible > .go {
+	transform: translateX(3px);
+}

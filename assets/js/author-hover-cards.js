@@ -88,6 +88,30 @@
 			initials: 'MW',
 			affiliations: [{ name: 'NASA Ames Research Center', logo: nasaLogo, href: 'https://www.nasa.gov/ames/' }]
 		},
+		'minghao-zou': {
+			name: 'Minghao Zou',
+			href: 'https://scholar.google.com/scholar?q=Minghao+Zou+University+of+Minnesota',
+			initials: 'MZ',
+			affiliations: [university]
+		},
+		'xun-tu': {
+			name: 'Xun Tu',
+			href: 'https://scholar.google.com/scholar?q=Xun+Tu+University+of+Minnesota',
+			initials: 'XT',
+			affiliations: [university]
+		},
+		'karthik-desingh': {
+			name: 'Karthik Desingh',
+			href: 'https://karthikdesingh.com/',
+			initials: 'KD',
+			affiliations: [university]
+		},
+		'dhyan-thakkar': {
+			name: 'Dhyan Thakkar',
+			href: 'https://scholar.google.com/scholar?q=Dhyan+Thakkar+University+of+Minnesota',
+			initials: 'DT',
+			affiliations: [university]
+		},
 		'maria-gini': {
 			name: 'Maria Gini',
 			href: 'https://cse.umn.edu/cs/maria-gini',

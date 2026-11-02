@@ -213,7 +213,7 @@ export async function openPlace(key) {
 			if (overlayMap === map) flyTo(map, place);
 		}, 500);
 	} catch (e) {
-		host.innerHTML = `<p class="place-overlay__error">The map could not load. <a href="https://www.openstreetmap.org/#map=${Math.round(place.zoom)}/${place.center[1]}/${place.center[0]}" target="_blank" rel="noopener noreferrer">Open ${place.name} in OpenStreetMap ↗</a></p>`;
+		host.innerHTML = `<p class="place-overlay__error">The map could not load. <a href="https://www.openstreetmap.org/#map=${Math.round(place.zoom)}/${place.center[1]}/${place.center[0]}" target="_blank" rel="noopener noreferrer">Open ${place.name} in OpenStreetMap ›</a></p>`;
 	}
 }
 

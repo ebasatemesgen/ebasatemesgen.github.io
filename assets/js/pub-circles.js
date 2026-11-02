@@ -22,7 +22,7 @@
 
 	events.forEach((ev, n) => {
 		const icon = ev.querySelector('.timeline-renamed__event__icon');
-		const card = ev.querySelector('.timeline-renamed__event__content');
+		const card = ev.querySelector('.timeline-renamed__event__content, .lm-main');
 		if (!icon || !card) return;
 		const human = !!ev.closest('.hc-group');
 
