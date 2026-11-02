@@ -40,6 +40,61 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	document.querySelectorAll('.pub-chain').forEach((chain) => {
+		const tabs = Array.from(chain.querySelectorAll('.pub-chain__tab'));
+		const panels = chain.querySelectorAll('.pub-chain__panel');
+
+		const selectTab = (tab) => {
+			tabs.forEach((other) => {
+				const isActive = other === tab;
+				other.classList.toggle('is-active', isActive);
+				other.setAttribute('aria-selected', String(isActive));
+				other.tabIndex = isActive ? 0 : -1;
+			});
+
+			panels.forEach((panel) => {
+				const isActive = panel.id === tab.getAttribute('aria-controls');
+				panel.classList.toggle('is-active', isActive);
+				if (!isActive) {
+					panel.querySelectorAll('video').forEach((video) => video.pause());
+				}
+			});
+		};
+
+		tabs.forEach((tab, index) => {
+			tab.addEventListener('click', () => selectTab(tab));
+
+			tab.addEventListener('keydown', (event) => {
+				const step = { ArrowDown: 1, ArrowUp: -1 }[event.key];
+				if (!step) {
+					return;
+				}
+				event.preventDefault();
+				const next = tabs[(index + step + tabs.length) % tabs.length];
+				next.focus();
+				selectTab(next);
+			});
+		});
+	});
+
+	document.querySelectorAll('.pub-more-toggle').forEach((moreToggle) => {
+		const morePanel = document.getElementById(moreToggle.getAttribute('aria-controls'));
+		const moreLabel = moreToggle.querySelector('.pub-more-toggle__label');
+		if (!morePanel) {
+			return;
+		}
+
+		moreToggle.addEventListener('click', () => {
+			const isExpanded = morePanel.hidden;
+			morePanel.hidden = !isExpanded;
+			moreToggle.setAttribute('aria-expanded', String(isExpanded));
+
+			if (moreLabel) {
+				moreLabel.textContent = isExpanded ? 'Show less' : 'Learn more';
+			}
+		});
+	});
+
 	const experienceTimeline = document.querySelector('#experience .timeline');
 	const experienceToggle = document.getElementById('experience-toggle');
 	const experienceLabel = experienceToggle ? experienceToggle.querySelector('.experience-toggle__label') : null;

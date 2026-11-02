@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Multi-Agent Path Finding with Auctions | Ebasa Temesgen</title>
+	<meta name="description" content="Interactive demo: robots bid for their paths in a time-extended graph, and each winner reserves its path in space and time so no two robots collide (ARMS @ AAMAS 2024).">
+	<link rel="icon" href="../../images/favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap">
+	<link rel="stylesheet" href="page.css">
+</head>
+<body>
+	<header class="top">
+		<a href="../../index.html#Publications">← Ebasa Temesgen</a>
+		<a class="top__paper" href="https://www-users.cse.umn.edu/~gini/publications/papers/Barman2024arms.pdf" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+	</header>
+
+	<main>
+		<section class="hero">
+			<p class="kicker">ARMS Workshop at AAMAS 2024 · Auckland, New Zealand</p>
+			<h1>Multi-Agent Path Finding Using Time-Extended Graphs with Auctions</h1>
+			<p class="authors">Simanta Barman, Angel Sylvester, <b>Ebasa Temesgen</b>, Michael W. Levin, Maria Gini · University of Minnesota</p>
+			<p class="lede">Many robots, each with its own goal, share one floor. Every robot bids for its shortest route; the auction decides who plans first, and each winner reserves its path in <em>space and time</em>, so the paths can never collide.</p>
+		</section>
+
+		<!-- interactive demo: built by mapf.js, a browser port of the paper's code -->
+		<section class="demo" data-mapf></section>
+
+		<section class="how">
+			<div>
+				<i>1</i>
+				<h2>Expand the map in time</h2>
+				<p>The floor plan is copied once per time step. Moving to a neighboring cell or waiting in place both go one step forward in time, so a route becomes a path that only climbs upward.</p>
+			</div>
+			<div>
+				<i>2</i>
+				<h2>Robots bid</h2>
+				<p>Each robot still waiting finds its shortest path in that graph and bids its length. The auctioneer picks a winner: the lowest bid, the highest bid, or at random.</p>
+			</div>
+			<div>
+				<i>3</i>
+				<h2>Reserve, repeat</h2>
+				<p>The winner's cells at each moment, and the swaps that would cross it, are removed from the graph. The remaining robots bid again on what is left, until everyone has a path.</p>
+			</div>
+		</section>
+
+		<section class="findings">
+			<p class="kicker">What the paper found</p>
+			<ul>
+				<li><b>No collisions</b> in any solution, by construction, on random 20 × 20 grids with 20 robots and warehouse-like 30 × 30 grids with 30 robots.</li>
+				<li>The <b>bid-minimizer</b> auctioneer gave the lowest average flowtime; the <b>bid-maximizer</b> gave the lowest average makespan; <b>random</b> ordering was worse on both.</li>
+				<li>The time-extended graph is a DAG, so shortest paths can be found with a label-setting algorithm in linear time.</li>
+			</ul>
+			<p class="note">This demo runs a browser port of the authors' code: the warehouse layout, the time-expanded search and the three auctioneers. Results vary from map to map; try a few.</p>
+			<a class="pill" href="https://www-users.cse.umn.edu/~gini/publications/papers/Barman2024arms.pdf" target="_blank" rel="noopener noreferrer">Read the paper</a>
+		</section>
+	</main>
+
+	<footer class="foot">
+		<span>MAPF with auctions · ARMS @ AAMAS 2024</span>
+		<a href="../../index.html#Publications">Back to all publications</a>
+	</footer>
+	<script src="mapf.js"></script>
+</body>
+</html>

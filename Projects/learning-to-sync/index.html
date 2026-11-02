@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Learning to Sync at the Edge | Ebasa Temesgen</title>
+	<meta name="description" content="Client-side adaptive synchronization for federated learning (IEEE/ACM SEC 2026): each edge client learns when to skip, upload, download, or do both.">
+	<link rel="icon" href="../../images/favicon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Montserrat:wght@300;400;500;600;700&family=Source+Serif+4:ital,opsz,wght@1,8..60,400&display=swap">
+	<link rel="stylesheet" href="page.css">
+</head>
+<body>
+	<!-- Built from the SEC 2026 talk (Learning_to_Sync_SEC2026_final.pptx): same palette, type and animated figures. -->
+	<div class="edge-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+
+	<header class="top">
+		<a class="top__home" href="../../index.html#Publications">← Ebasa Temesgen</a>
+		<nav>
+			<a href="#problem">Problem</a>
+			<a href="#approach">Approach</a>
+			<a href="#evaluation">Evaluation</a>
+			<a href="#results">Results</a>
+			<a class="top__paper" href="https://arxiv.org/abs/2610.14268" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+		</nav>
+	</header>
+
+	<main>
+		<!-- title -->
+		<section class="hero">
+			<p class="eyebrow">IEEE/ACM SEC 2026 · Santa Clara, California</p>
+			<h1>Learning to Sync at the Edge:<em>Client-side adaptive synchronization for Federated Learning</em></h1>
+			<span class="rule" aria-hidden="true"></span>
+			<p class="hero__authors"><b>Ebasa Temesgen</b><sup>*</sup> · Ammar Ahmed<sup>*</sup> · Nathan Lechamo<sup>†</sup> · Ali Anwar<sup>*</sup> · <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer">Maria Gini</a><sup>*</sup></p>
+			<p class="hero__aff"><sup>*</sup>University of Minnesota, Minneapolis &nbsp;<sup>†</sup>University of Texas at San Antonio</p>
+			<p class="hero__idea">Every edge device decides for itself, moment to moment, whether to <b class="a-s">skip</b>, <b class="a-u">upload</b>, <b class="a-d">download</b> or do <b class="a-b">both</b>.</p>
+			<div class="hero__links">
+				<a class="btn btn--solid" href="https://arxiv.org/abs/2610.14268" target="_blank" rel="noopener noreferrer">Read the paper</a>
+				<a class="btn" href="#problem">See how it works ↓</a>
+			</div>
+			<div class="hero__logos">
+				<img src="media/umn.png" alt="University of Minnesota">
+				<img src="media/utsa.png" alt="The University of Texas at San Antonio">
+			</div>
+		</section>
+
+		<section class="stats" aria-label="Headline results">
+			<div><b>−43%</b><span>latency</span></div>
+			<div><b>−52%</b><span>energy</span></div>
+			<div><b>−63%</b><span>uploaded data</span></div>
+			<div><b>84.48%</b><span>image accuracy, vs. 81.10% for Oort</span></div>
+		</section>
+
+		<!-- PROBLEM -->
+		<section class="ch" id="problem">
+			<p class="eyebrow">Background</p>
+			<h2>Federated learning at the edge: <em>train together, keep data local</em></h2>
+			<div class="split">
+				<figure class="fig"><video data-loop muted playsinline poster="fig/fl-round.jpg" src="fig/fl-round.mp4"></video></figure>
+				<ol class="steps">
+					<li><span>1</span>Server sends the global model</li>
+					<li><span>2</span>Each device trains on its own data</li>
+					<li><span>3</span>Devices upload model updates</li>
+					<li><span>4</span>Server aggregates a new global model</li>
+					<li class="steps__note">This exchange repeats every round, for every device, <b>over wireless links that might be unreliable.</b></li>
+				</ol>
+			</div>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">Motivation</p>
+			<h2>Edge FL is limited by <em>synchronization</em>, not local training</h2>
+			<div class="facts">
+				<div><i>1</i><h3>Data stays on the device</h3><p>Traffic and mobility data are trained where they are sensed.</p></div>
+				<div><i>2</i><h3>Conditions keep changing</h3><p>Bandwidth drifts, devices differ, and data streams evolve.</p></div>
+				<div><i>3</i><h3>Every sync has a price</h3><p>Each exchange spends latency, energy, and privacy budget.</p></div>
+			</div>
+			<figure class="fig"><video data-loop muted playsinline poster="fig/fixed-schedule-v2.jpg" src="fig/fixed-schedule-v2.mp4"></video></figure>
+			<p class="lede">On a fixed schedule every client pays for every sync. Client 2's degraded link makes each upload 3.3× longer, client 3 has barely changed its model, and client 4 is almost out of privacy budget.</p>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">Related work</p>
+			<h2>Prior work decides at the server. <em>We let each client decide.</em></h2>
+			<div class="pair">
+				<figure class="fig"><video data-loop muted playsinline poster="fig/server-control.jpg" src="fig/server-control.mp4"></video><figcaption>Prior work: FedAsync, FedBuff, Oort, FedMarl, SCAFFOLD and FedProx adapt aggregation, participation or optimization at the server.</figcaption></figure>
+				<figure class="fig"><video data-loop muted playsinline poster="fig/client-control.jpg" src="fig/client-control.mp4"></video><figcaption><b>Ours:</b> a small RL scheduler on each client decides when to sync. The server keeps a fixed aggregation rule.</figcaption></figure>
+			</div>
+		</section>
+
+		<!-- APPROACH -->
+		<section class="ch" id="approach">
+			<p class="eyebrow">Problem formulation</p>
+			<h2>When should a client <em>synchronize?</em></h2>
+			<p class="lede">We treat each client's choice as a sequential decision problem with four actions.</p>
+			<div class="actions">
+				<div class="act act--s"><span class="act__dot">S</span><h3>Skip</h3><p>Keep training; defer communication.</p></div>
+				<div class="act act--u"><span class="act__dot">U</span><h3>Upload</h3><p>Send the local update to the server.</p></div>
+				<div class="act act--d"><span class="act__dot">D</span><h3>Download</h3><p>Refresh the local model from the server.</p></div>
+				<div class="act act--b"><span class="act__dot">B</span><h3>Both</h3><p>Upload, wait for aggregation, download.</p></div>
+			</div>
+			<div class="facts facts--tight">
+				<div><i>Act</i><p>At each decision the policy reads the client's local state and picks one action.</p></div>
+				<div><i>Pay</i><p>Each action costs time, energy, staleness, withheld progress and privacy.</p></div>
+				<div><i>Learn</i><p>Find the policy with the lowest long-run cost, not just the cheapest next step.</p></div>
+			</div>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">System design</p>
+			<h2>Each client runs a lightweight <em>scheduler</em> beside its local model</h2>
+			<figure class="fig"><video data-loop muted playsinline poster="fig/system.jpg" src="fig/system.mp4"></video></figure>
+			<div class="facts">
+				<div><i>1</i><h3>Observe</h3><p>The scheduler reads local learning state and environment state.</p></div>
+				<div><i>2</i><h3>Decide</h3><p>A small RL policy picks Skip, Upload, Download, or Both.</p></div>
+				<div><i>3</i><h3>Synchronize</h3><p>The server aggregates with a fixed rule; only the timing changes.</p></div>
+			</div>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">Environment</p>
+			<h2>An event-driven simulator: clients act <em>asynchronously</em></h2>
+			<div class="split split--wide">
+				<figure class="fig"><video data-loop muted playsinline poster="fig/simulator.jpg" src="fig/simulator.mp4"></video></figure>
+				<ul class="notes">
+					<li><b>Each row is one client.</b> Blocks show what it is doing over time.</li>
+					<li><b>Conditions vary.</b> Availability is stable, cyclic, or bursty; the channel switches between good, medium, and degraded.</li>
+					<li><b>◆ marks a decision.</b> The scheduler is asked only when a client is available and idle, never mid-transfer.</li>
+					<li><b>No lockstep rounds.</b> Time advances event by event.</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">System model</p>
+			<h2>Training is always charged; communication <em>only when the client syncs</em></h2>
+			<figure class="fig"><div data-fx="round-costs"><img src="fig/round-costs.jpg" alt=""></div></figure>
+			<p class="lede">Sending Δ bits at rate R takes Δ/R seconds and P·Δ/R joules, so transfer costs appear only when the client chooses them.</p>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">Objective</p>
+			<h2>Skip or send? Waiting is cheap <em>until unsent progress piles up</em></h2>
+			<div class="split split--wide">
+				<figure class="fig"><div data-fx="skip-or-send"><img src="fig/skip-or-send.jpg" alt=""></div></figure>
+				<ul class="notes">
+					<li><b>Cost of waiting.</b> Local progress that has not been uploaded, multiplied by the decisions since the last upload. It grows every time the client skips.</li>
+					<li><b>Cost of sending.</b> Set by the channel: on a degraded link the rate drops, so each upload takes longer and costs more energy.</li>
+					<li><b>Where they cross, sending wins.</b> PPO learns where to switch from the reward, including payoffs that only arrive later.</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">Policy</p>
+			<h2>One small policy for every client: <em>observe, score, mask, act</em></h2>
+			<figure class="fig"><video data-loop muted playsinline poster="fig/policy.jpg" src="fig/policy.mp4"></video></figure>
+			<div class="stats stats--inline">
+				<div><b>20.4k</b><span>parameters</span></div>
+				<div><b>0.081 MB</b><span>model size</span></div>
+				<div><b>0.194 ms</b><span>per decision</span></div>
+				<div><b>Shared</b><span>same size for any number of clients</span></div>
+			</div>
+			<p class="lede">Four groups of local signals (communication, learning, synchronization, privacy) feed one small network that scores the actions. Actions the client cannot take, like uploading with no privacy budget left, are masked out.</p>
+		</section>
+
+		<!-- EVALUATION -->
+		<section class="ch" id="evaluation">
+			<p class="eyebrow">Workload 1 · Traffic forecasting</p>
+			<h2>From real traffic to a <em>federated sensor graph</em></h2>
+			<figure class="fig fig--video"><video controls muted playsinline preload="metadata" poster="media/traffic-to-graph-poster.jpg" src="media/traffic-to-graph.mp4"></video></figure>
+			<p class="lede">Real KITTI footage: every vehicle becomes a 3D box, the scene dissolves into the LiDAR scan, then pulls back to a freeway network whose detector stations become the nodes of a sensor graph.</p>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">Workload 1 · Client formation</p>
+			<h2>METIS splits the sensor graph into <em>balanced clients</em></h2>
+			<!-- interactive: built by metis.js; the still is shown if scripts are off -->
+			<div class="metis" data-metis><img src="fig/metis.jpg" alt="Sensor graph split into five clients by Louvain, K-Means and METIS"></div>
+			<p class="lede">Experiments: PeMS-08, 4 METIS clients, FedSTAE (STAEFormer backbone), 200 episodes.</p>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">Workload 2 · Image classification</p>
+			<h2>CIFAR-10, split <em>unevenly</em> across 20 clients</h2>
+			<!-- interactive: built by cifar.js; the still is shown if scripts are off -->
+			<div class="cifar" data-cifar><img src="fig/cifar.jpg" alt="Class mix of several CIFAR-10 clients under a Dirichlet split"></div>
+			<p class="lede">Setup: ResNet-18 on 20 clients, 300 episodes. Baselines: FedAsync, FedBuff and Oort decide at the server; DQN (same inputs and mask as ours) and Always-sync decide at the client.</p>
+		</section>
+
+		<!-- RESULTS -->
+		<section class="ch" id="results">
+			<p class="eyebrow">Results · Traffic (PeMS-08, 4 clients)</p>
+			<h2>Traffic: lowest forecast error at <em>about half the system cost</em></h2>
+			<div class="stats stats--inline">
+				<div><b>−43%</b><span>less latency<small>vs. FedBuff, cheapest baseline</small></span></div>
+				<div><b>−52%</b><span>less energy<small>vs. FedBuff</small></span></div>
+				<div><b>−63%</b><span>less data uploaded<small>vs. DQN</small></span></div>
+				<div><b>29.92</b><span>RMSE, the lowest<small>next best: DQN at 30.78</small></span></div>
+			</div>
+			<figure class="fig"><div data-fx="traffic-result"><img src="fig/traffic-result.jpg" alt=""></div><figcaption>Each dot is one method; lower-left is better. PPO is alone there. DQN has the better MAPE, so no method wins every metric.</figcaption></figure>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">Results · Images (CIFAR-10, 20 clients)</p>
+			<h2>Images: highest accuracy at <em>server-baseline cost</em></h2>
+			<div class="pair">
+				<figure class="fig"><div data-fx="image-curves"><img src="fig/image-curves.jpg" alt=""></div></figure>
+				<figure class="fig"><div data-fx="image-bars"><img src="fig/image-bars.jpg" alt=""></div></figure>
+			</div>
+			<p class="lede"><b>+3.38 points over Oort</b> (84.48% vs. 81.10%), with latency within 1.8% and energy within 0.8%. Always-sync reaches only 70.66%: syncing more is not the answer.</p>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">Analysis</p>
+			<h2>Choosing direction and timing <em>beats syncing less</em></h2>
+			<div class="pair">
+				<figure class="fig"><div data-fx="messages"><img src="fig/messages.jpg" alt=""></div><figcaption>Traffic: FedBuff rarely downloads, but sends 3× the uploads and ends with 9.2% higher RMSE.</figcaption></figure>
+				<figure class="fig"><div data-fx="ablation"><img src="fig/ablation.jpg" alt=""></div><figcaption>Images: removing the Both action costs 10 accuracy points.</figcaption></figure>
+			</div>
+		</section>
+
+		<section class="ch">
+			<p class="eyebrow">Scale &amp; overhead</p>
+			<h2>Flat latency from 4 to 32 clients; <em>0.19 ms per decision</em></h2>
+			<figure class="fig fig--narrow"><div data-fx="scaling"><img src="fig/scaling.jpg" alt=""></div></figure>
+			<p class="lede">Cost-gated PPO is the lowest-latency method at every scale, moving only 0.8% from 4 to 32 clients. The policy is shared, so it does not grow with the number of clients.</p>
+		</section>
+
+		<section class="ch ch--last">
+			<p class="eyebrow">Takeaways</p>
+			<h2>Synchronization is a <em>client-side control problem</em></h2>
+			<div class="takeaways">
+				<ol class="facts facts--list">
+					<li><i>1</i><h3>Decide where the signals are</h3><p>Channel, local progress, staleness, and privacy budget are all observed on the client.</p></li>
+					<li><i>2</i><h3>Four actions, one small policy</h3><p>Skip, upload, download, or both, chosen by a masked PPO policy with 20.4k parameters. The server rule is unchanged.</p></li>
+					<li><i>3</i><h3>A better accuracy–cost trade-off</h3><p>Traffic: best MAE/RMSE with 43% less latency, 52% less energy, 63% less data. Images: 84.48% vs. 81.10%.</p></li>
+				</ol>
+				<aside class="limits">
+					<p class="eyebrow">Limits</p>
+					<ul>
+						<li>Emulated, event-driven environment, not a live deployment</li>
+						<li>PPO schedules contributions; it does not strengthen the DP guarantee</li>
+						<li>Scaling study stops at 32 clients</li>
+					</ul>
+				</aside>
+			</div>
+			<div class="hero__links">
+				<a class="btn btn--solid" href="https://arxiv.org/abs/2610.14268" target="_blank" rel="noopener noreferrer">Read the paper</a>
+			</div>
+		</section>
+	</main>
+
+	<footer class="foot">
+		<span>Learning to Sync at the Edge · IEEE/ACM SEC 2026</span>
+		<a href="../../index.html#Publications">Back to all publications</a>
+	</footer>
+
+	<script src="metis.js"></script>
+	<script src="cifar.js"></script>
+	<script src="figures.js"></script>
+	<script>
+		// Each figure is one of the talk's animations: it plays from the start whenever it scrolls into view.
+		(function () {
+			const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			const loops = document.querySelectorAll('video[data-loop]');
+			loops.forEach((v) => {
+				v.loop = true;
+				v.preload = 'none';
+			});
+			if (still) return; // the poster is each animation's final frame
+			const io = new IntersectionObserver((entries) => {
+				entries.forEach((e) => {
+					const v = e.target;
+					if (e.isIntersecting) {
+						v.currentTime = 0;
+						v.play().catch(() => {});
+					} else {
+						v.pause();
+					}
+				});
+			}, { threshold: 0.35 });
+			loops.forEach((v) => io.observe(v));
+		})();
+	</script>
+</body>
+</html>
