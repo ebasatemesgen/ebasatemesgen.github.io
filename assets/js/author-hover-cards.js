@@ -81,24 +81,12 @@
 			initials: 'DB',
 			affiliations: [{ name: 'Blue Origin', logo: blueOriginLogo, href: 'https://www.blueorigin.com/', hideName: true }]
 		},
-		'carter-fortuin': {
-			name: 'Carter Fortuin',
-			href: 'https://scholar.google.com/scholar?q=Carter+Fortuin+Blue+Origin',
-			initials: 'CF',
-			affiliations: [{ name: 'Blue Origin', logo: blueOriginLogo, href: 'https://www.blueorigin.com/', hideName: true }]
-		},
 		'marybeth-wilhelm': {
 			name: 'Marybeth Wilhelm',
 			href: 'https://www.nasa.gov/people/mary-beth-wilhelm/',
 			photo: 'images/authors/marybeth-wilhelm.webp',
 			initials: 'MW',
 			affiliations: [{ name: 'NASA Ames Research Center', logo: nasaLogo, href: 'https://www.nasa.gov/ames/' }]
-		},
-		'minghao-zou': {
-			name: 'Minghao Zou',
-			href: 'https://scholar.google.com/scholar?q=Minghao+Zou+University+of+Minnesota',
-			initials: 'MZ',
-			affiliations: [university]
 		},
 		'xun-tu': {
 			name: 'Xun Tu',

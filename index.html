@@ -23,31 +23,21 @@
 
 
 
-    <!-- Sticky Navigation Toggle Button -->
-    <button id="scroll-nav-toggle" class="scroll-nav-toggle">☰</button>
-	
-
-
-    <!-- Navigation Menu -->
-    <div id="scroll-nav-menu" class="scroll-nav-menu">
-      
-
-
-		<ul>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#Publications">Publications</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="#workshops">Workshops</a></li>
-            <li><a href="#CommunityOutreach">Outreach</a></li>
-			
-	
-		
-        </ul>
-
-    </div>
-
-
-
+    <!-- Section navigation: a frosted button that appears once the bio has scrolled by; it opens a pill with the
+         sections in page order, the one being read marked (assets/js/navigation.js) -->
+    <button id="scroll-nav-toggle" class="scroll-nav-toggle" type="button" aria-label="Open the section menu" aria-expanded="false" aria-controls="scroll-nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="scroll-nav-menu" class="scroll-nav-menu" aria-label="Sections">
+      <a class="scroll-nav__name" href="#first">Ebasa Temesgen</a>
+      <ul>
+        <li><a href="#Publications">Publications</a></li>
+        <li><a href="#workshops">Workshops</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="#CommunityOutreach">Outreach</a></li>
+      </ul>
+    </nav>
 
 	<!-- Wrapper -->
 	<div id="wrapper" class="divided">
@@ -148,7 +138,7 @@
 										<button type="button" data-src="https://learn2push.github.io/static/media/videos/generalization/table_trolley_b01_01_rl_video-step-0.mp4">Trolley</button>
 									</div>
 								</figure>
-								<p class="pub-card__authors lm-authors"><strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://scholar.google.com/scholar?q=Minghao+Zou+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="minghao-zou">M. Zou</a>, <a href="https://scholar.google.com/citations?user=FgQyXToAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer" data-author="xun-tu">X. Tu</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a>, <a href="https://karthikdesingh.com/" target="_blank" rel="noopener noreferrer" data-author="karthik-desingh">K. Desingh</a></p>
+								<p class="pub-card__authors lm-authors"><strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, M. Zou, <a href="https://scholar.google.com/citations?user=FgQyXToAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer" data-author="xun-tu">X. Tu</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a>, <a href="https://karthikdesingh.com/" target="_blank" rel="noopener noreferrer" data-author="karthik-desingh">K. Desingh</a></p>
 								<div class="pub-actions">
 									<a href="https://learn2push.github.io/" target="_blank" rel="noopener noreferrer" class="pub-link">Project page <span class="go" aria-hidden="true">›</span></a>
 									<a href="https://learn2push.github.io/Learn2Push_IROS2026.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
@@ -381,7 +371,7 @@
 										<figcaption>TRIDENT's two Antarctic field sites in Dronning Maud Land. Schirmacher Oasis photo: B. Glass. Map imagery: Esri; elevation: Mapzen Terrain Tiles.</figcaption>
 									</figure>
 									<div class="pub-card__meta timeline-renamed__event__description">
-										<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <a href="https://astrostucky.com/pages/about-me.html" target="_blank" rel="noopener noreferrer" data-author="thomas-stucky">T. Stucky</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://relisemai.github.io/" target="_blank" rel="noopener noreferrer" data-author="rene-mai">R. Mai</a>, <a href="https://scholar.google.com/citations?user=BVzzVA0AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" data-author="lucas-weber">L. Weber</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a>, <a href="https://www.linkedin.com/in/deanbergman1/" target="_blank" rel="noopener noreferrer" data-author="dean-bergman">D. Bergman</a>, <a href="https://scholar.google.com/scholar?q=Carter+Fortuin+Blue+Origin" target="_blank" rel="noopener noreferrer" data-author="carter-fortuin">C. Fortuin</a>, <a href="https://science.nasa.gov/astrobiology/strategy/dares/nasa-dares-task-force-2-page-2/#hds-sidebar-nav-14" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. Glass</a>, <a href="https://www.nasa.gov/people/mary-beth-wilhelm/" target="_blank" rel="noopener noreferrer" data-author="marybeth-wilhelm">M. Wilhelm</a></p>
+										<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <a href="https://astrostucky.com/pages/about-me.html" target="_blank" rel="noopener noreferrer" data-author="thomas-stucky">T. Stucky</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://relisemai.github.io/" target="_blank" rel="noopener noreferrer" data-author="rene-mai">R. Mai</a>, <a href="https://scholar.google.com/citations?user=BVzzVA0AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" data-author="lucas-weber">L. Weber</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a>, <a href="https://www.linkedin.com/in/deanbergman1/" target="_blank" rel="noopener noreferrer" data-author="dean-bergman">D. Bergman</a>, C. Fortuin, <a href="https://science.nasa.gov/astrobiology/strategy/dares/nasa-dares-task-force-2-page-2/#hds-sidebar-nav-14" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. Glass</a>, <a href="https://www.nasa.gov/people/mary-beth-wilhelm/" target="_blank" rel="noopener noreferrer" data-author="marybeth-wilhelm">M. Wilhelm</a></p>
 										<div class="pub-actions">
 											<a href="https://ntrs.nasa.gov/citations/20260007172" target="_blank" rel="noopener noreferrer" class="pub-link">Preprint</a>
 										</div>
@@ -1652,25 +1642,25 @@
 			
 			<!-- Font Awesome -->
 			<!-- Scripts -->
-			<script defer src="assets/js/jquery.min.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/jquery.scrollex.min.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/jquery.scrolly.min.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/browser.min.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/breakpoints.min.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/util.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/main.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/navigation.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/custom_style.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/author-hover-cards.js?v=2026-11-03-hover-only"></script>
+			<script defer src="assets/js/jquery.min.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/jquery.scrollex.min.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/jquery.scrolly.min.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/browser.min.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/breakpoints.min.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/util.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/main.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/navigation.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/custom_style.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/author-hover-cards.js?v=2026-11-03-verified-profiles"></script>
 			<!-- 3D drill, live telemetry and real maps for the NASA drilling papers (three.js loads only when needed) -->
 			<script type="importmap">
 				{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
 			</script>
-			<script defer src="assets/js/pub-circles.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/locomanip.js?v=2026-11-03s"></script>
-			<script defer src="assets/js/workshops.js?v=2026-11-03s"></script>
-			<script type="module" src="assets/js/drill/drill-cards.js?v=2026-11-03s"></script>
-			<script type="module" src="assets/js/spot-scene.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/pub-circles.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/locomanip.js?v=2026-11-03v"></script>
+			<script defer src="assets/js/workshops.js?v=2026-11-03v"></script>
+			<script type="module" src="assets/js/drill/drill-cards.js?v=2026-11-03v"></script>
+			<script type="module" src="assets/js/spot-scene.js?v=2026-11-03v"></script>
 
 
 

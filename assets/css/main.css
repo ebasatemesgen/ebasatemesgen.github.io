@@ -10607,217 +10607,222 @@ a:focus-visible .project-card__arrow .go {
 
 
 
-/* Sticky Navigation Button */
+/* Section navigation (navigation.js): a frosted-white button with indigo lines (an × when open), and a floating
+   frosted pill with the sections in page order; the section being read carries the gradient dot */
 #scroll-nav-toggle {
-    /* Keep your existing position, size, font, etc. */
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    padding: 10px 15px;
-    font-size: 18px;
-    cursor: pointer;
-    z-index: 1000;
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
-
-    /* Glass style */
-    background: linear-gradient(135deg, #695acd6e, #32cd324d);   /* or 0.5 for more opacity */
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-
-    /* A subtle border so it looks like a pane of glass */
-    border: none;
-
-    /* Ensure the text color is visible */
-    color: #ffffff;
-	text-shadow: 
-	0 0 5px  #00ffff,
-	0 0 10px #00ffff,
-	0 0 20px #00ffff,
-	0 0 40px #00ffff;
-
-    font-family: 'Open Sans', sans-serif; /* or your chosen font */
+	position: fixed;
+	top: 14px;
+	left: 14px;
+	z-index: 1001;
+	display: grid;
+	place-content: center;
+	gap: 4px;
+	width: 46px;
+	height: 46px;
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.86);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	/* a soft indigo-and-green glow, so the white button is easy to find on the white page */
+	box-shadow: 0 0 0 1px rgba(81, 90, 172, 0.18), 0 0 16px 2px rgba(81, 90, 172, 0.32), 0 0 30px 6px rgba(36, 180, 126, 0.2);
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-8px);
+	transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, box-shadow 0.2s ease;
 }
 
-/* Hover effect for the glass button */
-#scroll-nav-toggle:hover {
-    /* Intensify glow + scale slightly */
-    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
-    transform: scale(1.1);
-    /* Optionally make it slightly more opaque on hover */
-    background: rgba(30, 39, 46, 0.45); 
+#scroll-nav-toggle.is-shown {
+	opacity: 1;
+	visibility: visible;
+	transform: none;
+	animation: navGlow 3.2s ease-in-out infinite;
 }
 
+/* the glow breathes slowly while the menu is closed, and holds while it is open or hovered */
+@keyframes navGlow {
+	50% {
+		box-shadow: 0 0 0 1px rgba(81, 90, 172, 0.22), 0 0 22px 4px rgba(81, 90, 172, 0.42), 0 0 40px 10px rgba(36, 180, 126, 0.28);
+	}
+}
 
-/* Navigation Menu */
+#scroll-nav-toggle.is-open,
+#scroll-nav-toggle:hover,
+#scroll-nav-toggle:focus-visible {
+	animation: none;
+	box-shadow: 0 0 0 2px rgba(36, 180, 126, 0.5), 0 0 22px 4px rgba(81, 90, 172, 0.42), 0 0 40px 10px rgba(36, 180, 126, 0.28);
+	outline: none;
+}
+
+#scroll-nav-toggle span {
+	display: block;
+	width: 18px;
+	height: 2px;
+	border-radius: 1px;
+	background: #515aac;
+	transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+#scroll-nav-toggle.is-open span:nth-child(1) {
+	transform: translateY(6px) rotate(45deg);
+}
+
+#scroll-nav-toggle.is-open span:nth-child(2) {
+	opacity: 0;
+}
+
+#scroll-nav-toggle.is-open span:nth-child(3) {
+	transform: translateY(-6px) rotate(-45deg);
+}
+
 #scroll-nav-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* GLASS BACKGROUND */
-    background: rgba(30, 39, 46, 0.5);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    /* A subtle border to accentuate the glass */
-    /* border: 1px solid rgba(255, 255, 255, 0.2); */
-    border-radius: 12px;
-
-    color: #ffffff;
-    padding: 20px;
-    display: none;
-    z-index: 999;
-    animation: fadeIn 0.5s ease-out;
+	position: fixed;
+	top: 14px;
+	left: 50%;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	gap: 1.6rem;
+	width: max-content; /* centred with left: 50%, it would otherwise shrink to half the screen */
+	max-width: calc(100vw - 140px);
+	padding: 0.55rem 0.7rem 0.55rem 1.4rem;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.86);
+	-webkit-backdrop-filter: blur(12px);
+	backdrop-filter: blur(12px);
+	box-shadow: 0 18px 40px -18px rgba(50, 50, 93, 0.5), 0 0 0 1px rgba(81, 90, 172, 0.1);
+	opacity: 0;
+	visibility: hidden;
+	transform: translate(-50%, -10px);
+	transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
 }
 
+#scroll-nav-menu.is-open {
+	opacity: 1;
+	visibility: visible;
+	transform: translate(-50%, 0);
+}
 
-/* Menu Items - Text Only Neon Glow */
+#scroll-nav-menu .scroll-nav__name {
+	border: 0;
+	color: #2b2f45;
+	font-size: 0.92rem;
+	font-weight: 700;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
 #scroll-nav-menu ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
+	display: flex;
+	gap: 0.2rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 #scroll-nav-menu ul li {
-    margin: 0 15px;
+	margin: 0;
+	padding: 0;
 }
 
-#scroll-nav-menu ul li a {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    /* A bit less letter spacing for a refined look: */
-    letter-spacing: 0.1em;
-    text-transform: none; /* or 'uppercase' if you want all caps */
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.8); /* Subtle off-white text */
-    
-    /* A softer teal neon shadow (instead of pink):
-       This will look nice against the glass. */
-    text-shadow: 0 0 4px rgba(78, 240, 230, 0.5); 
-
-    /* Smooth transition on hover/flicker */
-    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+#scroll-nav-menu ul a {
+	position: relative;
+	display: block;
+	padding: 0.45rem 0.85rem;
+	border: 0;
+	border-radius: 999px;
+	color: #6b7088;
+	font-size: 0.86rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: color 0.2s ease, background-color 0.2s ease;
 }
 
-/* Hover Effect - Intensify Glow */
-/* Hover Effect - Intensify Glow */
-#scroll-nav-menu ul li a:hover {
-    color: #00AEEF; /* Bright teal */
-    text-shadow: 
-        0 0 8px #00AEEF, 
-        0 0 16px #00AEEF, 
-        0 0 24px #00AEEF; /* Softer and less overwhelming glow */
-    transform: scale(1.05); /* Slight enlargement */
-    animation: neonPulse 1.2s infinite alternate ease-in-out; /* Smooth pulse animation */
+#scroll-nav-menu ul a:hover,
+#scroll-nav-menu ul a:focus-visible {
+	background: #f2f3fa;
+	color: #24b47e;
+	outline: none;
 }
 
-/* Neon Pulse Animation */
-/* Hover Effect - Gold Glow */
-#scroll-nav-menu ul li a:hover {
-    color: #FFD700; /* Gold color */
-    text-shadow: 
-        0 0 8px #FFD700, 
-        0 0 16px #FFD700, 
-        0 0 24px #FFD700; /* Intense gold glow */
-    transform: scale(1.05); /* Slight enlargement */
-    animation: goldPulse 1.2s infinite alternate ease-in-out; /* Smooth pulse animation */
+#scroll-nav-menu ul a.is-current {
+	color: #515aac;
 }
 
-/* Gold Pulse Animation */
-@keyframes goldPulse {
-    0%, 100% {
-        opacity: 1;
-        text-shadow: 
-            0 0 4px #FFD700, 
-            0 0 8px #FFD700, 
-            0 0 12px #FFD700; /* Soft glow at start/end */
-    }
-    50% {
-        opacity: 0.85;
-        text-shadow: 
-            0 0 2px #FFD700, 
-            0 0 6px #FFD700, 
-            0 0 10px #FFD700; /* Subtle dimming effect */
-    }
+#scroll-nav-menu ul a.is-current::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 0.08rem;
+	width: 5px;
+	height: 5px;
+	margin-left: -2.5px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #515aac, #24b47e);
 }
 
-
-
-/* ------------------------------------ */
-/*  Navigation for Small Devices  */
-/* ------------------------------------ */
-@media (max-width: 768px) {
-
-	/* The default (hamburger) position on mobile */
+/* phones: the menu drops down from the button as a card */
+@media (max-width: 786px) {
 	#scroll-nav-toggle {
-	  position: fixed;
-	  top: 50px;
-	  left: 5px;       /* This is where the ☰ starts */
-	  z-index: 1000;   /* Above the menu */
-	  padding: 10px;
-	  border-radius: 8px;
-	  transition: all 0.3s ease; 
+		top: max(12px, env(safe-area-inset-top));
+		left: max(12px, env(safe-area-inset-left));
 	}
-  
-	/* The menu itself behind the button */
-	@media (max-width: 768px) {
-		#scroll-nav-menu {
-		  position: fixed;
-		  top: 50px;
-		  left: 5px;
-		  width: 60%;
-		  /* same glass styles */
-		
-		  
-		  border: 1px solid rgba(255, 255, 255, 0.2);
-		  border-radius: 12px;
-		  /* rest of your styles */
-		}
-	  }
-	  
-  
-	/*  When the menu is open, we shift the button to the top-right corner
-		so the 'X' is not hiding anything on the left.  */
-	#scroll-nav-toggle.menu-opened {
-	  /* Could still be 'fixed' or 'absolute'—but let's keep it 'fixed' 
-		 so it remains at the corner of the viewport. */
-	  top: 50px;
-	  right: 40%;  /* Move to right corner */
-	  left: auto;   /* Unset the left property */
-	  /* If you want it even further, just tweak the numbers */
+
+	#scroll-nav-menu {
+		top: max(68px, calc(env(safe-area-inset-top) + 56px));
+		left: max(12px, env(safe-area-inset-left));
+		flex-direction: column;
+		align-items: stretch;
+		gap: 0.3rem;
+		width: min(16rem, calc(100vw - 24px));
+		max-width: none;
+		padding: 0.9rem 0.6rem 0.6rem;
+		border-radius: 18px;
+		transform: translateY(-8px);
 	}
-  
-	/* Menu items, stacked vertically, etc. */
+
+	#scroll-nav-menu.is-open {
+		transform: none;
+	}
+
+	#scroll-nav-menu .scroll-nav__name {
+		padding: 0 0.85rem 0.4rem;
+		border-bottom: 1px solid #e6e8f0;
+	}
+
 	#scroll-nav-menu ul {
-	  flex-direction: column;
-	  align-items: flex-start;
-	  margin: 0;
-	  padding: 0;
+		flex-direction: column;
 	}
-	#scroll-nav-menu ul li {
-	  margin: 8px 0;
+
+	#scroll-nav-menu ul a {
+		padding: 0.65rem 0.85rem;
+		border-radius: 10px;
 	}
-	#scroll-nav-menu ul li a {
-	  font-size: 16px;
-	  letter-spacing: 0.2em;
-	  text-align: left;
-	  text-shadow: none;
-	  color: rgba(255, 255, 255, 1);
-	  z-index: 99999;
+
+	#scroll-nav-menu ul a.is-current::after {
+		left: auto;
+		right: 0.9rem;
+		top: 50%;
+		bottom: auto;
+		margin: -2.5px 0 0;
 	}
-    /* Hover effect for right-links */
-    .right-links ul li a:hover {
-        color: #00AEEF;
-        text-shadow: 
-            0 0 4px rgba(0, 174, 239, 1),
-            0 0 8px rgba(0, 174, 239, 0.8);
-        transform: scale(1.05);
-    }
-  }
- 
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#scroll-nav-toggle,
+	#scroll-nav-toggle span,
+	#scroll-nav-menu {
+		transition: none;
+		animation: none;
+	}
+}
+
 
 
 
@@ -13297,33 +13302,6 @@ svg {
 }
 
 @media screen and (max-width: 736px) {
-	#scroll-nav-toggle {
-		top: max(.75rem, env(safe-area-inset-top));
-		left: max(.75rem, env(safe-area-inset-left));
-		min-width: 2.75rem;
-		min-height: 2.75rem;
-		padding: .55rem;
-	}
-
-	#scroll-nav-menu {
-		top: max(4rem, calc(env(safe-area-inset-top) + 3.5rem));
-		left: max(.75rem, env(safe-area-inset-left));
-		width: min(18rem, calc(100vw - 1.5rem));
-		max-height: calc(100dvh - 5rem);
-		overflow-y: auto;
-	}
-
-	#scroll-nav-toggle.menu-opened {
-		top: max(.75rem, env(safe-area-inset-top));
-		right: max(.75rem, env(safe-area-inset-right));
-		left: auto;
-	}
-
-	#scroll-nav-menu a {
-		display: block;
-		min-height: 2.75rem;
-		padding: .65rem .85rem;
-	}
 
 	.banner.fullscreen {
 		min-height: 100svh;

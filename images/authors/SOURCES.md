@@ -20,6 +20,6 @@ Dean Bergman’s card links to his verified Honeybee Robotics LinkedIn profile: 
 
 Dhyan Thakkar’s card links to his personal website: https://thdhyan.github.io/. His photograph is the public avatar on his GitHub account, whose bio identifies him as an MS in Robotics student at the University of Minnesota.
 
-Minghao Zou is unchanged at the site owner’s request. No verified public personal profile or portrait was located for Carter Fortuin; his original name link and initials fallback are retained.
+No personal profile or portrait has been verified for Minghao Zou or Carter Fortuin. Their publication credits remain plain text, without a profile link or hover card. Scholar search results are not used as personal profiles.
 
 Existing portraits for Ebasa Temesgen, Sarah Boelter, Greta Brown, Maria Gini, Lucas Weber, and Rene Mai are retained.

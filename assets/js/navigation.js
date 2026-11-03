@@ -1,43 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
+	// Section navigation: the button shows once the bio has scrolled by; it opens the menu (Esc, a click outside,
+	// or choosing a link closes it), and the section being read is marked in the menu.
 	const toggleButton = document.getElementById('scroll-nav-toggle');
 	const navMenu = document.getElementById('scroll-nav-menu');
 	const secondSection = document.getElementById('second');
 
 	if (toggleButton && navMenu && secondSection) {
-		// Initial state: hamburger icon
-		toggleButton.textContent = '☰';
+		const setOpen = (open) => {
+			navMenu.classList.toggle('is-open', open);
+			toggleButton.classList.toggle('is-open', open);
+			toggleButton.setAttribute('aria-expanded', String(open));
+			toggleButton.setAttribute('aria-label', open ? 'Close the section menu' : 'Open the section menu');
+		};
+		const onScroll = () => {
+			const shown = window.scrollY > secondSection.offsetTop;
+			toggleButton.classList.toggle('is-shown', shown);
+			if (!shown) {
+				setOpen(false);
+			}
+		};
+		window.addEventListener('scroll', onScroll, { passive: true });
+		onScroll();
 
-		// Show/hide button based on scroll
-		window.addEventListener('scroll', () => {
-		  const secondSectionTop = secondSection.getBoundingClientRect().top + window.scrollY;
-		  
-		  if (window.scrollY > secondSectionTop) {
-			toggleButton.style.display = 'block';
-		  } else {
-			toggleButton.style.display = 'none';
-			navMenu.style.display = 'none';
-			// Reset to hamburger if user scrolls back up
-			toggleButton.textContent = '☰';
-			toggleButton.classList.remove('menu-opened');
-		  }
+		toggleButton.addEventListener('click', () => setOpen(!navMenu.classList.contains('is-open')));
+		navMenu.addEventListener('click', (event) => {
+			if (event.target.closest('a')) {
+				setOpen(false);
+			}
+		});
+		document.addEventListener('click', (event) => {
+			if (navMenu.classList.contains('is-open') && !navMenu.contains(event.target) && !toggleButton.contains(event.target)) {
+				setOpen(false);
+			}
+		});
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape' && navMenu.classList.contains('is-open')) {
+				setOpen(false);
+				toggleButton.focus();
+			}
 		});
 
-		// Toggle nav menu & toggle icon position
-		toggleButton.addEventListener('click', () => {
-		  const isMenuOpen = (navMenu.style.display === 'block');
-
-		  if (isMenuOpen) {
-			// Close
-			navMenu.style.display = 'none';
-			toggleButton.textContent = '☰';
-			toggleButton.classList.remove('menu-opened');
-		  } else {
-			// Open
-			navMenu.style.display = 'block';
-			toggleButton.textContent = '☰';
-			toggleButton.classList.add('menu-opened');
-		  }
-		});
+		// the section in the middle of the screen is the one being read
+		const links = Array.from(navMenu.querySelectorAll('ul a[href^="#"]'));
+		const sections = links.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+		const spy = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (!entry.isIntersecting) {
+					return;
+				}
+				links.forEach((link) => link.classList.toggle('is-current', link.getAttribute('href') === `#${entry.target.id}`));
+			});
+		}, { rootMargin: '-45% 0px -50% 0px' });
+		sections.forEach((section) => spy.observe(section));
 	}
 
 	document.querySelectorAll('.pub-chain').forEach((chain) => {
