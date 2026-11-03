@@ -35,7 +35,8 @@ html { scroll-behavior: smooth; }
 .project-card:hover { transform: translateY(-.35rem); box-shadow: 0 1.4rem 3rem rgba(23,33,31,.12); }
 .project-card > a { display: flex; height: 100%; flex-direction: column; }
 .project-card__image { position: relative; height: 15rem; overflow: hidden; background: #d7ded9; }
-.project-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms ease; }
+.project-card__image img,
+.project-card__image video { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms ease; }
 .project-card:hover img { transform: scale(1.04); }
 .project-card__image--graphic { display: grid; place-items: center; background: repeating-radial-gradient(circle at center, #d9ff65 0 1.1rem, #17211f 1.2rem 2rem); }
 .project-card__image--graphic span { display: grid; width: 6rem; height: 6rem; place-items: center; color: white; background: var(--orange); border-radius: 50%; font-weight: 800; font-size: 2rem; }

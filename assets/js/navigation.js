@@ -61,6 +61,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 		};
 
+		// the first time the group comes into view, a soft pulse runs down the timeline's dots once,
+		// so it is clear the card holds more papers than the one showing
+		tabs.forEach((tab, index) => tab.style.setProperty('--i', index));
+		if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			const hint = new IntersectionObserver((entries) => {
+				if (!entries[0].isIntersecting) return;
+				hint.disconnect();
+				setTimeout(() => chain.classList.add('is-hinting'), 700);
+			}, { threshold: 0.45 });
+			hint.observe(chain);
+		}
+
 		tabs.forEach((tab, index) => {
 			tab.addEventListener('click', () => selectTab(tab));
 

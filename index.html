@@ -11,12 +11,11 @@
 		<meta name="author" content="Ebasa Temesgen">
 		<meta name="keywords" content="Ebasa, Temesgen, Ebasa Temesgen, Ebasa Girma, Ebasa Girma Temesgen, Temesgen Ebasa">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css?v=author-cards-3" />
+		<link rel="stylesheet" href="assets/css/main.css?v=2026-11-03-hover-only" />
+		<link rel="icon" href="images/favicon.ico" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<meta name="image" property="og:image" content="https://ebasatemesgen.github.io/images/about/NextGenAi.png">
-		<meta name="description" property="og:description" content="I am a Ph.D. student in Computer Science at the University of Minnesota where 
-		I am advised by Prof. Maria L. Gini. I received my bachelor’s degree in Electrical and Computer Engineering from Addis Ababa Institute of Technology. 
-		My interests include artificial intelligence, machine learning, robotics, computer vision, and natural language processing.">
+		<meta name="image" property="og:image" content="https://ebasatemesgen.github.io/images/hero/banner.jpg">
+		<meta name="description" property="og:description" content="I am a Ph.D. Candidate in Computer Science at the University of Minnesota where I am advised by Prof. Maria L. Gini. My research is in robotics, with a focus on legged loco-manipulation, multi-robot systems, and autonomy for space exploration.">
 
 	</head>
 	<body>
@@ -77,29 +76,22 @@
 		</section>
 
 
-		<!-- About: the bio as before; where the lab image was, the three research threads as the publication circles,
-		     each a link down to its papers -->
+		<!-- About: the bio as before; where the lab image was, recorded robot pushes replayed in 3D, one after another
+		     (Spot, Spot with an arm, ANYmal-C, Go1; chair, boxes, cylinders): assets/js/spot-scene.js -->
 		<section id="second" class="about-section">
-			<nav class="about-balls" aria-label="Research threads">
-				<a class="about-ball" href="#loco-manipulation" style="--phase: -2s">
-					<span class="about-ball__orb"><span class="pub-fluid" aria-hidden="true"><i></i><i></i><i></i></span></span>
-					<span class="about-ball__label">Legged loco-manipulation</span>
-				</a>
-				<a class="about-ball" href="#multi-robot" style="--phase: -8s">
-					<span class="about-ball__orb"><span class="pub-fluid" aria-hidden="true"><i></i><i></i><i></i></span></span>
-					<span class="about-ball__label">Multi-robot systems</span>
-				</a>
-				<a class="about-ball" href="#nasa-drill" style="--phase: -14s">
-					<span class="about-ball__orb"><span class="pub-fluid" aria-hidden="true"><i></i><i></i><i></i></span></span>
-					<span class="about-ball__label">Space autonomy</span>
-				</a>
-			</nav>
+			<div class="about-spot spot3d" data-spot="spot-quad learn2push-chair anymal-quad l2p-tall-box go1-quad l2p-slippery-box">
+				<img class="about-spot__still" src="images/about/thread-legged.webp" alt="Spot pushing a cylinder into its goal pose" decoding="async">
+				<span class="spot3d__title about-spot__title" aria-live="polite"></span>
+				<a class="about-spot__label" href="#loco-manipulation">Legged loco-manipulation <span class="go" aria-hidden="true">›</span></a>
+				<span class="about-spot__hint spot3d__hint">Isaac Lab rollout · drag to turn</span>
+			</div>
 			<div class="about-text">
-				<p>I am a Ph.D. Candidate in Computer Science at the University of Minnesota where I am advised by <a href="https://cse.umn.edu/cs/maria-gini">Prof. Maria L. Gini</a>.
-					I received my bachelor’s degree in Electrical and Computer Engineering from Addis Ababa Institute of Technology.
+				<p>I am a Ph.D. Candidate in Computer Science at the <a class="about-ref" href="https://twin-cities.umn.edu/" target="_blank" rel="noopener noreferrer" data-author="umn">University of Minnesota</a> where I am advised by <a class="about-ref" href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">Prof. Maria L. Gini</a>.
+					I received my bachelor’s degree in Electrical and Computer Engineering from <a class="about-ref" href="https://aait.aau.edu.et/" target="_blank" rel="noopener noreferrer" data-author="aait">Addis Ababa Institute of Technology</a>.
 					My research is in robotics, with a focus on legged loco-manipulation, multi-robot systems, and autonomy for space exploration.
 				</p>
 				<ul class="icons">
+					<li><a href="https://scholar.google.com/citations?user=zbmmAooAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" class="icon style2 icon-scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg><span class="label">Google Scholar</span></a></li>
 					<li><a href="https://www.linkedin.com/in/ebasa-temesgen-510709192/" class="icon brands style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
 					<li><a href="https://github.com/ebasatemesgen" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
 					<li><a href="https://twitter.com/EbasaTemesgen" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
@@ -132,7 +124,7 @@
 						<div class="timeline-renamed__event__icon">
 							<i class="lni-book"></i>
 						</div>
-						<article class="lm-card" data-lm>
+						<article class="lm-card is-3d" data-lm>
 							<div class="timeline-renamed__event__date pub-event__venue-band lm-side">
 								<a class="pub-card__venue" href="https://iros2026.org/" target="_blank" rel="noopener noreferrer">IEEE/RSJ IROS 2026</a>
 								<span class="lm-side__sub">MoMA.v5 Workshop</span>
@@ -144,17 +136,19 @@
 								<p class="lm-lede">A legged robot with an arm learns where to touch an object and how to push it to a goal, coordinating its base and arm, then carries the skill over to furniture it never trained on.</p>
 								<figure class="lm-player">
 									<div class="lm-screen">
-										<video muted playsinline loop preload="none" data-src="https://learn2push.github.io/static/media/videos/modality/box_cylinder_group_am.mp4"></video>
+										<video muted playsinline loop preload="none" poster="Projects/locomanip/learn2push-chair.jpg" data-src="Projects/locomanip/learn2push-chair.mp4"></video>
+										<div class="lm-3d spot3d" data-spot="learn2push-chair" data-theme="dark" data-zoom="0.75"><span class="spot3d__hint">Isaac Lab rollout · drag to turn</span></div>
 									</div>
 									<div class="lm-picks" role="group" aria-label="Choose a clip">
-										<button type="button" class="is-on" data-src="https://learn2push.github.io/static/media/videos/modality/box_cylinder_group_am.mp4">Boxes &amp; cylinders</button>
+										<button type="button" class="is-on" data-three="learn2push-chair" data-src="Projects/locomanip/learn2push-chair.mp4" data-poster="Projects/locomanip/learn2push-chair.jpg">Chair</button>
+										<button type="button" data-src="https://learn2push.github.io/static/media/videos/modality/box_cylinder_group_am.mp4">Boxes &amp; cylinders</button>
 										<button type="button" data-src="https://learn2push.github.io/static/media/videos/generalization/armchair.mp4">Armchair</button>
 										<button type="button" data-src="https://learn2push.github.io/static/media/videos/generalization/roxana_round_coffee_table_rl_video-step-0.mp4">Coffee table</button>
 										<button type="button" data-src="https://learn2push.github.io/static/media/videos/generalization/chair_wire_cart.mp4">Wire cart</button>
 										<button type="button" data-src="https://learn2push.github.io/static/media/videos/generalization/table_trolley_b01_01_rl_video-step-0.mp4">Trolley</button>
 									</div>
 								</figure>
-								<p class="pub-card__authors lm-authors"><strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://scholar.google.com/scholar?q=Minghao+Zou+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="minghao-zou">M. Zou</a>, <a href="https://scholar.google.com/scholar?q=Xun+Tu+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="xun-tu">X. Tu</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a>, <a href="https://karthikdesingh.com/" target="_blank" rel="noopener noreferrer" data-author="karthik-desingh">K. Desingh</a></p>
+								<p class="pub-card__authors lm-authors"><strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://scholar.google.com/scholar?q=Minghao+Zou+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="minghao-zou">M. Zou</a>, <a href="https://scholar.google.com/citations?user=FgQyXToAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer" data-author="xun-tu">X. Tu</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a>, <a href="https://karthikdesingh.com/" target="_blank" rel="noopener noreferrer" data-author="karthik-desingh">K. Desingh</a></p>
 								<div class="pub-actions">
 									<a href="https://learn2push.github.io/" target="_blank" rel="noopener noreferrer" class="pub-link">Project page <span class="go" aria-hidden="true">›</span></a>
 									<a href="https://learn2push.github.io/Learn2Push_IROS2026.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
@@ -179,14 +173,17 @@
 								<figure class="lm-player">
 									<div class="lm-screen">
 										<video muted playsinline loop preload="none" poster="Projects/locomanip/spot-clean.jpg" data-src="Projects/locomanip/spot-clean.mp4"></video>
+										<div class="lm-3d spot3d" data-spot="spot-quad" data-zoom="0.76"><span class="spot3d__hint">Isaac Lab rollout · drag to turn</span></div>
+										<div class="lm-3d spot3d" data-spot="anymal-quad" data-zoom="0.76"><span class="spot3d__hint">Isaac Lab rollout · drag to turn</span></div>
+										<div class="lm-3d spot3d" data-spot="go1-quad" data-zoom="0.76"><span class="spot3d__hint">Isaac Lab rollout · drag to turn</span></div>
 									</div>
 									<div class="lm-picks" role="group" aria-label="Choose a robot">
-										<button type="button" class="is-on" data-src="Projects/locomanip/spot-clean.mp4" data-poster="Projects/locomanip/spot-clean.jpg">Spot</button>
-										<button type="button" data-src="Projects/locomanip/anymal-clean.mp4" data-poster="Projects/locomanip/anymal-clean.jpg">ANYmal-C</button>
-										<button type="button" data-src="Projects/locomanip/go1-clean.mp4" data-poster="Projects/locomanip/go1-clean.jpg">Unitree Go1</button>
+										<button type="button" class="is-on" data-three="spot-quad" data-src="Projects/locomanip/spot-clean.mp4" data-poster="Projects/locomanip/spot-clean.jpg">Spot</button>
+										<button type="button" data-three="anymal-quad" data-src="Projects/locomanip/anymal-clean.mp4" data-poster="Projects/locomanip/anymal-clean.jpg">ANYmal-C</button>
+										<button type="button" data-three="go1-quad" data-src="Projects/locomanip/go1-clean.mp4" data-poster="Projects/locomanip/go1-clean.jpg">Unitree Go1</button>
 									</div>
 								</figure>
-								<p class="pub-card__authors lm-authors"><strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://scholar.google.com/scholar?q=Dhyan+Thakkar+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="dhyan-thakkar">D. Thakkar</a>, <a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
+								<p class="pub-card__authors lm-authors"><strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://thdhyan.github.io/" target="_blank" rel="noopener noreferrer" data-author="dhyan-thakkar">D. Thakkar</a>, <a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
 								<div class="pub-actions">
 									<a href="https://quadrupedpushing-cr2.github.io/" target="_blank" rel="noopener noreferrer" class="pub-link">Project page <span class="go" aria-hidden="true">›</span></a>
 									<a href="https://quadrupedpushing-cr2.github.io/static/docs/ICRA_CR2_2026.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
@@ -195,308 +192,332 @@
 						</article>
 					</div>
 				</div>
-				<div id="multi-robot" class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type1" data-idea="Robots learn to work as a team: small boxes need one pusher, large boxes need two, and the team learns who pushes what to finish fastest.">
-					<div class="timeline-renamed__event__icon">
-						<i class="lni-book"></i>
+				<!-- Space robotics with NASA: the drilling-autonomy papers, introduced by the collaboration -->
+				<div class="space-group" id="space-autonomy">
+					<div class="hc-group__head">
+						<img class="space-logo" src="images/logos/nasa.svg" alt="NASA">
+						<p class="section-kicker space-collab"><span>In collaboration with NASA<span class="space-collab__more"> Ames Research Center</span></span></p>
+						<h3>Planetary Drilling Autonomy</h3>
+						<p>Four papers on TRIDENT, the drill built for NASA's lunar missions: from reading its field-test data to catching faults as they happen, in Mars-analog and Antarctic fieldwork.</p>
 					</div>
-					<div class="timeline-renamed__event__date pub-event__venue-band">
-						<a class="pub-card__venue" href="https://www.is3rlab.org/aaai25-cmasdl-workshop.github.io/" target="_blank" rel="noopener noreferrer">CMASDL at AAAI 2025</a>
-						<button type="button" class="pub-card__where" data-place="philadelphia">Philadelphia, Pennsylvania</button>
-					</div>
-						<div class="timeline-renamed__event__content">
-							<div class="timeline-renamed__event__title">
-								Hierarchical and Heterogeneous MARL for Coordinated Multi-Robot Box-Pushing Environment
-							</div>
-								<div class="timeline-renamed__event__description">
-									<p>
-										Presented at the CMASDL workshop at AAAI 2025.
-									</p>
-									<div class="pub-actions">
-										<a href="https://seboelter.github.io/files/AAAI.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+					<!-- NASA drilling autonomy: one card shows one paper at a time (ICRA 2026 by default); the vertical timeline beside it switches papers.
+					     The interactive figures are built by assets/js/drill/drill-cards.js; places open a real satellite map. -->
+					<div id="nasa-drill" class="pub-chain">
+						<div class="pub-chain__stage">
+							<article id="drill-masspace24" class="pub-chain__panel" role="tabpanel" aria-labelledby="drill-tab-masspace24">
+								<div class="timeline-renamed__event__date pub-card__band">
+									<a class="pub-card__venue" href="https://mas-space.github.io/aamas2024ws/" target="_blank" rel="noopener noreferrer">MASSpace'24 at AAMAS 2024</a>
+									<button type="button" class="pub-card__where" data-place="auckland">Auckland, New Zealand</button>
 								</div>
-							</div>
-						</div>
-					</div>
-				<!-- NASA drilling autonomy: one card shows one paper at a time (ICRA 2026 by default); the vertical timeline beside it switches papers.
-				     The interactive figures are built by assets/js/drill/drill-cards.js; places open a real satellite map. -->
-				<div id="nasa-drill" class="pub-chain">
-					<div class="pub-chain__stage">
-						<article id="drill-masspace24" class="pub-chain__panel" role="tabpanel" aria-labelledby="drill-tab-masspace24">
-							<div class="timeline-renamed__event__date pub-card__band">
-								<a class="pub-card__venue" href="https://mas-space.github.io/aamas2024ws/" target="_blank" rel="noopener noreferrer">MASSpace'24 at AAMAS 2024</a>
-								<button type="button" class="pub-card__where" data-place="auckland">Auckland, New Zealand</button>
-							</div>
-							<div class="pub-card__intro">
-								<a class="timeline-renamed__event__title pub-card__title" href="https://www-users.cse.umn.edu/~gini/publications/papers/Boelter2024masspace.pdf" target="_blank" rel="noopener noreferrer">Understanding Drill Data for Autonomous Application</a>
-								<p>We analyzed logged TRIDENT field-test data to understand the drilling faults it may encounter, using time-series analysis to find trends during faults and change-point analysis to anticipate them.</p>
-							</div>
-							<div class="pub-card__body">
-								<figure class="pub-card__figure pub-card__figure--wide">
-									<div class="pub-card__stagebox pub-trident" data-interactive="trident">
-										<div class="pub-trident__model">
-											<!-- The real K-REX2: NASA's photo sits in a frame, and the rover cut out of that same photo
-											     sits on top of it, breaking out past the frame and the card. Layers shift with the pointer for depth. -->
-											<div class="pub-rover">
-												<div class="pub-rover__frame">
-													<img class="pub-rover__layer pub-rover__bg" src="images/highlighted-projects/rover-drill.jpg" alt="" loading="lazy" decoding="async">
+								<div class="pub-card__intro">
+									<a class="timeline-renamed__event__title pub-card__title" href="https://www-users.cse.umn.edu/~gini/publications/papers/Boelter2024masspace.pdf" target="_blank" rel="noopener noreferrer">Understanding Drill Data for Autonomous Application</a>
+									<p>We analyzed logged TRIDENT field-test data to understand the drilling faults it may encounter, using time-series analysis to find trends during faults and change-point analysis to anticipate them.</p>
+								</div>
+								<div class="pub-card__body">
+									<figure class="pub-card__figure pub-card__figure--wide">
+										<div class="pub-card__stagebox pub-trident" data-interactive="trident">
+											<div class="pub-trident__model">
+												<!-- The real K-REX2: NASA's photo sits in a frame, and the rover cut out of that same photo
+												     sits on top of it, breaking out past the frame and the card. Layers shift with the pointer for depth. -->
+												<div class="pub-rover">
+													<div class="pub-rover__frame">
+														<img class="pub-rover__layer pub-rover__bg" src="images/highlighted-projects/rover-drill.jpg" alt="" loading="lazy" decoding="async">
+													</div>
+													<div class="pub-rover__layer pub-rover__subject">
+														<img src="images/highlighted-projects/drill/krex2-cutout.webp" alt="NASA's K-REX2 rover carrying the TRIDENT drill in Chile's Atacama Desert" loading="lazy" decoding="async">
+														<button type="button" class="pub-rover__spot" style="--x: 53.3%; --y: 16.9%" data-part="head"><span>Drill head</span></button>
+														<button type="button" class="pub-rover__spot" style="--x: 52.6%; --y: 33%" data-part="feed"><span>Feed stage</span></button>
+														<button type="button" class="pub-rover__spot" style="--x: 54.2%; --y: 60%" data-part="string"><span>Drill string</span></button>
+														<button type="button" class="pub-rover__spot" style="--x: 54.6%; --y: 85%" data-part="brush"><span>Footpad</span></button>
+														<button type="button" class="pub-rover__spot" style="--x: 30.4%; --y: 43%" data-part="arm"><span>Robotic arm</span></button>
+														<button type="button" class="pub-rover__spot" style="--x: 41.7%; --y: 57%" data-part="krex2"><span>K-REX2 rover</span></button>
+													</div>
+												</div>
+												<div class="pub-trident__view" hidden></div>
+												<div class="trident3d__info pub-rover__info" hidden></div>
+												<div class="pub-trident__toolbar">
+													<button type="button" data-action="mode" class="is-primary">Explore TRIDENT in 3D</button>
+													<button type="button" data-action="deploy" hidden>Deploy</button>
+													<button type="button" data-action="bite" hidden>Drill a 10 cm bite</button>
+												</div>
+											</div>
+											<div class="pub-trident__photo">
+												<img src="images/highlighted-projects/drill/masspace24-bishop-field-test.jpg" alt="The TRIDENT drill head and auger on its test frame during field testing in Bishop, California" loading="lazy" decoding="async">
+											</div>
+										</div>
+										<figcaption><span class="cap-wide">Left: </span>TRIDENT on NASA's K-REX2 rover in Chile's Atacama Desert (photo: NASA). Tap a dot to learn what each part does, or explore the drill in 3D.<span class="cap-wide"> Right: TRIDENT field testing at the <button type="button" class="pub-place" data-place="bishop">Bishop Tuff, California</button>.</span></figcaption>
+									</figure>
+									<div class="pub-card__meta timeline-renamed__event__description">
+										<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://science.nasa.gov/astrobiology/strategy/dares/nasa-dares-task-force-2-page-2/#hds-sidebar-nav-14" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. J. Glass</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
+										<div class="pub-actions">
+											<a href="https://www-users.cse.umn.edu/~gini/publications/papers/Boelter2024masspace.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+										</div>
+									</div>
+								</div>
+							</article>
+
+							<article id="drill-icraws25" class="pub-chain__panel" role="tabpanel" aria-labelledby="drill-tab-icraws25">
+								<div class="timeline-renamed__event__date pub-card__band">
+									<a class="pub-card__venue" href="https://norlab-ulaval.github.io/icra_workshop_field_robotics" target="_blank" rel="noopener noreferrer">IEEE ICRA Workshop 2025</a>
+									<button type="button" class="pub-card__where" data-place="atlanta">Atlanta, Georgia</button>
+								</div>
+								<div class="pub-card__intro">
+									<a class="timeline-renamed__event__title pub-card__title" href="https://ntrs.nasa.gov/api/citations/20250003932/downloads/ICRA_FR_Concept_Boelter.pdf" target="_blank" rel="noopener noreferrer">A Concept for Planetary Drilling Autonomy</a>
+									<p>We propose extending online subspace analysis and percussive beat-frequency detection into a Markov Decision Process, so a drilling agent like TRIDENT can autonomously avoid faults.</p>
+								</div>
+								<div class="pub-card__body">
+									<figure class="pub-card__figure pub-card__figure--wide">
+										<div class="pub-roverstage" data-interactive="rover">
+											<!-- the paper's Fig. 1: the rover cut out of the photo breaks out past the top of its frame -->
+											<div class="pub-rover" style="--ar: 1.434; --ax: 0.5; --at: 45%; --ay: 1.02">
+												<div class="pub-rover__layer pub-rover__frame">
+													<img class="pub-rover__bg" src="images/highlighted-projects/drill/icraws25-rover.jpg" alt="" loading="lazy" decoding="async">
 												</div>
 												<div class="pub-rover__layer pub-rover__subject">
-													<img src="images/highlighted-projects/drill/krex2-cutout.webp" alt="NASA's K-REX2 rover carrying the TRIDENT drill in Chile's Atacama Desert" loading="lazy" decoding="async">
-													<button type="button" class="pub-rover__spot" style="--x: 53.3%; --y: 16.9%" data-part="head"><span>Drill head</span></button>
-													<button type="button" class="pub-rover__spot" style="--x: 52.6%; --y: 33%" data-part="feed"><span>Feed stage</span></button>
-													<button type="button" class="pub-rover__spot" style="--x: 54.2%; --y: 60%" data-part="string"><span>Drill string</span></button>
-													<button type="button" class="pub-rover__spot" style="--x: 54.6%; --y: 85%" data-part="brush"><span>Footpad</span></button>
-													<button type="button" class="pub-rover__spot" style="--x: 30.4%; --y: 43%" data-part="arm"><span>Robotic arm</span></button>
-													<button type="button" class="pub-rover__spot" style="--x: 41.7%; --y: 57%" data-part="krex2"><span>K-REX2 rover</span></button>
+													<img src="images/highlighted-projects/drill/icraws25-rover-cutout.webp" alt="The TRIDENT drill mounted on NASA's K-REX2 rover during the ARADS project" loading="lazy" decoding="async">
+													<button type="button" class="pub-rover__spot" style="--x: 63.5%; --y: 8%" data-part="head"><span>Drill head</span></button>
+													<button type="button" class="pub-rover__spot" style="--x: 61.5%; --y: 26%" data-part="feed"><span>Feed stage</span></button>
+													<button type="button" class="pub-rover__spot" style="--x: 58%; --y: 45%" data-part="arm"><span>Robotic arm</span></button>
+													<button type="button" class="pub-rover__spot" style="--x: 36%; --y: 56%" data-part="krex2"><span>K-REX2 rover</span></button>
 												</div>
 											</div>
-											<div class="pub-trident__view" hidden></div>
 											<div class="trident3d__info pub-rover__info" hidden></div>
-											<div class="pub-trident__toolbar">
-												<button type="button" data-action="mode" class="is-primary">Explore TRIDENT in 3D</button>
-												<button type="button" data-action="deploy" hidden>Deploy</button>
-												<button type="button" data-action="bite" hidden>Drill a 10 cm bite</button>
-											</div>
 										</div>
-										<div class="pub-trident__photo">
-											<img src="images/highlighted-projects/drill/masspace24-bishop-field-test.jpg" alt="The TRIDENT drill head and auger on its test frame during field testing in Bishop, California" loading="lazy" decoding="async">
+										<figcaption>TRIDENT on NASA's K-REX2 rover during the ARADS project, the paper's Fig. 1 (image: Astrobiology.com). Tap a dot to learn what each part does.</figcaption>
+									</figure>
+									<div class="pub-card__meta timeline-renamed__event__description">
+										<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <a href="https://mariojerez.github.io/" target="_blank" rel="noopener noreferrer" data-author="mario-jerez">M. Jerez</a>, <a href="https://eforberger.github.io/" target="_blank" rel="noopener noreferrer" data-author="elsa-forberger">E. Forberger</a>, <a href="https://science.nasa.gov/astrobiology/strategy/dares/nasa-dares-task-force-2-page-2/#hds-sidebar-nav-14" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. Glass</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
+										<div class="pub-actions">
+											<a href="https://ntrs.nasa.gov/api/citations/20250003932/downloads/ICRA_FR_Concept_Boelter.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
 										</div>
-									</div>
-									<figcaption><span class="cap-wide">Left: </span>TRIDENT on NASA's K-REX2 rover in Chile's Atacama Desert (photo: NASA). Tap a dot to learn what each part does, or explore the drill in 3D.<span class="cap-wide"> Right: TRIDENT field testing at the <button type="button" class="pub-place" data-place="bishop">Bishop Tuff, California</button>.</span></figcaption>
-								</figure>
-								<div class="pub-card__meta timeline-renamed__event__description">
-									<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://ntrs.nasa.gov/search?q=%22Brian%20Glass%22" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. J. Glass</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
-									<div class="pub-actions">
-										<a href="https://www-users.cse.umn.edu/~gini/publications/papers/Boelter2024masspace.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
 									</div>
 								</div>
-							</div>
-						</article>
+							</article>
 
-						<article id="drill-icraws25" class="pub-chain__panel" role="tabpanel" aria-labelledby="drill-tab-icraws25">
-							<div class="timeline-renamed__event__date pub-card__band">
-								<a class="pub-card__venue" href="https://norlab-ulaval.github.io/icra_workshop_field_robotics" target="_blank" rel="noopener noreferrer">IEEE ICRA Workshop 2025</a>
-								<button type="button" class="pub-card__where" data-place="atlanta">Atlanta, Georgia</button>
-							</div>
-							<div class="pub-card__intro">
-								<a class="timeline-renamed__event__title pub-card__title" href="https://ntrs.nasa.gov/api/citations/20250003932/downloads/ICRA_FR_Concept_Boelter.pdf" target="_blank" rel="noopener noreferrer">A Concept for Planetary Drilling Autonomy</a>
-								<p>We propose extending online subspace analysis and percussive beat-frequency detection into a Markov Decision Process, so a drilling agent like TRIDENT can autonomously avoid faults.</p>
-							</div>
-							<div class="pub-card__body">
-								<figure class="pub-card__figure pub-card__figure--wide">
-									<div class="pub-roverstage" data-interactive="rover">
-										<!-- the paper's Fig. 1: the rover cut out of the photo breaks out past the top of its frame -->
-										<div class="pub-rover" style="--ar: 1.434; --ax: 0.5; --at: 45%; --ay: 1.02">
-											<div class="pub-rover__layer pub-rover__frame">
-												<img class="pub-rover__bg" src="images/highlighted-projects/drill/icraws25-rover.jpg" alt="" loading="lazy" decoding="async">
-											</div>
-											<div class="pub-rover__layer pub-rover__subject">
-												<img src="images/highlighted-projects/drill/icraws25-rover-cutout.webp" alt="The TRIDENT drill mounted on NASA's K-REX2 rover during the ARADS project" loading="lazy" decoding="async">
-												<button type="button" class="pub-rover__spot" style="--x: 63.5%; --y: 8%" data-part="head"><span>Drill head</span></button>
-												<button type="button" class="pub-rover__spot" style="--x: 61.5%; --y: 26%" data-part="feed"><span>Feed stage</span></button>
-												<button type="button" class="pub-rover__spot" style="--x: 58%; --y: 45%" data-part="arm"><span>Robotic arm</span></button>
-												<button type="button" class="pub-rover__spot" style="--x: 36%; --y: 56%" data-part="krex2"><span>K-REX2 rover</span></button>
-											</div>
+							<article id="drill-icra26" class="pub-chain__panel is-active" role="tabpanel" aria-labelledby="drill-tab-icra26">
+								<div class="timeline-renamed__event__date pub-card__band">
+									<a class="pub-card__venue" href="https://2026.ieee-icra.org/" target="_blank" rel="noopener noreferrer">IEEE ICRA 2026</a>
+									<button type="button" class="pub-card__where" data-place="vienna">Vienna, Austria</button>
+								</div>
+								<div class="pub-card__intro">
+									<a class="timeline-renamed__event__title pub-card__title" href="https://ieeexplore.ieee.org/abstract/document/11697583/" target="_blank" rel="noopener noreferrer">Model-Free Subsurface Anomaly Detection using Subspace Analysis Techniques for Sparse Telemetry for Extraterrestrial Drilling Robots</a>
+									<p>A model-free method that detects subsurface anomalies online from sparse drilling telemetry, within mission compute and energy limits, validated in lab tests and a Mars-analog field deployment at <button type="button" class="pub-place" data-place="haughton">Haughton Crater</button>.</p>
+								</div>
+								<div class="pub-card__body">
+									<figure class="pub-card__figure pub-card__figure--video">
+										<div class="pub-card__stagebox pub-card__media pub-card__media--video">
+											<video controls preload="metadata" playsinline poster="images/highlighted-projects/icra26-video-poster.jpg">
+												<source src="Projects/Nasa-related-Project/ICRA26_1137_VI_i.mp4" type="video/mp4">
+												Your browser does not support the video tag.
+											</video>
 										</div>
-										<div class="trident3d__info pub-rover__info" hidden></div>
-									</div>
-									<figcaption>TRIDENT on NASA's K-REX2 rover during the ARADS project, the paper's Fig. 1 (image: Astrobiology.com). Tap a dot to learn what each part does.</figcaption>
-								</figure>
-								<div class="pub-card__meta timeline-renamed__event__description">
-									<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <a href="https://scholar.google.com/scholar?q=Mario+Jerez+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="mario-jerez">M. Jerez</a>, <a href="https://scholar.google.com/scholar?q=Elsa+Forberger+University+of+Minnesota" target="_blank" rel="noopener noreferrer" data-author="elsa-forberger">E. Forberger</a>, <a href="https://ntrs.nasa.gov/search?q=%22Brian%20Glass%22" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. Glass</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
-									<div class="pub-actions">
-										<a href="https://ntrs.nasa.gov/api/citations/20250003932/downloads/ICRA_FR_Concept_Boelter.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+									</figure>
+									<div class="pub-card__meta timeline-renamed__event__description">
+										<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://scholar.google.com/citations?user=BVzzVA0AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" data-author="lucas-weber">L. Weber</a>, <a href="https://astrostucky.com/pages/about-me.html" target="_blank" rel="noopener noreferrer" data-author="thomas-stucky">T. Stucky</a>, <a href="https://science.nasa.gov/astrobiology/strategy/dares/nasa-dares-task-force-2-page-2/#hds-sidebar-nav-14" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. Glass</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
+										<div class="pub-actions">
+											<a href="https://ieeexplore.ieee.org/abstract/document/11697583/" target="_blank" rel="noopener noreferrer" class="pub-link">IEEE Xplore</a>
+											<button type="button" id="nasa-drill-more-toggle" class="pub-link pub-more-toggle" aria-expanded="false" aria-controls="nasa-drill-more">
+												<span class="pub-more-toggle__label">Learn more</span>
+												<span class="pub-more-toggle__chevron" aria-hidden="true"></span>
+											</button>
+										</div>
 									</div>
 								</div>
-							</div>
-						</article>
+								<div id="nasa-drill-more" class="pub-feature__more" hidden>
+									<div class="pub-feature__more-text">
+										<p>
+											TRIDENT, the Regolith and Ice Drill for Exploring New Terrain, is a 1-meter class rotary-percussive drill built by <a href="https://www.honeybeerobotics.com/" target="_blank" rel="noopener noreferrer">Honeybee Robotics</a> for NASA lunar missions such as <a href="https://www.nasa.gov/mission/polar-resources-ice-mining-experiment-1-prime-1/" target="_blank" rel="noopener noreferrer">PRIME-1</a>. On another world there is no operator in the loop and no prior map of the subsurface, so the drill has to recognize trouble on its own before it becomes a mission-ending fault.
+										</p>
+										<p>
+											This paper uses time-series subspace analysis on the drill's motor telemetry to flag anomalies as they happen, without training data, running inside the drill's onboard executive.
+										</p>
+									</div>
+									<dl class="pub-feature__facts">
+										<dt>Collaborators</dt>
+										<dd>University of Minnesota · NASA Ames Research Center · FAU Erlangen-Nürnberg</dd>
+										<dt>More</dt>
+										<dd>
+											<a href="https://www.nasa.gov/centers-and-facilities/kennedy/apollo-to-artemis-drilling-on-the-moon/" target="_blank" rel="noopener noreferrer">TRIDENT at NASA <span class="go" aria-hidden="true">›</span></a>
+											<a href="https://www.cs6.tf.fau.de/beitrag-auf-der-ieee-icra-2026-detektion-von-ploetzlichen-messwertaenderungen-im-bereich-der-autonomen-robotik/" target="_blank" rel="noopener noreferrer">ICRA 2026 announcement <span class="go" aria-hidden="true">›</span></a>
+										</dd>
+									</dl>
+								</div>
+							</article>
 
-						<article id="drill-icra26" class="pub-chain__panel is-active" role="tabpanel" aria-labelledby="drill-tab-icra26">
-							<div class="timeline-renamed__event__date pub-card__band">
-								<a class="pub-card__venue" href="https://2026.ieee-icra.org/" target="_blank" rel="noopener noreferrer">IEEE ICRA 2026</a>
-								<button type="button" class="pub-card__where" data-place="vienna">Vienna, Austria</button>
-							</div>
-							<div class="pub-card__intro">
-								<a class="timeline-renamed__event__title pub-card__title" href="https://ieeexplore.ieee.org/abstract/document/11697583/" target="_blank" rel="noopener noreferrer">Model-Free Subsurface Anomaly Detection using Subspace Analysis Techniques for Sparse Telemetry for Extraterrestrial Drilling Robots</a>
-								<p>A model-free method that detects subsurface anomalies online from sparse drilling telemetry, within mission compute and energy limits, validated in lab tests and a Mars-analog field deployment at <button type="button" class="pub-place" data-place="haughton">Haughton Crater</button>.</p>
-							</div>
-							<div class="pub-card__body">
-								<figure class="pub-card__figure pub-card__figure--video">
-									<div class="pub-card__stagebox pub-card__media pub-card__media--video">
-										<video controls preload="metadata" playsinline poster="images/highlighted-projects/icra26-video-poster.jpg">
-											<source src="Projects/Nasa-related-Project/ICRA26_1137_VI_i.mp4" type="video/mp4">
-											Your browser does not support the video tag.
-										</video>
-									</div>
-								</figure>
-								<div class="pub-card__meta timeline-renamed__event__description">
-									<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://scholar.google.com/citations?user=BVzzVA0AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" data-author="lucas-weber">L. Weber</a>, <a href="https://scholar.google.com/scholar?q=Thomas+Stucky+KBR+NASA" target="_blank" rel="noopener noreferrer" data-author="thomas-stucky">T. Stucky</a>, <a href="https://ntrs.nasa.gov/search?q=%22Brian%20Glass%22" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. Glass</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a></p>
-									<div class="pub-actions">
-										<a href="https://ieeexplore.ieee.org/abstract/document/11697583/" target="_blank" rel="noopener noreferrer" class="pub-link">IEEE Xplore</a>
-										<button type="button" id="nasa-drill-more-toggle" class="pub-link pub-more-toggle" aria-expanded="false" aria-controls="nasa-drill-more">
-											<span class="pub-more-toggle__label">Learn more</span>
-											<span class="pub-more-toggle__chevron" aria-hidden="true"></span>
-										</button>
-									</div>
+							<article id="drill-annals26" class="pub-chain__panel" role="tabpanel" aria-labelledby="drill-tab-annals26">
+								<div class="timeline-renamed__event__date pub-card__band">
+									<a class="pub-card__venue" href="https://www.cambridge.org/core/journals/annals-of-glaciology" target="_blank" rel="noopener noreferrer">Annals of Glaciology 2026</a>
+									<button type="button" class="pub-card__where" data-place="untersee">Antarctic fieldwork · Preprint</button>
 								</div>
-							</div>
-							<div id="nasa-drill-more" class="pub-feature__more" hidden>
-								<div class="pub-feature__more-text">
-									<p>
-										TRIDENT, the Regolith and Ice Drill for Exploring New Terrain, is a 1-meter class rotary-percussive drill built by <a href="https://www.honeybeerobotics.com/" target="_blank" rel="noopener noreferrer">Honeybee Robotics</a> for NASA lunar missions such as <a href="https://www.nasa.gov/mission/polar-resources-ice-mining-experiment-1-prime-1/" target="_blank" rel="noopener noreferrer">PRIME-1</a>. On another world there is no operator in the loop and no prior map of the subsurface, so the drill has to recognize trouble on its own before it becomes a mission-ending fault.
-									</p>
-									<p>
-										This paper uses time-series subspace analysis on the drill's motor telemetry to flag anomalies as they happen, without training data, running inside the drill's onboard executive.
-									</p>
+								<div class="pub-card__intro">
+									<a class="timeline-renamed__event__title pub-card__title" href="https://ntrs.nasa.gov/citations/20260007172" target="_blank" rel="noopener noreferrer">TRIDENT Drill Performance and Subsurface Fault and Anomaly Detection in Antarctic Environments</a>
+									<p>TRIDENT drilling performance at Antarctic planetary-analog sites in <button type="button" class="pub-place" data-place="schirmacher">Schirmacher Oasis</button> and <button type="button" class="pub-place" data-place="untersee">Lake Untersee</button>, with fault and anomaly detection methods that need minimal training data.</p>
 								</div>
-								<dl class="pub-feature__facts">
-									<dt>Collaborators</dt>
-									<dd>University of Minnesota · NASA Ames Research Center · FAU Erlangen-Nürnberg</dd>
-									<dt>More</dt>
-									<dd>
-										<a href="https://www.nasa.gov/centers-and-facilities/kennedy/apollo-to-artemis-drilling-on-the-moon/" target="_blank" rel="noopener noreferrer">TRIDENT at NASA <span class="go" aria-hidden="true">›</span></a>
-										<a href="https://www.cs6.tf.fau.de/beitrag-auf-der-ieee-icra-2026-detektion-von-ploetzlichen-messwertaenderungen-im-bereich-der-autonomen-robotik/" target="_blank" rel="noopener noreferrer">ICRA 2026 announcement <span class="go" aria-hidden="true">›</span></a>
-									</dd>
-								</dl>
-							</div>
-						</article>
-
-						<article id="drill-annals26" class="pub-chain__panel" role="tabpanel" aria-labelledby="drill-tab-annals26">
-							<div class="timeline-renamed__event__date pub-card__band">
-								<a class="pub-card__venue" href="https://www.cambridge.org/core/journals/annals-of-glaciology" target="_blank" rel="noopener noreferrer">Annals of Glaciology 2026</a>
-								<button type="button" class="pub-card__where" data-place="untersee">Antarctic fieldwork · Preprint</button>
-							</div>
-							<div class="pub-card__intro">
-								<a class="timeline-renamed__event__title pub-card__title" href="https://ntrs.nasa.gov/citations/20260007172" target="_blank" rel="noopener noreferrer">TRIDENT Drill Performance and Subsurface Fault and Anomaly Detection in Antarctic Environments</a>
-								<p>TRIDENT drilling performance at Antarctic planetary-analog sites in <button type="button" class="pub-place" data-place="schirmacher">Schirmacher Oasis</button> and <button type="button" class="pub-place" data-place="untersee">Lake Untersee</button>, with fault and anomaly detection methods that need minimal training data.</p>
-							</div>
-							<div class="pub-card__body">
-								<figure class="pub-card__figure pub-card__figure--wide">
-									<div class="pub-card__stagebox pub-card__media pub-sites" data-interactive="sites">
-										<!-- a real satellite map flies to each Antarctic site, then hands over to that site's field photo -->
-										<div class="pub-sites__map"></div>
-										<div class="pub-sites__photo" data-site="untersee" style="--a: 0.75">
-											<img class="pub-sites__backdrop" src="images/highlighted-projects/drill/annals26-lake-untersee.jpg" alt="" loading="lazy" decoding="async">
-											<div class="pub-sites__frame">
-												<img src="images/highlighted-projects/drill/annals26-lake-untersee.jpg" alt="The TRIDENT drill set up inside a red field tent on the ice at Lake Untersee, Antarctica" loading="lazy" decoding="async">
-												<span class="pub-sites__pin" style="--x: 45.5%; --y: 31%"><span>TRIDENT</span></span>
+								<div class="pub-card__body">
+									<figure class="pub-card__figure pub-card__figure--wide">
+										<div class="pub-card__stagebox pub-card__media pub-sites" data-interactive="sites">
+											<!-- a real satellite map flies to each Antarctic site, then hands over to that site's field photo -->
+											<div class="pub-sites__map"></div>
+											<div class="pub-sites__photo" data-site="untersee" style="--a: 0.75">
+												<img class="pub-sites__backdrop" src="images/highlighted-projects/drill/annals26-lake-untersee.jpg" alt="" loading="lazy" decoding="async">
+												<div class="pub-sites__frame">
+													<img src="images/highlighted-projects/drill/annals26-lake-untersee.jpg" alt="The TRIDENT drill set up inside a red field tent on the ice at Lake Untersee, Antarctica" loading="lazy" decoding="async">
+													<span class="pub-sites__pin" style="--x: 45.5%; --y: 31%"><span>TRIDENT</span></span>
+												</div>
+											</div>
+											<div class="pub-sites__photo" data-site="schirmacher" style="--a: 1.333">
+												<img class="pub-sites__backdrop" src="images/highlighted-projects/drill/annals26-schirmacher-oasis.jpg" alt="" loading="lazy" decoding="async">
+												<div class="pub-sites__frame">
+													<img src="images/highlighted-projects/drill/annals26-schirmacher-oasis.jpg" alt="TRIDENT drilling inside a field tent into the thawed and frozen subsurface boundary at Schirmacher Oasis, Antarctica" loading="lazy" decoding="async">
+													<span class="pub-sites__pin" style="--x: 28%; --y: 32%"><span>TRIDENT</span></span>
+												</div>
+											</div>
+											<div class="pub-sites__tabs" role="group" aria-label="Antarctic fieldwork sites">
+												<button type="button" class="pub-sites__tab" data-go="overview">Map</button>
+												<button type="button" class="pub-sites__tab" data-go="untersee">Lake Untersee</button>
+												<button type="button" class="pub-sites__tab" data-go="schirmacher">Schirmacher Oasis</button>
 											</div>
 										</div>
-										<div class="pub-sites__photo" data-site="schirmacher" style="--a: 1.333">
-											<img class="pub-sites__backdrop" src="images/highlighted-projects/drill/annals26-schirmacher-oasis.jpg" alt="" loading="lazy" decoding="async">
-											<div class="pub-sites__frame">
-												<img src="images/highlighted-projects/drill/annals26-schirmacher-oasis.jpg" alt="TRIDENT drilling inside a field tent into the thawed and frozen subsurface boundary at Schirmacher Oasis, Antarctica" loading="lazy" decoding="async">
-												<span class="pub-sites__pin" style="--x: 28%; --y: 32%"><span>TRIDENT</span></span>
-											</div>
+										<figcaption>TRIDENT's two Antarctic field sites in Dronning Maud Land. Schirmacher Oasis photo: B. Glass. Map imagery: Esri; elevation: Mapzen Terrain Tiles.</figcaption>
+									</figure>
+									<div class="pub-card__meta timeline-renamed__event__description">
+										<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <a href="https://astrostucky.com/pages/about-me.html" target="_blank" rel="noopener noreferrer" data-author="thomas-stucky">T. Stucky</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://relisemai.github.io/" target="_blank" rel="noopener noreferrer" data-author="rene-mai">R. Mai</a>, <a href="https://scholar.google.com/citations?user=BVzzVA0AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" data-author="lucas-weber">L. Weber</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a>, <a href="https://www.linkedin.com/in/deanbergman1/" target="_blank" rel="noopener noreferrer" data-author="dean-bergman">D. Bergman</a>, <a href="https://scholar.google.com/scholar?q=Carter+Fortuin+Blue+Origin" target="_blank" rel="noopener noreferrer" data-author="carter-fortuin">C. Fortuin</a>, <a href="https://science.nasa.gov/astrobiology/strategy/dares/nasa-dares-task-force-2-page-2/#hds-sidebar-nav-14" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. Glass</a>, <a href="https://www.nasa.gov/people/mary-beth-wilhelm/" target="_blank" rel="noopener noreferrer" data-author="marybeth-wilhelm">M. Wilhelm</a></p>
+										<div class="pub-actions">
+											<a href="https://ntrs.nasa.gov/citations/20260007172" target="_blank" rel="noopener noreferrer" class="pub-link">Preprint</a>
 										</div>
-										<div class="pub-sites__tabs" role="group" aria-label="Antarctic fieldwork sites">
-											<button type="button" class="pub-sites__tab" data-go="overview">Map</button>
-											<button type="button" class="pub-sites__tab" data-go="untersee">Lake Untersee</button>
-											<button type="button" class="pub-sites__tab" data-go="schirmacher">Schirmacher Oasis</button>
-										</div>
-									</div>
-									<figcaption>TRIDENT's two Antarctic field sites in Dronning Maud Land. Schirmacher Oasis photo: B. Glass. Map imagery: Esri; elevation: Mapzen Terrain Tiles.</figcaption>
-								</figure>
-								<div class="pub-card__meta timeline-renamed__event__description">
-									<p class="pub-card__authors"><a href="https://seboelter.github.io/" target="_blank" rel="noopener noreferrer" data-author="sarah-boelter">S. Boelter</a>, <a href="https://gretab5802.github.io/" target="_blank" rel="noopener noreferrer" data-author="greta-brown">G. Brown</a>, <a href="https://scholar.google.com/scholar?q=Thomas+Stucky+KBR+NASA" target="_blank" rel="noopener noreferrer" data-author="thomas-stucky">T. Stucky</a>, <strong><a href="https://ebasatemesgen.github.io/" target="_blank" rel="noopener noreferrer" data-author="ebasa-temesgen">E. Temesgen</a></strong>, <a href="https://relisemai.github.io/" target="_blank" rel="noopener noreferrer" data-author="rene-mai">R. Mai</a>, <a href="https://scholar.google.com/citations?user=BVzzVA0AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" data-author="lucas-weber">L. Weber</a>, <a href="https://cse.umn.edu/cs/maria-gini" target="_blank" rel="noopener noreferrer" data-author="maria-gini">M. Gini</a>, <a href="https://scholar.google.com/scholar?q=Dean+Bergman+Blue+Origin" target="_blank" rel="noopener noreferrer" data-author="dean-bergman">D. Bergman</a>, <a href="https://scholar.google.com/scholar?q=Carter+Fortuin+Blue+Origin" target="_blank" rel="noopener noreferrer" data-author="carter-fortuin">C. Fortuin</a>, <a href="https://ntrs.nasa.gov/search?q=%22Brian%20Glass%22" target="_blank" rel="noopener noreferrer" data-author="brian-glass">B. Glass</a>, <a href="https://ntrs.nasa.gov/search?q=%22Marybeth%20Wilhelm%22" target="_blank" rel="noopener noreferrer" data-author="marybeth-wilhelm">M. Wilhelm</a></p>
-									<div class="pub-actions">
-										<a href="https://ntrs.nasa.gov/citations/20260007172" target="_blank" rel="noopener noreferrer" class="pub-link">Preprint</a>
 									</div>
 								</div>
-							</div>
-						</article>
-					</div>
+							</article>
+						</div>
 
-					<div class="pub-chain__side">
-						<div class="pub-chain__nav" role="tablist" aria-orientation="vertical" aria-label="Drilling autonomy papers">
-							<button type="button" role="tab" id="drill-tab-masspace24" class="pub-chain__tab" aria-controls="drill-masspace24" aria-selected="false" tabindex="-1">
-								<span class="pub-chain__venue">2024 · MASSpace'24 at AAMAS</span>
-								<span class="pub-chain__title">Understanding Drill Data for Autonomous Application</span>
-							</button>
-							<button type="button" role="tab" id="drill-tab-icraws25" class="pub-chain__tab" aria-controls="drill-icraws25" aria-selected="false" tabindex="-1">
-								<span class="pub-chain__venue">2025 · ICRA Workshop on Field Robotics</span>
-								<span class="pub-chain__title">A Concept for Planetary Drilling Autonomy</span>
-							</button>
-							<button type="button" role="tab" id="drill-tab-icra26" class="pub-chain__tab is-active" aria-controls="drill-icra26" aria-selected="true">
-								<span class="pub-chain__venue">2026 · IEEE ICRA, Vienna</span>
-								<span class="pub-chain__title">Model-Free Subsurface Anomaly Detection</span>
-							</button>
-							<button type="button" role="tab" id="drill-tab-annals26" class="pub-chain__tab" aria-controls="drill-annals26" aria-selected="false" tabindex="-1">
-								<span class="pub-chain__venue">2026 · Annals of Glaciology · Preprint</span>
-								<span class="pub-chain__title">TRIDENT Drill Performance and Fault Detection in Antarctic Environments</span>
-							</button>
+						<div class="pub-chain__side">
+							<div class="pub-chain__nav" role="tablist" aria-orientation="vertical" aria-label="Drilling autonomy papers">
+								<button type="button" role="tab" id="drill-tab-annals26" class="pub-chain__tab" aria-controls="drill-annals26" aria-selected="false" tabindex="-1">
+									<span class="pub-chain__venue">2026 · Annals of Glaciology · Preprint</span>
+									<span class="pub-chain__title">TRIDENT Drill Performance and Fault Detection in Antarctic Environments</span>
+								</button>
+								<button type="button" role="tab" id="drill-tab-icra26" class="pub-chain__tab is-active" aria-controls="drill-icra26" aria-selected="true">
+									<span class="pub-chain__venue">2026 · IEEE ICRA, Vienna</span>
+									<span class="pub-chain__title">Model-Free Subsurface Anomaly Detection</span>
+								</button>
+								<button type="button" role="tab" id="drill-tab-icraws25" class="pub-chain__tab" aria-controls="drill-icraws25" aria-selected="false" tabindex="-1">
+									<span class="pub-chain__venue">2025 · ICRA Workshop on Field Robotics</span>
+									<span class="pub-chain__title">A Concept for Planetary Drilling Autonomy</span>
+								</button>
+								<button type="button" role="tab" id="drill-tab-masspace24" class="pub-chain__tab" aria-controls="drill-masspace24" aria-selected="false" tabindex="-1">
+									<span class="pub-chain__venue">2024 · MASSpace'24 at AAMAS</span>
+									<span class="pub-chain__title">Understanding Drill Data for Autonomous Application</span>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type2" data-idea="Many robots, many targets, no collisions: an auction on a map that unrolls over time gives every robot a target and a guaranteed collision-free path.">
-					<div class="timeline-renamed__event__icon">
-						<i class="lni-book"></i>
+
+				<!-- Multi-agent systems, newest first (MARL before GUARD so GUARD opens with its venue, like the cards around it) -->
+				<div class="hc-group ma-group" id="multi-robot">
+					<div class="hc-group__head">
+						<p class="section-kicker">Research area</p>
+						<h3>Multi-Agent Systems</h3>
+						<p>Robots and learning agents that work as a team, from box pushing and collision-free paths to drone patrols and federated learning.</p>
 					</div>
-					<div class="timeline-renamed__event__date pub-event__venue-band">
-						<a class="pub-card__venue" href="https://aamas2024-conference.auckland.ac.nz/" target="_blank" rel="noopener noreferrer">ARMS at AAMAS 2024</a>
-						<button type="button" class="pub-card__where" data-place="auckland">Auckland, New Zealand</button>
-					</div>
-						<div class="timeline-renamed__event__content">
-							<div class="timeline-renamed__event__title">
-								Multi-agent Path Finding Using Time-Extended Graphs with Auctions
-							</div>
-								<div class="timeline-renamed__event__description">
-									<p>
-										Presented at the ARMS workshop at AAMAS 2024.
-									</p>
-									<div class="pub-actions">
-										<a href="https://www-users.cse.umn.edu/~gini/publications/papers/Barman2024arms.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
-										<a href="Projects/mapf-auction/" target="_blank" rel="noopener noreferrer" class="pub-link">Interactive demo <span class="go" aria-hidden="true">›</span></a>
+					<div id="sec-sync" class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type2" data-idea="Each device learns for itself when syncing is worth it: skip, upload, download, or both. The result is less waiting, less energy, and better accuracy.">
+						<div class="timeline-renamed__event__icon">
+							<i class="lni-book"></i>
+						</div>
+						<div class="timeline-renamed__event__date pub-event__venue-band">
+							<a class="pub-card__venue" href="https://acm-ieee-sec.org/2026/" target="_blank" rel="noopener noreferrer">IEEE/ACM SEC 2026</a>
+							<button type="button" class="pub-card__where" data-place="santa-clara">Santa Clara, California</button>
+						</div>
+							<div class="timeline-renamed__event__content">
+								<div class="timeline-renamed__event__title">
+									Learning to Sync at the Edge: Client-Side Adaptive Synchronization for Federated Learning
+								</div>
+									<div class="timeline-renamed__event__description">
+										<p>
+											Presented at the IEEE/ACM Symposium on Edge Computing (SEC) 2026.
+										</p>
+										<div class="pub-actions">
+											<a href="https://arxiv.org/abs/2610.14268" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+											<a href="Projects/learning-to-sync/" target="_blank" rel="noopener noreferrer" class="pub-link pub-link--project">Project page</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				<div id="sec-sync" class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type2" data-idea="Each device learns for itself when syncing is worth it: skip, upload, download, or both. The result is less waiting, less energy, and better accuracy.">
-					<div class="timeline-renamed__event__icon">
-						<i class="lni-book"></i>
-					</div>
-					<div class="timeline-renamed__event__date pub-event__venue-band">
-						<a class="pub-card__venue" href="https://acm-ieee-sec.org/2026/" target="_blank" rel="noopener noreferrer">IEEE/ACM SEC 2026</a>
-						<button type="button" class="pub-card__where" data-place="santa-clara">Santa Clara, California</button>
-					</div>
-						<div class="timeline-renamed__event__content">
-							<div class="timeline-renamed__event__title">
-								Learning to Sync at the Edge: Client-Side Adaptive Synchronization for Federated Learning
-							</div>
-								<div class="timeline-renamed__event__description">
-									<p>
-										Presented at the IEEE/ACM Symposium on Edge Computing (SEC) 2026.
-									</p>
-									<div class="pub-actions">
-										<a href="https://arxiv.org/abs/2610.14268" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
-										<a href="Projects/learning-to-sync/" target="_blank" rel="noopener noreferrer" class="pub-link pub-link--project">Project page</a>
+					<div class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type1" data-idea="Robots learn to work as a team: small boxes need one pusher, large boxes need two, and the team learns who pushes what to finish fastest.">
+						<div class="timeline-renamed__event__icon">
+							<i class="lni-book"></i>
+						</div>
+						<div class="timeline-renamed__event__date pub-event__venue-band">
+							<a class="pub-card__venue" href="https://www.is3rlab.org/aaai25-cmasdl-workshop.github.io/" target="_blank" rel="noopener noreferrer">CMASDL at AAAI 2025</a>
+							<button type="button" class="pub-card__where" data-place="philadelphia">Philadelphia, Pennsylvania</button>
+						</div>
+							<div class="timeline-renamed__event__content">
+								<div class="timeline-renamed__event__title">
+									Hierarchical and Heterogeneous MARL for Coordinated Multi-Robot Box-Pushing Environment
+								</div>
+									<div class="timeline-renamed__event__description">
+										<p>
+											Presented at the CMASDL workshop at AAAI 2025.
+										</p>
+										<div class="pub-actions">
+											<a href="https://seboelter.github.io/files/AAAI.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				<div class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type3" data-idea="Drones patrol a farm on their own, spot deer with computer vision, chase them away, and recharge themselves. Built with a Minnesota farmer.">
-					<div class="timeline-renamed__event__icon">
-						<i class="lni-book"></i>
-					</div>
-					<div class="timeline-renamed__event__date pub-event__venue-band">
-						<a class="pub-card__venue" href="https://2025.ieee-icra.org/" target="_blank" rel="noopener noreferrer">IEEE ICRA Workshop 2025</a>
-						<button type="button" class="pub-card__where" data-place="atlanta">Atlanta, Georgia</button>
-					</div>
-						<div class="timeline-renamed__event__content">
-							<div class="timeline-renamed__event__title">
-								Geofenced Unmanned Aerial Robotic Defender for Deer Detection and Deterrence (GUARD)
-							</div>
-								<div class="timeline-renamed__event__description">
-									<p>
-										Presented at the <a href="https://2025.ieee-icra.org/event/advances-in-social-robot-navigation-planning-hri-and-beyond/" target="_blank" rel="noopener noreferrer"><em>Novel Approaches for Precision Agriculture and Forestry with Autonomous Robots</em></a> workshop at IEEE ICRA 2025.
-									</p>
-									<div class="pub-actions">
-										<a href="https://farmrobotics.github.io/" target="_blank" rel="noopener noreferrer" class="pub-link">Project</a>
-										<a href="https://arxiv.org/pdf/2505.10770" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+					<div class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type3" data-idea="Drones patrol a farm on their own, spot deer with computer vision, chase them away, and recharge themselves. Built with a Minnesota farmer.">
+						<div class="timeline-renamed__event__icon">
+							<i class="lni-book"></i>
+						</div>
+						<div class="timeline-renamed__event__date pub-event__venue-band">
+							<a class="pub-card__venue" href="https://2025.ieee-icra.org/" target="_blank" rel="noopener noreferrer">IEEE ICRA Workshop 2025</a>
+							<button type="button" class="pub-card__where" data-place="atlanta">Atlanta, Georgia</button>
+							<p class="lm-award guard-award"><span aria-hidden="true">★</span><span class="guard-award__text">Excellence in Small Farms<br>Technology Award Winner</span></p>
+						</div>
+							<div class="timeline-renamed__event__content">
+								<div class="timeline-renamed__event__title">
+									Geofenced Unmanned Aerial Robotic Defender for Deer Detection and Deterrence (GUARD)
+								</div>
+									<div class="timeline-renamed__event__description">
+										<p>
+											Presented at the <a href="https://2025.ieee-icra.org/event/advances-in-social-robot-navigation-planning-hri-and-beyond/" target="_blank" rel="noopener noreferrer"><em>Novel Approaches for Precision Agriculture and Forestry with Autonomous Robots</em></a> workshop at IEEE ICRA 2025. Part of our FarmGuard entry to the <a href="https://farmrobotics.github.io/" target="_blank" rel="noopener noreferrer">2025 Farm Robotics Challenge</a>.
+										</p>
+										<a class="guard-prize" href="https://ucanr.edu/blog/anr-news-releases/article/university-georgia-wins-top-honors-2025-farm-robotics-challenge" target="_blank" rel="noopener noreferrer">
+											<img src="images/logos/farm-robotics-challenge.png" alt="Farm Robotics Challenge">
+											<span class="guard-prize__text"><span>Awarded to FarmGuard · 2025</span><b>$5,000 <small>prize</small></b></span>
+										</a>
+										<div class="pub-actions">
+											<a href="https://farmrobotics.github.io/" target="_blank" rel="noopener noreferrer" class="pub-link">Project</a>
+											<a href="https://arxiv.org/pdf/2505.10770" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+											<a href="https://ucanr.edu/blog/anr-news-releases/article/university-georgia-wins-top-honors-2025-farm-robotics-challenge" target="_blank" rel="noopener noreferrer" class="pub-link">Press release</a>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					<div class="timeline-renamed__event animated fadeInUp delay-3s timeline-renamed__event--type2" data-idea="Many robots, many targets, no collisions: an auction on a map that unrolls over time gives every robot a target and a guaranteed collision-free path.">
+						<div class="timeline-renamed__event__icon">
+							<i class="lni-book"></i>
+						</div>
+						<div class="timeline-renamed__event__date pub-event__venue-band">
+							<a class="pub-card__venue" href="https://aamas2024-conference.auckland.ac.nz/" target="_blank" rel="noopener noreferrer">ARMS at AAMAS 2024</a>
+							<button type="button" class="pub-card__where" data-place="auckland">Auckland, New Zealand</button>
+						</div>
+							<div class="timeline-renamed__event__content">
+								<div class="timeline-renamed__event__title">
+									Multi-agent Path Finding Using Time-Extended Graphs with Auctions
+								</div>
+									<div class="timeline-renamed__event__description">
+										<p>
+											Presented at the ARMS workshop at AAMAS 2024.
+										</p>
+										<div class="pub-actions">
+											<a href="https://www-users.cse.umn.edu/~gini/publications/papers/Barman2024arms.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">Paper</a>
+											<a href="Projects/mapf-auction/" target="_blank" rel="noopener noreferrer" class="pub-link">Interactive demo <span class="go" aria-hidden="true">›</span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
 
 				<!-- Human-Centered AI: four papers that form one line of work, oldest at the bottom -->
 				<div class="hc-group" id="human-centered">
@@ -599,32 +620,7 @@
 		</div>
 	</section>
 
-<!-- Multi-Agent Research Group (after the research) -->
-<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-	<div class="content">
-	  <h2>Our Multi-Agent Research Group</h2>
-	  <p>
-		As the lead of the Multi-Agent Research Group at the University of Minnesota, 
-		I oversee a dedicated team specializing in multi-agent systems. Our research focuses on distributed decision-making 
-		for autonomous agents and robots, covering areas such as task allocation, exploration of unknown environments, 
-		teamwork for search and rescue, and navigation in dense crowds. We are committed to advancing artificial intelligence through 
-		innovative research and collaboration. I also served as Team Lead for the Farm Robotics Challenge 
-		(<a href="https://www.farmroboticschallenge.ai/air" target="_blank" rel="noopener">farmroboticschallenge.ai/air</a>).
-	  </p>
-  
-	  <ul class="ma-actions">
-		<li>
-		  <a href="https://nextgenai.umn.edu/multi-agent-group" class="ma-btn-learn">Learn More</a>
-		</li>
-		<li>
-		  <a href="https://ebasatemesgen.github.io/FarmGuard/" class="ma-btn-challenge">Farm Robotics Challenge</a>
-		</li>
-	  </ul>
-	</div>
-	<div class="image">
-	  <img src="images/research/multi-agent-group.gif" alt="Multi-Agent Research Group">
-	</div>
-  </section>
+
 
 	<!-- Workshop Organization: both workshops as wide cards, one under the other; the timeline beside them (vertical on
 	     wide screens, across the top on phones) places both and today in time, and a date brings its card into view.
@@ -890,6 +886,33 @@
 	
 	
 	
+	<!-- Multi-Agent Research Group (just before the highlighted projects) -->
+<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+	<div class="content">
+	  <h2>Our Multi-Agent Research Group</h2>
+	  <p>
+		As the lead of the Multi-Agent Research Group at the University of Minnesota, 
+		I oversee a dedicated team specializing in multi-agent systems. Our research focuses on distributed decision-making 
+		for autonomous agents and robots, covering areas such as task allocation, exploration of unknown environments, 
+		teamwork for search and rescue, and navigation in dense crowds. We are committed to advancing artificial intelligence through 
+		innovative research and collaboration. I also served as Team Lead for the Farm Robotics Challenge 
+		(<a href="https://www.farmroboticschallenge.ai/air" target="_blank" rel="noopener">farmroboticschallenge.ai/air</a>).
+	  </p>
+  
+	  <ul class="ma-actions">
+		<li>
+		  <a href="https://nextgenai.umn.edu/multi-agent-group" class="ma-btn-learn">Learn More</a>
+		</li>
+		<li>
+		  <a href="https://ebasatemesgen.github.io/FarmGuard/" class="ma-btn-challenge">Farm Robotics Challenge</a>
+		</li>
+	  </ul>
+	</div>
+	<div class="image">
+	  <img src="images/research/multi-agent-group.gif" alt="Multi-Agent Research Group">
+	</div>
+  </section>
+
 		<!-- Highlighted Projects -->
 		<section id="highlighted-projects" class="wrapper style1 align-center">
 			<div class="inner">
@@ -959,7 +982,7 @@
 
 		<section class="farm-feature">
 			<div class="farm-feature__visual">
-				<img src="images/highlighted-projects/farmguard-challenge.gif" alt="FarmGuard drones operating over agricultural fields" loading="lazy" decoding="async">
+				<video src="images/highlighted-projects/farmguard-challenge.mp4" poster="images/highlighted-projects/farmguard-challenge.jpg" autoplay muted loop playsinline preload="none" aria-label="FarmGuard drones operating over agricultural fields"></video>
 			</div>
 			<div class="farm-feature__content">
 				<p class="section-kicker">Farm Robotics Challenge</p>
@@ -971,7 +994,7 @@
 					Following our autonomy work with NASA, I led the University of Minnesota’s FarmGuard team in applying robotics to a challenge closer to home: protecting crops. Our aerial multi-robot system combines computer vision, autonomous path planning, and coordinated field patrols to detect and safely deter deer.
 				</p>
 				<p>
-					Developed in collaboration with a local farmer, FarmGuard won the <strong>Excellence in Small Farm Technology Award</strong> at the 2025 Farm Robotics Challenge.
+					Developed in collaboration with a local farmer, FarmGuard won the <strong>Excellence in Small Farms Technology</strong> award and its <strong>$5,000 prize</strong> at the 2025 Farm Robotics Challenge (<a href="https://ucanr.edu/blog/anr-news-releases/article/university-georgia-wins-top-honors-2025-farm-robotics-challenge" target="_blank" rel="noopener noreferrer">press release</a>).
 				</p>
 				<ul class="actions">
 					<li><a href="https://farmrobotics.github.io/" class="button primary" target="_blank" rel="noopener noreferrer">Challenge Website</a></li>
@@ -1629,24 +1652,25 @@
 			
 			<!-- Font Awesome -->
 			<!-- Scripts -->
-			<script defer src="assets/js/jquery.min.js"></script>
-			<script defer src="assets/js/jquery.scrollex.min.js"></script>
-			<script defer src="assets/js/jquery.scrolly.min.js"></script>
-			<script defer src="assets/js/browser.min.js"></script>
-			<script defer src="assets/js/breakpoints.min.js"></script>
-			<script defer src="assets/js/util.js"></script>
-			<script defer src="assets/js/main.js"></script>
-			<script defer src="assets/js/navigation.js"></script>
-			<script defer src="assets/js/custom_style.js"></script>
-			<script defer src="assets/js/author-hover-cards.js?v=author-cards-3"></script>
+			<script defer src="assets/js/jquery.min.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/jquery.scrollex.min.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/jquery.scrolly.min.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/browser.min.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/breakpoints.min.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/util.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/main.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/navigation.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/custom_style.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/author-hover-cards.js?v=2026-11-03-hover-only"></script>
 			<!-- 3D drill, live telemetry and real maps for the NASA drilling papers (three.js loads only when needed) -->
 			<script type="importmap">
 				{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
 			</script>
-			<script defer src="assets/js/pub-circles.js"></script>
-			<script defer src="assets/js/locomanip.js"></script>
-			<script defer src="assets/js/workshops.js"></script>
-			<script type="module" src="assets/js/drill/drill-cards.js"></script>
+			<script defer src="assets/js/pub-circles.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/locomanip.js?v=2026-11-03s"></script>
+			<script defer src="assets/js/workshops.js?v=2026-11-03s"></script>
+			<script type="module" src="assets/js/drill/drill-cards.js?v=2026-11-03s"></script>
+			<script type="module" src="assets/js/spot-scene.js?v=2026-11-03s"></script>
 
 
 

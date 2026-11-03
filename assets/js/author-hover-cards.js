@@ -34,13 +34,15 @@
 		},
 		'mario-jerez': {
 			name: 'Mario Jerez',
-			href: 'https://scholar.google.com/scholar?q=Mario+Jerez+University+of+Minnesota',
+			href: 'https://mariojerez.github.io/',
+			photo: 'images/authors/mario-jerez.webp',
 			initials: 'MJ',
 			affiliations: [university]
 		},
 		'elsa-forberger': {
 			name: 'Elsa Forberger',
-			href: 'https://scholar.google.com/scholar?q=Elsa+Forberger+University+of+Minnesota',
+			href: 'https://eforberger.github.io/',
+			photo: 'images/authors/elsa-forberger.webp',
 			initials: 'EF',
 			affiliations: [university]
 		},
@@ -53,13 +55,15 @@
 		},
 		'thomas-stucky': {
 			name: 'Thomas Stucky',
-			href: 'https://scholar.google.com/scholar?q=Thomas+Stucky+KBR+NASA',
+			href: 'https://astrostucky.com/pages/about-me.html',
+			photo: 'images/authors/thomas-stucky.webp',
 			initials: 'TS',
 			affiliations: [{ name: 'KBR', logo: kbrLogo, href: 'https://www.kbr.com/' }]
 		},
 		'brian-glass': {
 			name: 'Brian Glass',
-			href: 'https://ntrs.nasa.gov/search?q=%22Brian%20Glass%22',
+			href: 'https://science.nasa.gov/astrobiology/strategy/dares/nasa-dares-task-force-2-page-2/#hds-sidebar-nav-14',
+			photo: 'images/authors/brian-glass.webp',
 			initials: 'BG',
 			affiliations: [{ name: 'NASA Ames Research Center', logo: nasaLogo, href: 'https://www.nasa.gov/ames/' }]
 		},
@@ -72,7 +76,8 @@
 		},
 		'dean-bergman': {
 			name: 'Dean Bergman',
-			href: 'https://scholar.google.com/scholar?q=Dean+Bergman+Blue+Origin',
+			href: 'https://www.linkedin.com/in/deanbergman1/',
+			photo: 'images/authors/dean-bergman.webp',
 			initials: 'DB',
 			affiliations: [{ name: 'Blue Origin', logo: blueOriginLogo, href: 'https://www.blueorigin.com/', hideName: true }]
 		},
@@ -84,7 +89,8 @@
 		},
 		'marybeth-wilhelm': {
 			name: 'Marybeth Wilhelm',
-			href: 'https://ntrs.nasa.gov/search?q=%22Marybeth%20Wilhelm%22',
+			href: 'https://www.nasa.gov/people/mary-beth-wilhelm/',
+			photo: 'images/authors/marybeth-wilhelm.webp',
 			initials: 'MW',
 			affiliations: [{ name: 'NASA Ames Research Center', logo: nasaLogo, href: 'https://www.nasa.gov/ames/' }]
 		},
@@ -96,19 +102,22 @@
 		},
 		'xun-tu': {
 			name: 'Xun Tu',
-			href: 'https://scholar.google.com/scholar?q=Xun+Tu+University+of+Minnesota',
+			href: 'https://scholar.google.com/citations?user=FgQyXToAAAAJ&hl=en&oi=ao',
+			photo: 'images/authors/xun-tu.webp',
 			initials: 'XT',
 			affiliations: [university]
 		},
 		'karthik-desingh': {
 			name: 'Karthik Desingh',
 			href: 'https://karthikdesingh.com/',
+			photo: 'images/authors/karthik-desingh.webp',
 			initials: 'KD',
 			affiliations: [university]
 		},
 		'dhyan-thakkar': {
 			name: 'Dhyan Thakkar',
-			href: 'https://scholar.google.com/scholar?q=Dhyan+Thakkar+University+of+Minnesota',
+			href: 'https://thdhyan.github.io/',
+			photo: 'images/authors/dhyan-thakkar.webp',
 			initials: 'DT',
 			affiliations: [university]
 		},
@@ -118,9 +127,27 @@
 			photo: 'images/authors/maria-gini.webp',
 			initials: 'MG',
 			affiliations: [university]
+		},
+		// institutions named in the bio: their logo in place of a portrait
+		umn: {
+			name: 'University of Minnesota',
+			href: 'https://twin-cities.umn.edu/',
+			photo: universityLogo,
+			logo: true,
+			initials: 'UMN',
+			affiliations: [{ name: 'Department of Computer Science & Engineering', href: 'https://cse.umn.edu/cs' }]
+		},
+		aait: {
+			name: 'Addis Ababa Institute of Technology',
+			href: 'https://aait.aau.edu.et/',
+			photo: 'images/Bio/Addis_Ababa_University_logo.png',
+			logo: true,
+			initials: 'AAiT',
+			affiliations: [{ name: 'School of Electrical & Computer Engineering', href: 'https://aait.aau.edu.et/' }]
 		}
 	};
-	const triggers = document.querySelectorAll('.pub-card__authors [data-author]');
+	// Publication authors, and the people and places named in the bio (those open sooner).
+	const triggers = document.querySelectorAll('.pub-card__authors [data-author], .about-text [data-author]');
 	if (!triggers.length) {
 		return;
 	}
@@ -189,7 +216,7 @@
 				logo.className = affiliation.logoClass;
 			}
 			item.appendChild(logo);
-		} else {
+		} else if (affiliation.mark) {
 			const mark = document.createElement('span');
 			mark.className = 'author-hover-card__mark';
 			mark.textContent = affiliation.mark;
@@ -219,6 +246,9 @@
 		portrait.rel = 'noopener noreferrer';
 		portrait.setAttribute('aria-label', `View ${profile.name}'s profile`);
 		portrait.textContent = profile.initials;
+		if (profile.logo) {
+			portrait.classList.add('author-hover-card__portrait--logo');
+		}
 
 		if (profile.photo) {
 			const image = document.createElement('img');
@@ -286,7 +316,7 @@
 		openTimer = window.setTimeout(() => {
 			openTimer = null;
 			showCard(trigger, profile);
-		}, 2000);
+		}, trigger.closest('.about-text') ? 450 : 2000);
 	};
 
 	triggers.forEach((trigger) => {

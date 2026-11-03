@@ -24,7 +24,7 @@
 		const icon = ev.querySelector('.timeline-renamed__event__icon');
 		const card = ev.querySelector('.timeline-renamed__event__content, .lm-main');
 		if (!icon || !card) return;
-		const human = !!ev.closest('.hc-group');
+		const human = !!ev.closest('#human-centered');
 
 		// the fluid ball, each circle out of phase with the others
 		icon.insertAdjacentHTML('afterbegin', '<span class="pub-fluid" aria-hidden="true"><i></i><i></i><i></i></span>');
@@ -104,16 +104,15 @@
 
 	// Human-Centered AI: a faint thread from the heading through each paper's circle. It runs behind the
 	// cards, so it only shows in the gaps, draws itself in once, then a soft light travels along it.
-	const group = document.querySelector('.hc-group');
-	if (group) {
+	document.querySelectorAll('#human-centered').forEach((group, k) => {
 		const NS = 'http://www.w3.org/2000/svg';
 		const svg = document.createElementNS(NS, 'svg');
 		svg.setAttribute('class', 'hc-thread');
 		svg.setAttribute('aria-hidden', 'true');
-		svg.innerHTML = '<defs><linearGradient id="hc-thread-grad" x1="0" y1="0" x2="0" y2="1">'
+		svg.innerHTML = `<defs><linearGradient id="hc-thread-grad-${k}" x1="0" y1="0" x2="0" y2="1">`
 			+ '<stop offset="0" stop-color="#ed666f" stop-opacity="0"/><stop offset="0.08" stop-color="#ed666f"/>'
 			+ '<stop offset="0.5" stop-color="#c9a7ff"/><stop offset="1" stop-color="#87bbfe"/></linearGradient></defs>'
-			+ '<path class="hc-thread__line" pathLength="1"/><circle class="hc-thread__spark" r="3.5"/>';
+			+ `<path class="hc-thread__line" pathLength="1" stroke="url(#hc-thread-grad-${k})"/><circle class="hc-thread__spark" r="3.5"/>`;
 		// appended last: the cards alternate sides by their position among the group's children
 		group.append(svg);
 		const line = svg.querySelector('.hc-thread__line');
@@ -166,5 +165,5 @@
 			};
 			setTimeout(() => requestAnimationFrame(travel), 2600);
 		}, { threshold: 0.15 }).observe(group);
-	}
+	});
 })();

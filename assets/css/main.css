@@ -2619,6 +2619,28 @@ input, select, textarea {
 		color: #47D3E5;
 	}
 
+	/* Google Scholar: Font Awesome 5 has no glyph for it, so the circle is drawn empty and the mark sits inside */
+	/* a no-break space keeps the circle on the same baseline as the glyph icons beside it */
+	.icon.icon-scholar:before {
+		content: "\00a0";
+	}
+
+	.icon.icon-scholar svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 1.05em;
+		height: 1.05em;
+		margin: -0.525em 0 0 -0.525em;
+		fill: currentColor;
+		pointer-events: none;
+		transition: color 0.2s ease-in-out;
+	}
+
+	a.icon.icon-scholar:hover {
+		color: #47D3E5;
+	}
+
 	a.icon.style2:active:before {
 		background-color: rgba(71, 211, 229, 0.1);
 		box-shadow: inset 0 0 0 1px #47D3E5;
@@ -10157,7 +10179,8 @@ a:focus-visible .project-card__arrow .go {
 
 .farm-feature__content { padding: clamp(3rem, 7vw, 7rem); align-self: center; }
 .farm-feature__visual { position: relative; min-height: 29rem; overflow: hidden; background: #151b19; }
-.farm-feature__visual img { width: 100%; height: 100%; min-height: 29rem; object-fit: cover; display: block; }
+.farm-feature__visual img,
+.farm-feature__visual video { width: 100%; height: 100%; min-height: 29rem; object-fit: cover; display: block; }
 .farm-feature__partner {
 	display: block;
 	width: 8rem;
@@ -11350,6 +11373,21 @@ iframe {
 	object-position: center 30%;
   }
 
+  /* an institution's logo, whole, on white */
+  .author-hover-card__portrait--logo {
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: inset 0 0 0 1px #e6e8f0;
+  }
+
+  .author-hover-card__portrait--logo img {
+	inset: 0.4rem;
+	width: calc(100% - 0.8rem);
+	height: calc(100% - 0.8rem);
+	object-fit: contain;
+	object-position: center;
+  }
+
   .author-hover-card__portrait--placeholder {
 	background: #515aac;
 	color: #fff;
@@ -11398,7 +11436,7 @@ iframe {
 
   .author-hover-card__affiliation:hover {
 	color: #515aac;
-	text-decoration: underline;
+	text-decoration: none;
   }
 
   .author-hover-card__affiliation img {
@@ -12590,9 +12628,26 @@ iframe {
 	z-index: 1;
 }
 
+/* a little more air between the papers of a research area */
+.hc-group > .timeline-renamed__event {
+	margin: 44px 0;
+}
+
+/* links inside a paper's description: no underline, just the site's purple, green on hover */
+.timeline-renamed__event__description p a {
+	color: #515aac;
+	text-decoration: none;
+	border-bottom: 0;
+	transition: color 0.2s ease;
+}
+
+.timeline-renamed__event__description p a:hover,
+.timeline-renamed__event__description p a:focus-visible {
+	color: #24b47e;
+}
+
 .hc-thread__line {
 	fill: none;
-	stroke: url(#hc-thread-grad);
 	stroke-width: 2;
 	stroke-linecap: round;
 	stroke-dasharray: 1;
@@ -12766,7 +12821,7 @@ iframe {
 
 .hc-group__head {
 	text-align: center;
-	margin-bottom: 4px;
+	margin-bottom: 30px;
 }
 
 /* the kicker sits between two hairlines, so each research area reads as a new chapter */
@@ -12992,42 +13047,126 @@ iframe {
 	transition: opacity 0.35s ease;
 }
 
-.lm-screen video.is-switching {
+/* switching clips: the whole screen (video or 3D) dips briefly */
+.lm-screen video,
+.lm-3d {
+	transition: opacity 0.25s ease;
+}
+
+.lm-screen.is-switching video,
+.lm-screen.is-switching .lm-3d {
 	opacity: 0;
 }
 
+/* the clip selector: a segmented control (one soft track, the chosen clip raised in white), so it reads as a
+   switch for the screen above rather than as a link like the project and paper buttons */
 .lm-picks {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 0.4rem;
-	margin-top: 0.85rem;
+	gap: 2px;
+	width: fit-content;
+	max-width: 100%;
+	margin: 0.85rem auto 0;
+	padding: 4px;
+	border-radius: 18px;
+	background: #eef0f6;
+	box-shadow: inset 0 1px 2px rgba(50, 50, 93, 0.08);
 }
 
 .lm-card .lm-picks button {
 	height: auto;
 	max-width: none;
-	padding: 0.34rem 0.9rem;
-	border-radius: 999px;
-	background: #f2f3fa;
+	padding: 0.32rem 0.85rem;
+	border: 0;
+	border-radius: 14px;
+	background: transparent;
 	box-shadow: none;
-	color: #515aac !important;
+	color: #6b7088 !important;
 	font-family: inherit;
 	font-size: 0.78rem;
 	font-weight: 600;
 	letter-spacing: 0.02em;
 	line-height: 1.3;
 	text-transform: none;
-	transition: background-color 0.2s, color 0.2s;
+	transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
 }
 
 .lm-card .lm-picks button:hover {
-	background: #e6e8f6;
+	color: #515aac !important;
 }
 
 .lm-card .lm-picks button.is-on {
-	background: linear-gradient(135deg, #515aac, #24b47e);
-	color: #fff !important;
+	background: #fff;
+	color: #515aac !important;
+	box-shadow: 0 1px 2px rgba(50, 50, 93, 0.12), 0 4px 10px -4px rgba(50, 50, 93, 0.25);
+}
+
+/* ‹ › on the screen: frosted circles at its sides */
+.lm-card .lm-arrow {
+	position: absolute;
+	top: 50%;
+	z-index: 3;
+	display: grid;
+	place-items: center;
+	width: 2.4rem;
+	height: 2.4rem;
+	max-width: none;
+	margin-top: -1.2rem;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.78);
+	-webkit-backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);
+	box-shadow: 0 6px 16px -6px rgba(20, 22, 40, 0.45);
+	color: #515aac !important;
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1;
+	cursor: pointer;
+	opacity: 0.85;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.lm-card .lm-arrow span {
+	margin-top: -0.15rem;
+}
+
+.lm-card .lm-arrow:hover,
+.lm-card .lm-arrow:focus-visible {
+	opacity: 1;
+	transform: scale(1.08);
+}
+
+.lm-arrow--prev {
+	left: 0.7rem;
+}
+
+.lm-arrow--next {
+	right: 0.7rem;
+}
+
+@media (max-width: 786px) {
+	.lm-card .lm-arrow {
+		width: 2rem;
+		height: 2rem;
+		margin-top: -1rem;
+		font-size: 1.25rem;
+	}
+
+	.lm-arrow--prev {
+		left: 0.45rem;
+	}
+
+	.lm-arrow--next {
+		right: 0.45rem;
+	}
+
+	.lm-card .lm-picks button {
+		padding: 0.3rem 0.7rem;
+		font-size: 0.74rem;
+	}
 }
 
 .lm-authors {
@@ -13342,8 +13481,8 @@ svg {
 	}
 }
 
-/* About: the bio as before, on the right; on the left, where the lab image was, a soft panel with the three
-   research threads as the publication circles (the same slow fluid), joined by a faint thread */
+/* About: the bio as before, on the right; on the left, where the lab image was, Spot pushing a cylinder
+   to its goal in 3D (spot-scene.js) */
 .about-section {
 	display: grid;
 	grid-template-columns: minmax(0, 35%) minmax(0, 1fr);
@@ -13351,67 +13490,149 @@ svg {
 	background: #fff;
 }
 
-.about-balls {
+/* Spot's 3D replay fills the panel on a soft studio white; the still frame shows until it is ready */
+.about-spot {
 	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	gap: 1.6rem;
-	padding: 3.5rem 2rem 3.5rem 22%;
-	background: linear-gradient(160deg, #f6f7fb, #eef0f8);
+	min-height: 26rem;
+	overflow: hidden;
+	background: radial-gradient(ellipse at 50% 40%, #ffffff 0%, #f3f4f8 60%, #e9ebf2 100%);
 }
 
-/* the thread through the circles' centres */
-.about-balls::before {
-	content: "";
+.about-spot__still,
+.spot3d__canvas {
 	position: absolute;
-	top: 4.5rem;
-	bottom: 4.5rem;
-	left: calc(22% + 2.25rem - 1px);
-	width: 2px;
-	background: linear-gradient(180deg, #f6a4ec, #87bbfe);
-	opacity: 0.45;
+	inset: 0;
+	width: 100%;
+	height: 100%;
 }
 
-.about-ball {
-	position: relative;
+.about-spot__still {
+	pointer-events: none;
+	object-fit: cover;
+	object-position: 50% 62%;
+	transition: opacity 0.6s ease;
+}
+
+.about-spot.is-live .about-spot__still {
+	opacity: 0;
+}
+
+/* shared by both 3D replays (spot-scene.js) */
+.spot3d__canvas {
+	display: block;
+	cursor: grab;
+	touch-action: pan-y;
+	transition: opacity 0.4s ease;
+}
+
+.spot3d.is-dragging .spot3d__canvas {
+	cursor: grabbing;
+}
+
+.spot3d__canvas.is-fading {
+	opacity: 0;
+}
+
+/* the hint goes once someone has turned the view */
+.spot3d__hint {
+	transition: opacity 0.4s ease;
+}
+
+.spot3d:not(.is-live) .spot3d__hint,
+.spot3d.was-dragged .spot3d__hint {
+	opacity: 0;
+}
+
+/* Learn2Push: the chair's 3D replay sits over its video, on the film's black floor */
+.lm-3d {
+	position: absolute;
+	inset: 0;
+	display: none;
+}
+
+.lm-card.is-3d .lm-3d.is-active {
+	display: block;
+}
+
+/* once drawn, a scene covers the video under it: the white studio, or the film's black floor */
+.lm-3d.is-live {
+	background: radial-gradient(ellipse at 50% 40%, #ffffff 0%, #f3f4f8 60%, #e9ebf2 100%);
+}
+
+.lm-3d[data-theme="dark"].is-live {
+	background: #050506;
+}
+
+.lm-3d[data-theme="dark"] .spot3d__hint {
+	color: rgba(255, 255, 255, 0.55);
+}
+
+.lm-3d .spot3d__hint {
+	position: absolute;
+	left: 0.9rem;
+	bottom: 0.7rem;
+	color: #8a8fa8;
+	font-size: 0.66rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	pointer-events: none;
+}
+
+.about-section .about-spot__label,
+.about-section .about-spot__label:hover {
+	color: #515aac !important;
+}
+
+.about-spot__label {
+	position: absolute;
+	left: 1.4rem;
+	bottom: 2.3rem;
+	z-index: 1;
 	display: flex;
 	align-items: center;
-	gap: 1.1rem;
-	width: fit-content;
-	color: #515aac;
-	text-decoration: none;
+	gap: 0.35rem;
 	border: 0;
-}
-
-.about-ball__orb {
-	position: relative;
-	isolation: isolate;
-	flex: none;
-	width: 4.5rem;
-	height: 4.5rem;
-	border-radius: 50%;
-	box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
-	transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.about-ball__label {
-	font-size: 0.8rem;
+	font-size: 0.74rem;
 	font-weight: 700;
-	letter-spacing: 0.12em;
+	letter-spacing: 0.14em;
+	text-decoration: none;
 	text-transform: uppercase;
-	transition: color 0.2s ease;
 }
 
-.about-ball:hover .about-ball__orb,
-.about-ball:focus-visible .about-ball__orb {
-	transform: scale(1.08);
-	box-shadow: 0 0 0 4px rgba(135, 187, 254, 0.35), 0 30px 60px -12px rgba(50, 50, 93, 0.25);
+.about-spot__label:hover .go,
+.about-spot__label:focus-visible .go {
+	transform: translateX(3px);
 }
 
-.about-ball:hover .about-ball__label,
-.about-ball:focus-visible .about-ball__label {
-	color: #24b47e;
+/* which robot and object are on screen; it changes with each push */
+.about-spot__title {
+	position: absolute;
+	left: 1.4rem;
+	right: 1.4rem;
+	bottom: 3.7rem;
+	z-index: 1;
+	color: #4a4f63;
+	font-size: 0.86rem;
+	font-weight: 600;
+	line-height: 1.35;
+	pointer-events: none;
+	transition: opacity 0.4s ease;
+}
+
+.about-spot.is-changing .about-spot__title {
+	opacity: 0;
+}
+
+.about-spot__hint {
+	position: absolute;
+	left: 1.4rem;
+	bottom: 1.2rem;
+	z-index: 1;
+	color: #a3a7bd;
+	font-size: 0.66rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	pointer-events: none;
 }
 
 .about-text {
@@ -13423,45 +13644,46 @@ svg {
 	margin-bottom: 1.5rem;
 }
 
-/* phones: the circles sit in a row above the bio */
+/* names in the bio: no underline, the site's purple, a profile card on hover */
+.about-text a.about-ref {
+	color: #515aac;
+	font-weight: 600;
+	text-decoration: none;
+	border-bottom: 0;
+	transition: color 0.2s ease;
+}
+
+.about-text a.about-ref:hover,
+.about-text a.about-ref:focus-visible {
+	color: #24b47e;
+}
+
+/* phones: Spot's scene sits above the bio */
 @media (max-width: 736px) {
 	.about-section {
 		grid-template-columns: minmax(0, 1fr);
 	}
 
-	.about-balls {
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: flex-start;
-		gap: 0.5rem;
-		padding: 2rem 1rem;
+	.about-spot {
+		min-height: 0;
+		height: 17rem;
 	}
 
-	.about-balls::before {
-		top: calc(2rem + 1.75rem - 1px);
-		bottom: auto;
-		left: 18%;
-		right: 18%;
-		width: auto;
-		height: 2px;
-		background: linear-gradient(90deg, #f6a4ec, #87bbfe);
+	.about-spot__label {
+		left: 1rem;
+		bottom: 2rem;
 	}
 
-	.about-ball {
-		flex-direction: column;
-		gap: 0.6rem;
-		width: 33%;
-		text-align: center;
+	.about-spot__title {
+		left: 1rem;
+		right: 1rem;
+		bottom: 3.3rem;
+		font-size: 0.78rem;
 	}
 
-	.about-ball__orb {
-		width: 3.5rem;
-		height: 3.5rem;
-	}
-
-	.about-ball__label {
-		font-size: 0.66rem;
-		line-height: 1.35;
+	.about-spot__hint {
+		left: 1rem;
+		bottom: 0.9rem;
 	}
 
 	.about-text {
@@ -13470,7 +13692,188 @@ svg {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.about-ball__orb {
+	.about-spot__still,
+	.spot3d__canvas,
+	.spot3d__hint {
 		transition: none;
+	}
+}
+
+/* the GUARD card's award, in the venue band under the place, in the same type as Learn2Push's poster award:
+   one phrase on two lines, the star centred beside it; the badge is as wide as its text */
+.guard-award {
+	gap: 0.55rem;
+	width: fit-content;
+	margin: 0.9rem auto 0;
+	padding: 0.5rem 1.05rem 0.5rem 0.85rem;
+	border-radius: 16px;
+}
+
+.guard-award > span[aria-hidden] {
+	font-size: 1.15rem;
+	line-height: 1;
+}
+
+/* the text keeps the badge's dark amber; only the star is gold */
+.guard-award .guard-award__text {
+	color: #7a4f00;
+	font-size: inherit;
+	line-height: 1.45;
+	text-align: left;
+}
+
+/* the prize: the challenge's logo beside the amount, a link to the press release */
+.guard-prize {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	width: fit-content;
+	max-width: 100%;
+	margin: -1.2rem auto 0.4rem; /* the theme gives the paragraph above a 2em bottom margin */
+	padding: 0.65rem 1.2rem 0.65rem 1rem;
+	border: 1px solid rgba(201, 151, 0, 0.25);
+	border-radius: 14px;
+	background: linear-gradient(135deg, #fffaf0, #f3faf2);
+	color: inherit;
+	text-decoration: none;
+	box-shadow: 0 12px 24px -16px rgba(60, 40, 0, 0.45);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guard-prize:hover,
+.guard-prize:focus-visible {
+	transform: translateY(-2px);
+	box-shadow: 0 16px 28px -16px rgba(60, 40, 0, 0.55);
+}
+
+.guard-prize img {
+	flex: none;
+	height: 2.7rem;
+	width: auto;
+	padding-right: 1rem;
+	border-right: 1px solid rgba(201, 151, 0, 0.3);
+}
+
+.guard-prize__text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
+}
+
+.guard-prize__text b {
+	margin-top: 0.15rem;
+	font-size: 1.6rem;
+	font-weight: 700;
+	line-height: 1.05;
+	background: linear-gradient(135deg, #b7791f, #e0a106);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+/* the award's name on top, then the amount with "prize" beside it */
+.guard-prize__text span {
+	color: #7a6a3a;
+	font-size: 0.66rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	line-height: 1.35;
+	text-transform: uppercase;
+}
+
+.guard-prize__text b small {
+	font-size: 0.95rem;
+	font-weight: 600;
+}
+
+@media (max-width: 420px) {
+	.guard-prize {
+		gap: 0.75rem;
+		padding: 0.6rem 0.85rem;
+	}
+
+	.guard-prize img {
+		height: 2.2rem;
+		padding-right: 0.75rem;
+	}
+
+	.guard-prize__text b {
+		font-size: 1.35rem;
+	}
+
+	.guard-prize__text span {
+		letter-spacing: 0.03em;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.guard-prize {
+		transition: none;
+	}
+}
+
+/* Space robotics group: the NASA collaboration opens it, the meatball above the words, in NASA blue */
+.space-group {
+	margin: 60px 0 10px;
+}
+
+/* the heading is centred over the card, not over card and timeline together */
+.space-group .hc-group__head {
+	text-align: center;
+	margin-bottom: 8px;
+	padding-right: calc(15.5rem + 1.75rem);
+}
+
+@media (max-width: 980px) {
+	.space-group .hc-group__head {
+		padding-right: calc(12.5rem + 1.25rem);
+	}
+}
+
+.hc-group__head .space-collab {
+	color: #0b3d91;
+	letter-spacing: 0.14em;
+}
+
+/* the NASA meatball, centred above the collaboration line like a crest */
+.space-logo {
+	display: block;
+	width: 4.4rem;
+	height: auto;
+	margin: 0 auto 0.6rem;
+	filter: drop-shadow(0 8px 14px rgba(11, 61, 145, 0.25));
+}
+
+.space-group .pub-chain {
+	margin-top: 26px;
+}
+
+/* once, when the NASA group first comes into view, a pulse runs down the timeline's dots */
+.pub-chain.is-hinting .pub-chain__tab::before {
+	animation: chainHint 0.9s ease calc(var(--i, 0) * 0.3s);
+}
+
+@keyframes chainHint {
+	40% {
+		transform: scale(1.6);
+		box-shadow: 0 0 0 6px rgba(36, 180, 126, 0.22);
+	}
+}
+
+@media (max-width: 786px) {
+	.space-logo {
+		width: 3.6rem;
+	}
+
+	.space-group .hc-group__head {
+		padding-right: 0;
+	}
+
+	/* phones: the short form, without the side rules (the logo above already marks it), keeps the line whole */
+	.space-collab__more,
+	.hc-group__head .space-collab::before,
+	.hc-group__head .space-collab::after {
+		display: none;
 	}
 }
